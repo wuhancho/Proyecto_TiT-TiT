@@ -19,8 +19,11 @@ public class ItemPickUp : MonoBehaviour
 
     public void PickUp()
     {
-        InventoryManager.Instance.Add(item);
-        Destroy(gameObject);
+        bool pickedUp = InventoryManager.Instance.Add(item);
+        if (pickedUp)
+        {
+            Destroy(gameObject);
+        }
     }
     public void ChangeItemType(string state)
     {

@@ -28,31 +28,33 @@ public class InventoryManager : MonoBehaviour
         inventoryContent.sizeDelta = newSize;
     }
 
-    public void Add(Item item)// añado el item 
+    public bool Add(Item item)// añado el item 
     {
         Tuple<int, int> availableCoord;
-        if (AreSlotsAvailables(item, out availableCoord))
+        if (AreSlotsAvailables(item,out availableCoord))
         {
             InventoryItem inventoryItem = Instantiate(inventoryItemPrefab, inventoryContent);
             items.Add(inventoryItem);
             print("item add: " + items.Count);
-            inventoryItem.Initislize(item, this);
+            inventoryItem.Initislize(item,this);
             inventoryItem.UpdateSize(slotSize);
             //con iñaki
             //AddToGrid(inventoryItem, availableCoord.Item1, availableCoord.Item1); 
             AddToGrid(inventoryItem, availableCoord.Item1, availableCoord.Item2);
+            return true;
         }
+        return false;
     }
 
-    private bool AreSlotsAvailables(Item item, out Tuple<int, int> coord)// verifico si el slot esta disponible
+    private bool AreSlotsAvailables(Item item,out Tuple<int,int> coord)// verifico si el slot esta disponible
     {
         for (int x = 0; x < grid.GetLength(0); x++)
         {
             for (int y = 0; y < grid.GetLength(1); y++)
             {
-                if (ItemCanEnter(item, x, y))
+                if (ItemCanEnter(item,x,y))
                 {
-                    coord = new Tuple<int, int>(x, y);
+                    coord= new Tuple<int,int>(x,y);
                     return true;
                 }
             }
@@ -68,7 +70,7 @@ public class InventoryManager : MonoBehaviour
         int gridLimitX = grid.GetLength(0);
         int gridLimitY = grid.GetLength(1);
 
-        if (xLimit < gridLimitX && yLimit < gridLimitY)
+        if (xLimit<gridLimitX && yLimit<gridLimitY)
         {
             //con iñaki
             //for (int x = slotX; x < gridLimitX; x++)
@@ -100,7 +102,7 @@ public class InventoryManager : MonoBehaviour
 
     private void AddToGrid(InventoryItem item, int slotX, int slotY)// añado el item a la grid 
     {
-        // int gridLimitX = grid.GetLength(0);
+       // int gridLimitX = grid.GetLength(0);
         //int gridLimitY = grid.GetLength(1);
 
         for (int x = 0; x < item.GridSpace; x++)
@@ -121,7 +123,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item) // remuevo el item de la grid 
     {
-        print("entras en el remuve1: " + items.Count);
+        print("entras en el remuve1: "+ items.Count);
         int i = 0;
         foreach (InventoryItem inventoryItem in items)
         {
