@@ -24183,6 +24183,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
+      propertyPath: gridSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
+      propertyPath: gridSize.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: inventoryContent
       value: 
       objectReference: {fileID: 331328880}
