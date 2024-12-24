@@ -2114,7 +2114,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2935,6 +2935,14 @@ PrefabInstance:
     - target: {fileID: 6036731082560655429, guid: 3601ccd41c4965e4d888c557289c1b84, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202204712314959871, guid: 3601ccd41c4965e4d888c557289c1b84, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -380
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202204712314959871, guid: 3601ccd41c4965e4d888c557289c1b84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -248
       objectReference: {fileID: 0}
     - target: {fileID: 6295457330168385013, guid: 3601ccd41c4965e4d888c557289c1b84, type: 3}
       propertyPath: m_Color.b

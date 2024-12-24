@@ -17,3 +17,4 @@ MonoBehaviour:
   sizeY: 1
   itemName: AC
   icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  ObjetoReferencia: {fileID: 3762010193512352941, guid: f193ea59e04b0e44d8bbddc6e235636e, type: 3}

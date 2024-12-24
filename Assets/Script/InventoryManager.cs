@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     private List<InventoryItem> items = new List<InventoryItem>();
     public RectTransform inventoryContent;
     public InventoryItem inventoryItemPrefab;
+    public Toggle EnableRemove;
     public Vector2Int gridSize = new Vector2Int(4, 4);
     public Vector2 slotSize = new Vector2(100, 100);
     private InventoryItem[,] grid;
@@ -129,7 +130,9 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventoryItem.Item == item)
             {
-                print("se remueve el objeto");
+                print($"se remueve el objeto{item}");
+                Vector3 dropPosition = GetPlayerFrontPosition();
+                GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
                 items.RemoveAt(i);
                 Destroy(inventoryItem.gameObject);
                 break;
@@ -139,6 +142,38 @@ public class InventoryManager : MonoBehaviour
         }
         print("entras en el remuve2: " + items.Count);
         //items.Remove(item);
+    }
+    public void EnableItemsRemove()
+    {
+        if (EnableRemove.isOn)
+        {
+            foreach (Transform item in inventoryContent)
+            {
+                item.Find("RemoveButton").gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform item in inventoryContent)
+            {
+                item.Find("RemoveButton").gameObject.SetActive(false);
+            }
+        }
+    }
+    private Vector3 GetPlayerFrontPosition()
+    {
+        GameObject player = GameObject.FindWithTag("Player"); // Asegúrate de que el jugador tenga el tag "Player"
+        if (player != null)
+        {
+            Transform playerTransform = player.transform;
+            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 2f; // Ajusta la distancia según sea necesario
+            return forwardPosition;
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
+            return Vector3.zero; // En caso de error, retorna la posición (0,0,0)
+        }
     }
     //public void ListItems()
     //{

@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc5329e40219634ba61627cb3f84183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  typeObject: 1
   item: {fileID: 11400000, guid: aa0d840635ef5e34faaf86f0a9c2cdbb, type: 2}
-  personaje: {fileID: 0}
+  handItemPlaceTagName: 
 --- !u!114 &6511122013123136697
 MonoBehaviour:
   m_ObjectHideFlags: 0

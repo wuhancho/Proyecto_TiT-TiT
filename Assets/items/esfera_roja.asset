@@ -17,4 +17,4 @@ MonoBehaviour:
   sizeY: 3
   itemName: Roja
   icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  ObjetoReferencia: {fileID: 0}
+  ObjetoReferencia: {fileID: 6969374929380142586, guid: 2ba2347499418e646adcd826213ecc1a, type: 3}

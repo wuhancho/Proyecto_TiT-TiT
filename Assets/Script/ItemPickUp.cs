@@ -19,6 +19,7 @@ public class ItemPickUp : MonoBehaviour
 
     public void PickUp()
     {
+        print($"se añade el objeto {item.ObjetoReferencia1.name}");
         bool pickedUp = InventoryManager.Instance.Add(item);
         if (pickedUp)
         {

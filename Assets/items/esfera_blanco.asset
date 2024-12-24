@@ -17,3 +17,4 @@ MonoBehaviour:
   sizeY: 1
   itemName: Bla
   icon: {fileID: 21300000, guid: 72e34fa26c058af42a421b435f113c6d, type: 3}
+  ObjetoReferencia: {fileID: 950587971567915567, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}

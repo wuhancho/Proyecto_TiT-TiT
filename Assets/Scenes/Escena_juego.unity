@@ -1289,7 +1289,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 950587971567915567, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
       propertyPath: m_Name
-      value: Sphere (3)
+      value: Blanco
       objectReference: {fileID: 0}
     - target: {fileID: 3368595920431718382, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1330,10 +1330,6 @@ PrefabInstance:
     - target: {fileID: 3368595920431718382, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061841901397903799, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
-      propertyPath: typeObject
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20807,6 +20803,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5218155, y: 0.7443768, z: 0.5218139}
   m_Center: {x: 0.000000059604645, y: 0.000000044703484, z: 0}
+--- !u!114 &859955140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+  m_PrefabInstance: {fileID: 911135443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &878191717
 GameObject:
   m_ObjectHideFlags: 1
@@ -21725,6 +21732,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.07909572
+      objectReference: {fileID: 0}
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.07909572
+      objectReference: {fileID: 0}
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08679241
+      objectReference: {fileID: 0}
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8a39598fd699e7b4e88dd813dbc426b1, type: 3}
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 669731617209797818, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2978819103567363209, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -21733,9 +21764,61 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1838781032}
-    - target: {fileID: 4291526153286098052, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+    - target: {fileID: 4736980883927504140, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_Name
+      value: EnableRemove
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1076393142}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableItemsRemove
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InventoryManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6300864233198972154, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331622503929061599, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -22.999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331622503929061599, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331622503929061599, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11.499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6331622503929061599, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869214832263718492, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23905,7 +23988,7 @@ GameObject:
   - component: {fileID: 1062124420}
   m_Layer: 0
   m_Name: Personaje
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24161,13 +24244,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6199486413764973028, guid: 6a008d712e979d94f8e353fe83fc0603, type: 3}
-      propertyPath: typeObject
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7469908300010277937, guid: 6a008d712e979d94f8e353fe83fc0603, type: 3}
       propertyPath: m_Name
-      value: Sphere (2)
+      value: AzulMarino
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24190,6 +24269,10 @@ PrefabInstance:
       propertyPath: gridSize.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
+      propertyPath: EnableRemove
+      value: 
+      objectReference: {fileID: 859955140}
     - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: inventoryContent
       value: 
@@ -26105,11 +26188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3762010193512352941, guid: f193ea59e04b0e44d8bbddc6e235636e, type: 3}
       propertyPath: m_Name
-      value: Sphere (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5894022453935798567, guid: f193ea59e04b0e44d8bbddc6e235636e, type: 3}
-      propertyPath: typeObject
-      value: 1
+      value: AzulCeleste
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34033,10 +34112,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2053947546}
     m_Modifications:
-    - target: {fileID: 2932789821789882203, guid: 2ba2347499418e646adcd826213ecc1a, type: 3}
-      propertyPath: typeObject
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6760295283941077625, guid: 2ba2347499418e646adcd826213ecc1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.072
@@ -34079,7 +34154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6969374929380142586, guid: 2ba2347499418e646adcd826213ecc1a, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: roja
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40422,13 +40497,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2053947546}
     m_Modifications:
-    - target: {fileID: 1722580535837967940, guid: 5922960916907a1468f4e648ad9816bc, type: 3}
-      propertyPath: typeObject
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6904612826285889873, guid: 5922960916907a1468f4e648ad9816bc, type: 3}
       propertyPath: m_Name
-      value: Sphere (5)
+      value: Verde
       objectReference: {fileID: 0}
     - target: {fileID: 7543947379566131966, guid: 5922960916907a1468f4e648ad9816bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41848,13 +41919,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5580127351116974670, guid: b3a4d0c3097e7a544970512ac25d3a60, type: 3}
-      propertyPath: typeObject
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5679715698094649773, guid: b3a4d0c3097e7a544970512ac25d3a60, type: 3}
       propertyPath: m_Name
-      value: Sphere (4)
+      value: venrdeManzana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44523,13 +44590,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2053947546}
     m_Modifications:
-    - target: {fileID: 3320153324459460445, guid: 24cc2c0da22ac79418756e3af513862a, type: 3}
-      propertyPath: typeObject
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5849921126604057309, guid: 24cc2c0da22ac79418756e3af513862a, type: 3}
       propertyPath: m_Name
-      value: Sphere (7)
+      value: Morado
       objectReference: {fileID: 0}
     - target: {fileID: 6928976905569229737, guid: 24cc2c0da22ac79418756e3af513862a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46792,11 +46855,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2809139157525617583, guid: 3cd19e2f5e9429f4daff05bf2bb58873, type: 3}
       propertyPath: m_Name
-      value: Sphere (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744918130670395903, guid: 3cd19e2f5e9429f4daff05bf2bb58873, type: 3}
-      propertyPath: typeObject
-      value: 1
+      value: Mostaza
       objectReference: {fileID: 0}
     - target: {fileID: 7028211910970795979, guid: 3cd19e2f5e9429f4daff05bf2bb58873, type: 3}
       propertyPath: m_LocalPosition.x

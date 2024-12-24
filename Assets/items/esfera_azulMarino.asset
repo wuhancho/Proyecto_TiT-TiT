@@ -17,3 +17,4 @@ MonoBehaviour:
   sizeY: 2
   itemName: A M
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ObjetoReferencia: {fileID: 7469908300010277937, guid: 6a008d712e979d94f8e353fe83fc0603, type: 3}

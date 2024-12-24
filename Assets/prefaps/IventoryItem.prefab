@@ -214,7 +214,6 @@ MonoBehaviour:
   nameText: {fileID: 7593308335070713602}
   iconImage: {fileID: 4724139876194214784}
   boton: {fileID: 2946684107878840975}
-  inventoryManager: {fileID: 523034818255255245, guid: f0b9b375b39fc9547bae01d007fd82b7, type: 3}
 --- !u!1 &2526541072013805336
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,12 +363,12 @@ GameObject:
   - component: {fileID: 4959447160059472243}
   - component: {fileID: 6931038952437257969}
   m_Layer: 5
-  m_Name: Remove
+  m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1489241290377823104
 RectTransform:
   m_ObjectHideFlags: 0
