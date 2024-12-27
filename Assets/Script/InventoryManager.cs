@@ -175,6 +175,10 @@ public class InventoryManager : MonoBehaviour
             return Vector3.zero; // En caso de error, retorna la posición (0,0,0)
         }
     }
+    public void ChangeToHand(Item item)
+    {
+
+    }
     //public void ListItems()
     //{
     //    foreach (Item item in items)

@@ -50,4 +50,9 @@ public class InventoryItem : MonoBehaviour
         print($"entras en el boton del item:{item}");
         inventoryManager.Remove(item);
     }
+    public void ChangeToHand()
+    {
+        print($"entras en el boton del item:{item}");
+        inventoryManager.ChangeToHand(item);
+    }
 }

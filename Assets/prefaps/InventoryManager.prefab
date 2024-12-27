@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7417209839064101602}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryContent: {fileID: 0}
   inventoryItemPrefab: {fileID: 924316703496017118, guid: ea1084113e7707943bf0c2eafc3e3ee6, type: 3}
-  gridSize: {x: 4, y: 4}
+  EnableRemove: {fileID: 0}
+  gridSize: {x: 3, y: 3}
   slotSize: {x: 100, y: 100}
