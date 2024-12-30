@@ -14,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public Vector2Int gridSize = new Vector2Int(4, 4);
     public Vector2 slotSize = new Vector2(100, 100);
     private InventoryItem[,] grid;
+    [SerializeField] private Transform Hand; 
 
     private void Awake()
     {
@@ -143,7 +144,7 @@ public class InventoryManager : MonoBehaviour
         print("entras en el remuve2: " + items.Count);
         //items.Remove(item);
     }
-    public void EnableItemsRemove()
+    public void EnableItemsRemove()// habilito el boton de remover
     {
         if (EnableRemove.isOn)
         {
@@ -175,10 +176,30 @@ public class InventoryManager : MonoBehaviour
             return Vector3.zero; // En caso de error, retorna la posición (0,0,0)
         }
     }
-    public void ChangeToHand(Item item)
+    private Vector3 GetPlayerHandPosition()
     {
+        return Hand.position;
 
     }
+    public void ChangeToHand(Item item)
+    {
+        int i = 0;
+        foreach (InventoryItem inventoryItem in items)
+        {
+            if (inventoryItem.Item == item)
+            {
+                print($"se remueve el objeto{item}");
+                Vector3 dropPosition = GetPlayerHandPosition();
+                GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
+                items.RemoveAt(i);
+                Destroy(inventoryItem.gameObject);
+                break;
+            }
+            i++;
+        }
+        
+    }
+
     //public void ListItems()
     //{
     //    foreach (Item item in items)

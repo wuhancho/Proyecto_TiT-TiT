@@ -875,7 +875,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 924316703496017118}
         m_TargetAssemblyTypeName: InventoryItem, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ChangeToHand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
