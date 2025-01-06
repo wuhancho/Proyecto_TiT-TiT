@@ -14,7 +14,8 @@ public class InventoryManager : MonoBehaviour
     public Vector2Int gridSize = new Vector2Int(4, 4);
     public Vector2 slotSize = new Vector2(100, 100);
     private InventoryItem[,] grid;
-    [SerializeField] private Transform Hand; 
+    [SerializeField] private Transform Hand;
+    [SerializeField] private GameObject Player;
 
     private void Awake()
     {
@@ -163,10 +164,10 @@ public class InventoryManager : MonoBehaviour
     }
     private Vector3 GetPlayerFrontPosition()
     {
-        GameObject player = GameObject.FindWithTag("Player"); // Asegúrate de que el jugador tenga el tag "Player"
-        if (player != null)
+
+        if (Player != null)
         {
-            Transform playerTransform = player.transform;
+            Transform playerTransform = Player.transform;
             Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 2f; // Ajusta la distancia según sea necesario
             return forwardPosition;
         }
@@ -179,7 +180,6 @@ public class InventoryManager : MonoBehaviour
     private Vector3 GetPlayerHandPosition()
     {
         return Hand.position;
-
     }
     public void ChangeToHand(Item item)
     {
@@ -191,6 +191,7 @@ public class InventoryManager : MonoBehaviour
                 print($"se remueve el objeto{item}");
                 Vector3 dropPosition = GetPlayerHandPosition();
                 GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
+                droppedObject.transform.SetParent(Hand);
                 items.RemoveAt(i);
                 Destroy(inventoryItem.gameObject);
                 break;

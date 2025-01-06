@@ -2486,6 +2486,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   - {fileID: 515700488}
+  - {fileID: 1749694063}
   m_Father: {fileID: 1062124415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &171788790
@@ -12702,11 +12703,10 @@ Transform:
   m_GameObject: {fileID: 515700487}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.449, y: -0.68, z: 1.687}
+  m_LocalPosition: {x: 0.536, y: -1.13, z: 2.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1749694063}
+  m_Children: []
   m_Father: {fileID: 171788788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516738319 stripped
@@ -24265,6 +24265,10 @@ PrefabInstance:
       propertyPath: Hand
       value: 
       objectReference: {fileID: 515700488}
+    - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1062124411}
     - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: EnableRemove
       value: 
@@ -40150,12 +40154,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749694062}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70341504, y: 0.32001767, z: 0.31200522, w: -0.5526743}
-  m_LocalPosition: {x: 0.656, y: -1.0285356, z: 1.63}
-  m_LocalScale: {x: 66.86581, y: 74.94934, z: 85.150604}
+  m_LocalRotation: {x: -0.70341504, y: 0.3200176, z: 0.3120052, w: -0.5526743}
+  m_LocalPosition: {x: 1.1050003, y: -1.7085357, z: 3.3170047}
+  m_LocalScale: {x: 66.86581, y: 74.94932, z: 85.15062}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 515700488}
+  m_Father: {fileID: 171788788}
   m_LocalEulerAnglesHint: {x: 35.298, y: -103.78, z: -103.049}
 --- !u!23 &1749694064
 MeshRenderer:
