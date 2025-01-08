@@ -55,6 +55,7 @@ public class InventoryManager : MonoBehaviour
         {
             for (int y = 0; y < grid.GetLength(1); y++)
             {
+
                 if (ItemCanEnter(item,x,y))
                 {
                     coord= new Tuple<int,int>(x,y);
