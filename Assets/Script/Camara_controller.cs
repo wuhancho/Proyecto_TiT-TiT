@@ -16,6 +16,7 @@ public class Camara_controller : MonoBehaviour
         _controller = GetComponent<Input_Controller>();
     }
     void Start()
+
     {// bloqueo del cursor
         Cursor.lockState = CursorLockMode.Locked;
         _initialRotation = _camaraAnchor.localRotation;

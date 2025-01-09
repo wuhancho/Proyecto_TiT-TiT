@@ -169,9 +169,10 @@ public class InventoryManager : MonoBehaviour
         if (Player != null)
         {
             Transform playerTransform = Player.transform;
-            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 2f; // Ajusta la distancia según sea necesario
+            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 4f; // Ajusta la distancia según sea necesario
             return forwardPosition;
         }
+
         else
         {
             Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
@@ -193,6 +194,8 @@ public class InventoryManager : MonoBehaviour
                 Vector3 dropPosition = GetPlayerHandPosition();
                 GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
                 droppedObject.transform.SetParent(Hand);
+                //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
+                //rig.useGravity = false;
                 items.RemoveAt(i);
                 Destroy(inventoryItem.gameObject);
                 break;

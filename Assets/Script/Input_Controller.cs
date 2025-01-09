@@ -73,7 +73,7 @@ public class Input_Controller : MonoBehaviour
 
         Vector3 origin = Camera.main.transform.position;
         Vector3 direction = Camera.main.transform.forward;
-        RaycastHit hit;
+        RaycastHit hit; 
         if (Physics.Raycast(origin, direction, out hit, distance))
         {
             Debug.Log("Objeto detectado: " + hit.collider.gameObject.name + ", Tag: " + hit.collider.tag);
@@ -150,7 +150,13 @@ public class Input_Controller : MonoBehaviour
             //handItem.transform.rotation = place.rotation;
             //handItem.transform.localScale = place.localScale;
         }
-
+        if (handItem.CompareTag("PuzleSalaEspera"))
+        {
+            
+            handItem.transform.SetParent(place, true);
+            handItem.transform.position = place.position;
+            
+        }
         handItem = null;
     }
 
