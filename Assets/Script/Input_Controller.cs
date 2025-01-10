@@ -163,8 +163,17 @@ public class Input_Controller : MonoBehaviour
     {
         if (handItem == null)
         {
-            PutHandItemInPlace(item.transform);
+            PutItemInHand(item);
+            Debug.Log("El objeto fue colocado en la mano.");
         }
+        else
+        {
+            Debug.LogWarning("Ya tienes un objeto en la mano. Primero suéltalo.");
+        }
+        //if (handItem == null)
+        //{
+        //    PutHandItemInPlace(item.transform);
+        //}
     }
 
 

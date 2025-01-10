@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     private InventoryItem[,] grid;
     [SerializeField] private Transform Hand;
     [SerializeField] private GameObject Player;
+    
 
     private void Awake()
     {
@@ -190,21 +191,62 @@ public class InventoryManager : MonoBehaviour
         {
             if (inventoryItem.Item == item)
             {
-                print($"se remueve el objeto{item}");
+                Debug.Log($"Removiendo el objeto del inventario: {item}");
 
-                Vector3 itemInventario = GetPlayerHandPosition();
-                GameObject droppedObject = Instantiate(item.ObjetoReferencia1, itemInventario, Quaternion.identity);
-                
-                //droppedObject.transform.SetParent(Hand);
-                //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
-                //rig.useGravity = false;
+                // Obtén la posición de la mano
+                Vector3 itemPosition = GetPlayerHandPosition();
+
+                // Obtén el componente `ItemPickUp` y verifica que existe
+                ItemPickUp itemPickUp = item.ObjetoReferencia1.GetComponent<ItemPickUp>();
+                if (itemPickUp == null)
+                {
+                    Debug.LogError("El objeto no tiene un componente ItemPickUp.");
+                    return;
+                }
+
+                // Obtén el componente `Input_Controller` y verifica que existe
+                Input_Controller inputController = Player.GetComponent<Input_Controller>();
+                if (inputController == null)
+                {
+                    Debug.LogError("No se encontró el componente Input_Controller en el jugador.");
+                    return;
+                }
+
+                // Coloca el objeto en la mano usando el método de `Input_Controller`
+                inputController.InteractItemHand(itemPickUp);
+
+                // Remueve el objeto del inventario
                 items.RemoveAt(i);
                 Destroy(inventoryItem.gameObject);
-                break;
+
+                Debug.Log("El objeto fue movido a la mano.");
+                return;
             }
             i++;
         }
-        
+
+        Debug.LogWarning("El objeto no se encontró en el inventario.");
+        //int i = 0;
+        //foreach (InventoryItem inventoryItem in items)
+        //{
+        //    if (inventoryItem.Item == item)
+        //    {
+        //        print($"se remueve el objeto{item}");
+
+        //        Vector3 itemVaMano = GetPlayerHandPosition();
+        //        ItemPickUp droppedObject = item.ObjetoReferencia1.GetComponent<ItemPickUp>();
+        //        Input_Controller obj = Player.GetComponent<Input_Controller>();
+        //        obj.InteractItemHand(droppedObject);
+        //        //droppedObject.transform.SetParent(Hand);
+        //        //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
+        //        //rig.useGravity = false;
+        //        items.RemoveAt(i);
+        //        Destroy(inventoryItem.gameObject);
+        //        break;
+        //    }
+        //    i++;
+        //}
+
     }
 
     //public void ListItems()
