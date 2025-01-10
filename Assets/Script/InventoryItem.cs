@@ -47,12 +47,12 @@ public class InventoryItem : MonoBehaviour
     public void RemoveItem()
     {
 
-        print($"entras en el boton del item:{item}");
+        print($"entras en el boton remove del item:{item}");
         inventoryManager.Remove(item);
     }
     public void ChangeToHand()
     {
-        print($"entras en el boton del item:{item}");
-        inventoryManager.ChangeToHand(item.ObjetoReferencia1);
+        print($"entras en el boton change del item:{item}");
+        inventoryManager.ChangeToHand(item);
     }
 }

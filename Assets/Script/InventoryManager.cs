@@ -14,14 +14,16 @@ public class InventoryManager : MonoBehaviour
     public Vector2Int gridSize = new Vector2Int(4, 4);
     public Vector2 slotSize = new Vector2(100, 100);
     private InventoryItem[,] grid;
-    [SerializeField] private Transform Hand;
-    [SerializeField] private GameObject Player;
-    
+    //[SerializeField] private Transform hand;
+    [SerializeField] private GameObject player;
+    private Input_Controller inputController;
+
 
     private void Awake()
     {
         Instance = this;
         grid = new InventoryItem[gridSize.x, gridSize.y];
+        inputController = player.GetComponent<Input_Controller>();
     }
 
     private void Start()
@@ -35,12 +37,12 @@ public class InventoryManager : MonoBehaviour
     public bool Add(Item item)// añado el item 
     {
         Tuple<int, int> availableCoord;
-        if (AreSlotsAvailables(item,out availableCoord))
+        if (AreSlotsAvailables(item, out availableCoord))
         {
             InventoryItem inventoryItem = Instantiate(inventoryItemPrefab, inventoryContent);
             items.Add(inventoryItem);
             print("item add: " + items.Count);
-            inventoryItem.Initislize(item,this);
+            inventoryItem.Initislize(item, this);
             inventoryItem.UpdateSize(slotSize);
             //con iñaki
             //AddToGrid(inventoryItem, availableCoord.Item1, availableCoord.Item1); 
@@ -50,16 +52,16 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    private bool AreSlotsAvailables(Item item,out Tuple<int,int> coord)// verifico si el slot esta disponible
+    private bool AreSlotsAvailables(Item item, out Tuple<int, int> coord)// verifico si el slot esta disponible
     {
         for (int x = 0; x < grid.GetLength(0); x++)
         {
             for (int y = 0; y < grid.GetLength(1); y++)
             {
 
-                if (ItemCanEnter(item,x,y))
+                if (ItemCanEnter(item, x, y))
                 {
-                    coord= new Tuple<int,int>(x,y);
+                    coord = new Tuple<int, int>(x, y);
                     return true;
                 }
             }
@@ -75,7 +77,7 @@ public class InventoryManager : MonoBehaviour
         int gridLimitX = grid.GetLength(0);
         int gridLimitY = grid.GetLength(1);
 
-        if (xLimit<gridLimitX && yLimit<gridLimitY)
+        if (xLimit < gridLimitX && yLimit < gridLimitY)
         {
             //con iñaki
             //for (int x = slotX; x < gridLimitX; x++)
@@ -107,7 +109,7 @@ public class InventoryManager : MonoBehaviour
 
     private void AddToGrid(InventoryItem item, int slotX, int slotY)// añado el item a la grid 
     {
-       // int gridLimitX = grid.GetLength(0);
+        // int gridLimitX = grid.GetLength(0);
         //int gridLimitY = grid.GetLength(1);
 
         for (int x = 0; x < item.GridSpace; x++)
@@ -128,7 +130,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item) // remuevo el item de la grid 
     {
-        print("entras en el remuve1: "+ items.Count);
+        print("entras en el remuve1: " + items.Count);
         int i = 0;
         foreach (InventoryItem inventoryItem in items)
         {
@@ -137,6 +139,11 @@ public class InventoryManager : MonoBehaviour
                 print($"se remueve el objeto{item}");
                 Vector3 dropPosition = GetPlayerFrontPosition();
                 GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
+                Relocator relocator = droppedObject.GetComponent<Relocator>();
+                if (relocator)
+                {
+                    relocator.SetAtFloor(dropPosition);
+                }
                 items.RemoveAt(i);
                 Destroy(inventoryItem.gameObject);
                 break;
@@ -167,10 +174,10 @@ public class InventoryManager : MonoBehaviour
     private Vector3 GetPlayerFrontPosition()
     {
 
-        if (Player != null)
+        if (player != null)
         {
-            Transform playerTransform = Player.transform;
-            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 4f; // Ajusta la distancia según sea necesario
+            Transform playerTransform = player.transform;
+            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 1f; // Ajusta la distancia según sea necesario
             return forwardPosition;
         }
 
@@ -180,11 +187,11 @@ public class InventoryManager : MonoBehaviour
             return Vector3.zero; // En caso de error, retorna la posición (0,0,0)
         }
     }
-    private Vector3 GetPlayerHandPosition()
-    {
-        return Hand.position;
-    }
-    public void ChangeToHand(GameObject item)
+    //private Vector3 GetPlayerHandPosition()
+    //{
+    //    return hand.position;
+    //}
+    public void ChangeToHand(Item item)
     {
         //int i = 0;
         //foreach (InventoryItem inventoryItem in items)
@@ -226,28 +233,58 @@ public class InventoryManager : MonoBehaviour
         //}
         //Debug.LogWarning("El objeto no se encontró en el inventario.");
 
-        int i = 0;
-        foreach (InventoryItem inventoryItem in items)
+
+        //int i = 0;
+        //foreach (InventoryItem inventoryItem in items)
+        //{
+        //    if (inventoryItem.Item == item)
+        //    {
+        //        print($"se remueve el objeto{item}");
+
+        //        Vector3 itemVaMano = GetPlayerHandPosition();
+        //        GameObject drop = item.ObjetoReferencia1;
+        //        ItemPickUp droppedObject = drop.GetComponent<ItemPickUp>();
+        //        drop.transform.position = itemVaMano;
+        //        droppedObject.ChangeTypeItem(1);
+        //        Input_Controller obj = Player.GetComponent<Input_Controller>();
+        //        obj.InteractItemHand(droppedObject);
+        //        droppedObject.transform.SetParent(Hand);
+        //        //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
+        //        //rig.useGravity = false;
+        //        items.RemoveAt(i);
+        //        Destroy(inventoryItem.gameObject);
+        //        break;
+        //    }
+        //    i++;
+        //}
+
+
+        Vector3 dropPosition = GetPlayerFrontPosition();
+        GameObject droppedObject = Instantiate(item.ObjetoReferencia1, Vector3.zero, Quaternion.identity);
+        ItemPickUp itemPickUp = droppedObject.GetComponent<ItemPickUp>();
+        if (itemPickUp)
         {
-            if (inventoryItem.Item == item)
+            if (inputController.PutItemInHand(itemPickUp))
             {
-                print($"se remueve el objeto{item}");
-
-                Vector3 itemVaMano = GetPlayerHandPosition();
-                ItemPickUp droppedObject = item.GetComponent<ItemPickUp>();
-
-                Input_Controller obj = Player.GetComponent<Input_Controller>();
-                obj.InteractItemHand(droppedObject);
-                droppedObject.transform.SetParent(Hand);
-                //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
-                //rig.useGravity = false;
-                items.RemoveAt(i);
-                Destroy(inventoryItem.gameObject);
-                break;
+                int i = 0;
+                foreach (InventoryItem inventoryItem in items)
+                {
+                    if (inventoryItem.Item == item)
+                    {
+                        print($"se remueve el objeto{item} tras ponerlo en la mano");
+                        items.RemoveAt(i);
+                        Destroy(inventoryItem.gameObject);
+                        break;
+                    }
+                    i++;
+                }
             }
-            i++;
-        }
 
+        }
+        else
+        {
+            Destroy(droppedObject);
+        }
     }
 
     //public void ListItems()

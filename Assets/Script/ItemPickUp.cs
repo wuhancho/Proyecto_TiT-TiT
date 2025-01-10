@@ -26,6 +26,25 @@ public class ItemPickUp : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void ChangeTypeItem(int numType)
+    {
+        switch (numType)
+        {
+            case 1:
+                {
+                    typeObject = ItemType.HandItem; break;
+                }
+            case 2:
+                {
+                    typeObject = ItemType.PickableObject; break;
+                }
+            case 3:
+                {
+                    typeObject = ItemType.None; break;
+                }
+        }
+    }
     //private void OnMouseDown()
     //{
     //    //if (item != null)

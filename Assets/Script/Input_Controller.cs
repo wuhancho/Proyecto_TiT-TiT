@@ -113,7 +113,7 @@ public class Input_Controller : MonoBehaviour
         }
     }
 
-    private void PutItemInHand(ItemPickUp itemPickUp)
+    public bool PutItemInHand(ItemPickUp itemPickUp)
     {
         if (handItem == null)
         {
@@ -121,7 +121,9 @@ public class Input_Controller : MonoBehaviour
             handItemOldParent = itemPickUp.transform.parent;
             itemPickUp.transform.SetParent(hand, true);
             itemPickUp.transform.localPosition = Vector3.zero;
+            return true;
         }
+        return false;
     }
 
     private void PutHandItemInPlace(Transform place)
