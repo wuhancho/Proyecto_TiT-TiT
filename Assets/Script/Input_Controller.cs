@@ -152,12 +152,19 @@ public class Input_Controller : MonoBehaviour
         }
         if (handItem.CompareTag("PuzleSalaEspera"))
         {
-            
+            print($"entras en el puzle de la sala de espera, este es el objeto place:{place}"); 
             handItem.transform.SetParent(place, true);
             handItem.transform.position = place.position;
             
         }
         handItem = null;
+    }
+    public void InteractItemHand(ItemPickUp item)
+    {
+        if (handItem == null)
+        {
+            PutHandItemInPlace(item.transform);
+        }
     }
 
 

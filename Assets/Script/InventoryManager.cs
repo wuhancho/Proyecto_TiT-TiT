@@ -191,9 +191,11 @@ public class InventoryManager : MonoBehaviour
             if (inventoryItem.Item == item)
             {
                 print($"se remueve el objeto{item}");
-                Vector3 dropPosition = GetPlayerHandPosition();
-                GameObject droppedObject = Instantiate(item.ObjetoReferencia1, dropPosition, Quaternion.identity);
-                droppedObject.transform.SetParent(Hand);
+
+                Vector3 itemInventario = GetPlayerHandPosition();
+                GameObject droppedObject = Instantiate(item.ObjetoReferencia1, itemInventario, Quaternion.identity);
+                
+                //droppedObject.transform.SetParent(Hand);
                 //Rigidbody rig = droppedObject.AddComponent<Rigidbody>();
                 //rig.useGravity = false;
                 items.RemoveAt(i);
