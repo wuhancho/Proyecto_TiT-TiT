@@ -53,6 +53,6 @@ public class InventoryItem : MonoBehaviour
     public void ChangeToHand()
     {
         print($"entras en el boton del item:{item}");
-        inventoryManager.ChangeToHand(item);
+        inventoryManager.ChangeToHand(item.ObjetoReferencia1);
     }
 }

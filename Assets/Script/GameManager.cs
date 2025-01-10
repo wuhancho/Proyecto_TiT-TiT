@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         //print($"valor del {habilitado}");
         if (habilitado)
         {
-            print("habilitado");
+            //print("habilitado");
             habilitoRaton = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
