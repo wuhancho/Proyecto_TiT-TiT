@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SAla de espera
+  m_Name: Material_tuberias
   m_Shader: {fileID: 4800000, guid: 35a500d816bc28c409f8ca20c3d0c93d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 1feaf982f2343024a959bfd302b3a942, type: 3}
+        m_Texture: {fileID: 2800000, guid: d8669b1f3914956438da67668ac78778, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cubemap:
@@ -55,11 +55,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2926221f4505e9d45baeafca3faa57ed, type: 3}
+        m_Texture: {fileID: 2800000, guid: f28ef8f8d419c8642bcfeba3d0e659e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 68277f510d583c7478abc3bc2721ea70, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2e2a6cdc0ca86a24283c0bafe1ffe6e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -67,14 +67,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: f165deed8da8bb148a37249f902fb721, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b7f50f50b68e0349853551e502385fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ReflectionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
