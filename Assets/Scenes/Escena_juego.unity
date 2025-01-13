@@ -25197,6 +25197,27 @@ MonoBehaviour:
   correctName: abel
   gameManager: {fileID: 1838781032}
   escribir: 0
+--- !u!65 &1113629122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113629119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28557485, y: 0.19977045, z: 0.26489994}
+  m_Center: {x: -0.00015957654, y: 0.08654523, z: 0.0004775524}
 --- !u!1001 &1114040580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31547,6 +31568,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a1e4fbf0d66f0c245911b4efb668a485, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1113629120}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a1e4fbf0d66f0c245911b4efb668a485, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1113629122}
   m_SourcePrefab: {fileID: 100100000, guid: a1e4fbf0d66f0c245911b4efb668a485, type: 3}
 --- !u!1 &1262597427
 GameObject:
@@ -34711,8 +34735,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.085735634, y: 0.16036488, z: 0.1998169}
-  m_Center: {x: 0.038480207, y: 0.07222926, z: 0.22829695}
+  m_Size: {x: 0.08573564, y: 0.12995975, z: 0.19981691}
+  m_Center: {x: 0.03848021, y: 0.05702669, z: 0.22829695}
 --- !u!4 &1442708348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 512fdb8fd1bbefa42893885710ee771f, type: 3}

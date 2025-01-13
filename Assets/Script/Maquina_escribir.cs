@@ -24,7 +24,7 @@ public class Maquina_escribir : MonoBehaviour
 
     private void Update()
     {
-        if (interact_Object.CanInteract && _Controller.Interact_() && escribir)
+        if (interact_Object.CanInteract && _Controller.Interact() && escribir)
         {
             print("entra a escribir");
             gameManager.HabilitarRaton(true); // Habilita el ratón para escribir.
