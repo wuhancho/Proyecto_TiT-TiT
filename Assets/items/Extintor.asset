@@ -17,4 +17,4 @@ MonoBehaviour:
   sizeY: 2
   itemName: Extintor
   icon: {fileID: 0}
-  ObjetoReferencia: {fileID: 919132149155446097, guid: 12899fa43d15dde47b6aa4a708feabb3, type: 3}
+  ObjetoReferencia: {fileID: 3302637544406177574, guid: b60d8daf480580246a86a1a9a2baecb2, type: 3}
