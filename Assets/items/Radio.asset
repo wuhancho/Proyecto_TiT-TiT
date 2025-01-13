@@ -17,4 +17,4 @@ MonoBehaviour:
   sizeY: 1
   itemName: Radio
   icon: {fileID: 0}
-  ObjetoReferencia: {fileID: 919132149155446097, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
+  ObjetoReferencia: {fileID: 7052553936359596290, guid: 0f5417a77e0d58d4f8e4113254e9dc6f, type: 3}
