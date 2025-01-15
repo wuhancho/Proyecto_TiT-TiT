@@ -13,16 +13,16 @@ public class LoadButton : MonoBehaviour
 
     public void CheckIfActive()
     {
-        if (playButton_ != null)
-        {
-            //if (DataManage.DataManager.AvailableRecords())
-            //{
-            //    playButton_.interactable = true;
-            //}
-            //else
-            //{
-            //    playButton_.interactable = false;
-            //}
-        }
+        //if (playButton_ != null)
+        //{
+        //    if (DataManage.DataManager.AvailableRecords())
+        //    {
+        //        playButton_.interactable = true;
+        //    }
+        //    else
+        //    {
+        //        playButton_.interactable = false;
+        //    }
+        //}
     }
 }

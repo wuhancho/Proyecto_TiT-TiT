@@ -16,16 +16,16 @@ public class PlayButton : MonoBehaviour
 
     private void Update()
     {
-        if (playButton_ != null)
-        {
-            //if (DataManage.DataManager.IsRecordSelected())
-            //{
-            //   playButton_.interactable = true;
-            //}
-            //else
-            //{
-            //    playButton_.interactable = false;
-            //}
-        }
+        //if (playButton_ != null)
+        //{
+        //    if (DataManage.DataManager.IsRecordSelected())
+        //    {
+        //        playButton_.interactable = true;
+        //    }
+        //    else
+        //    {
+        //        playButton_.interactable = false;
+        //    }
+        //}
     }
 }
