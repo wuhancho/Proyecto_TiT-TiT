@@ -18,14 +18,14 @@ public class PlayButton : MonoBehaviour
     {
         if (playButton_ != null)
         {
-            if (DataManage.DataManager.IsRecordSelected())
-            {
-               playButton_.interactable = true;
-            }
-            else
-            {
-                playButton_.interactable = false;
-            }
+            //if (DataManage.DataManager.IsRecordSelected())
+            //{
+            //   playButton_.interactable = true;
+            //}
+            //else
+            //{
+            //    playButton_.interactable = false;
+            //}
         }
     }
 }

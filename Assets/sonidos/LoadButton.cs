@@ -15,14 +15,14 @@ public class LoadButton : MonoBehaviour
     {
         if (playButton_ != null)
         {
-            if (DataManage.DataManager.AvailableRecords())
-            {
-                playButton_.interactable = true;
-            }
-            else
-            {
-                playButton_.interactable = false;
-            }
+            //if (DataManage.DataManager.AvailableRecords())
+            //{
+            //    playButton_.interactable = true;
+            //}
+            //else
+            //{
+            //    playButton_.interactable = false;
+            //}
         }
     }
 }
