@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 3368595920431718382}
   - component: {fileID: 6433693405154996988}
   - component: {fileID: 5450507089348867876}
-  - component: {fileID: 5452566028999881457}
   - component: {fileID: 7061841901397903799}
   - component: {fileID: 108208510414055086}
-  - component: {fileID: 4002489268325541275}
   - component: {fileID: 4424203865444460092}
-  m_Layer: 0
-  m_Name: Sphere (3)
+  - component: {fileID: 2765959577253854363}
+  m_Layer: 6
+  m_Name: Extintor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950587971567915567}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 1949193680784660114, guid: 276911552e776ed4fa06af9e2e111f9c, type: 3}
 --- !u!23 &5450507089348867876
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8bae638b2b9fbc4196c4511d64fcedb, type: 2}
+  - {fileID: 2100000, guid: e631716a56b9998469aaab6ad6e379cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,27 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5452566028999881457
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950587971567915567}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7061841901397903799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,33 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: 68b4b061b81e2f949b9935f488e39700, type: 2}
---- !u!54 &4002489268325541275
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950587971567915567}
-  serializedVersion: 4
-  m_Mass: 2
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4424203865444460092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +133,26 @@ MonoBehaviour:
   relocateType: 0
   manualOffset: {x: 0, y: 0, z: 0}
   relocateOnStart: 0
+--- !u!136 &2765959577253854363
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950587971567915567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19128905
+  m_Height: 1.0040594
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

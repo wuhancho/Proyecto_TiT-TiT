@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 275b24c369a2cd64bb99df5b622e52e1, type: 3}
   m_Name: Extintor
   m_EditorClassIdentifier: 
-  id: 11
+  id: 3
   sizeX: 1
   sizeY: 2
   itemName: Extintor
-  icon: {fileID: 0}
-  ObjetoReferencia: {fileID: 8103604702538230005, guid: cd4ec26b8be40a44793f1bf874faee8b, type: 3}
+  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  ObjetoReferencia: {fileID: 950587971567915567, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
