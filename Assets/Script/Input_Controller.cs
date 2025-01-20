@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
@@ -138,12 +139,14 @@ public class Input_Controller : MonoBehaviour
             }
         }
 
-        if (handItem.name == "chincheta")
+        if (handItem.name == "Chincheta")
         {// pone la chincheta en su localizacion.
             handItem.transform.SetParent(handItemOldParent, true);
+            print("entro en el if de la chincheta");
             handItem.transform.position = place.position;
             if (handItemOldParent.name == "pais")
             {
+                print("entro en el if de la chincheta en el pais");
                 gameManager.PuzleMapaCompletado();
                 handItem.GetComponent<Collider>().enabled = false;
             }
@@ -154,10 +157,28 @@ public class Input_Controller : MonoBehaviour
         }
         if (handItem.CompareTag("PuzleSalaEspera"))
         {
-            print($"entras en el puzle de la sala de espera, este es el objeto place:{place}"); 
-            handItem.transform.SetParent(place, true);
-            handItem.transform.position = place.position;
-            
+            if (place.name == "Zone_cuadro_grande")
+            {
+                print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+                Destroy(handItem);
+                place.GetChild(0).gameObject.SetActive(true);
+            }
+            else if (place.name == "Zone_radio")
+            {
+                print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+                //handItem.transform.SetParent(place, true);
+                //handItem.transform.position = place.position;
+                Destroy(handItem);
+                place.GetChild(0).gameObject.SetActive(true);
+            }
+            else if (place.name == "Zone_extintor")
+            {
+                print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+                Destroy(handItem);
+                place.GetChild(0).gameObject.SetActive(true);
+            }
+
+
         }
         handItem = null;
     }

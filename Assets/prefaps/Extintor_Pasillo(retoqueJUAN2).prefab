@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeObject: 1
-  item: {fileID: 11400000, guid: 71c42affa63af70499f1a07fec42481e, type: 2}
+  item: {fileID: 11400000, guid: 68b4b061b81e2f949b9935f488e39700, type: 2}
   handItemPlaceTagName: 
 --- !u!114 &593636756992124244
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d051ee4f8985e419f9a2a02494627c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 71c42affa63af70499f1a07fec42481e, type: 2}
+  Item: {fileID: 11400000, guid: 68b4b061b81e2f949b9935f488e39700, type: 2}
 --- !u!136 &3940240083715799675
 CapsuleCollider:
   m_ObjectHideFlags: 0

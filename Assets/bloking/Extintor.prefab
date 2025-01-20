@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeObject: 1
   item: {fileID: 11400000, guid: 68b4b061b81e2f949b9935f488e39700, type: 2}
-  handItemPlaceTagName: 
+  handItemPlaceTagName: PuzleSalaEspera
 --- !u!114 &108208510414055086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class Code_vela : MonoBehaviour
 
     [SerializeField] private Code_vela[] velasAManipular;
 
-    private void Start()
+    private void Awake()
     {
         ChildObjeto.SetActive(false);
     }
