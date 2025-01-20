@@ -367,6 +367,16 @@ public class GameManager : MonoBehaviour
     {
         ActivarTriunfo(4);
     }
+    public void ComprobarPuzzleSalaEspera()
+    {
+        int cantidad=0;
+        if (cantidad == 3)
+        {
+            //print("completado");
+            ActivarTriunfo(5);
+        }
+        cantidad++;
+    }
     private void ActivarTriunfo(int puzle)
     {
         if (puzle == 1) // comprobar engranajes
@@ -433,7 +443,11 @@ public class GameManager : MonoBehaviour
             //Cursor.lockState = CursorLockMode.None;
             //Cursor.visible = true;
         }
-
+        if (puzle == 5)
+        {
+            HabilitarRaton(true);
+            recompensas[3].SetActive(true);
+        }
     }
 
     public void DesabilitarNota1(int numNota)

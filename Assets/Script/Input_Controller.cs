@@ -129,14 +129,12 @@ public class Input_Controller : MonoBehaviour
 
     private void PutHandItemInPlace(Transform place)
     {
-        if (handItem.name != "chincheta")
+        if (handItem.CompareTag("Engranaje"))
         {
             handItem.transform.SetParent(handItemOldParent, true);
             handItem.transform.position = place.position;
-            if (handItem.CompareTag("Engranaje"))
-            {
-                gameManager.DetectTruePosicionEngranaje();
-            }
+            gameManager.DetectTruePosicionEngranaje();
+          
         }
 
         if (handItem.name == "Chincheta")
@@ -160,22 +158,25 @@ public class Input_Controller : MonoBehaviour
             if (place.name == "Zone_cuadro_grande")
             {
                 print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
-                Destroy(handItem);
+                Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_radio")
             {
                 print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
                 //handItem.transform.SetParent(place, true);
                 //handItem.transform.position = place.position;
-                Destroy(handItem);
+                Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_extintor")
             {
                 print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
-                Destroy(handItem);
+                Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                gameManager.ComprobarPuzzleSalaEspera();
             }
 
 
