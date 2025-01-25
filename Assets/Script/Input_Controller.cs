@@ -74,7 +74,7 @@ public class Input_Controller : MonoBehaviour
 
         Vector3 origin = Camera.main.transform.position;
         Vector3 direction = Camera.main.transform.forward;
-        RaycastHit hit; 
+        RaycastHit hit;
         if (Physics.Raycast(origin, direction, out hit, distance))
         {
             Debug.Log("Objeto detectado: " + hit.collider.gameObject.name + ", Tag: " + hit.collider.tag);
@@ -107,6 +107,7 @@ public class Input_Controller : MonoBehaviour
                 {
                     if (hit.transform.CompareTag(handItem.HandItemPlaceTagName))
                     {
+                        print("entra en el if de poner el objeto en su lugar");
                         PutHandItemInPlace(hit.transform);
                     }
                 }
@@ -122,6 +123,7 @@ public class Input_Controller : MonoBehaviour
             handItemOldParent = itemPickUp.transform.parent;
             itemPickUp.transform.SetParent(hand, true);
             itemPickUp.transform.localPosition = Vector3.zero;
+            itemPickUp.GetComponent<Collider>().enabled = false;
             return true;
         }
         return false;
@@ -134,7 +136,7 @@ public class Input_Controller : MonoBehaviour
             handItem.transform.SetParent(handItemOldParent, true);
             handItem.transform.position = place.position;
             gameManager.DetectTruePosicionEngranaje();
-          
+
         }
 
         if (handItem.name == "Chincheta")
@@ -179,7 +181,15 @@ public class Input_Controller : MonoBehaviour
                 gameManager.ComprobarPuzzleSalaEspera();
             }
 
-
+        }
+        if (place.CompareTag("caja_puzzle"))
+        {
+            print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+            Destroy(handItem.gameObject);
+            place.GetChild(0).gameObject.SetActive(true);
+            place.GetComponent<MeshRenderer>().enabled = false;
+            place.GetComponent<Collider>().enabled = false;
+            
         }
         handItem = null;
     }

@@ -193,6 +193,7 @@ public class InventoryManager : MonoBehaviour
     //}
     public void ChangeToHand(Item item)
     {
+        #region Intento de mover el objeto a la mano 1
         //int i = 0;
         //foreach (InventoryItem inventoryItem in items)
         //{
@@ -257,7 +258,7 @@ public class InventoryManager : MonoBehaviour
         //    }
         //    i++;
         //}
-
+        #endregion
 
         Vector3 dropPosition = GetPlayerFrontPosition();
         GameObject droppedObject = Instantiate(item.ObjetoReferencia1, Vector3.zero, Quaternion.identity);
