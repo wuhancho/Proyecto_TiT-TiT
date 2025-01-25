@@ -7,6 +7,8 @@ TagManager:
   - Engranaje
   - Pais
   - PuzleSalaEspera
+  - linterna
+  - caja_puzzle
   layers:
   - Default
   - TransparentFX

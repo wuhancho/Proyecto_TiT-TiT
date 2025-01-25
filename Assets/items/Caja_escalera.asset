@@ -17,4 +17,4 @@ MonoBehaviour:
   sizeY: 2
   itemName: Caja
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  ObjetoReferencia: {fileID: 0}
+  ObjetoReferencia: {fileID: 2510758004432733205, guid: 9ef84ad46c983ed49a80803b9d15561a, type: 3}

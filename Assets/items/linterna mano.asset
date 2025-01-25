@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275b24c369a2cd64bb99df5b622e52e1, type: 3}
+  m_Name: linterna mano
+  m_EditorClassIdentifier: 
+  id: 0
+  sizeX: 0
+  sizeY: 0
+  itemName: 
+  icon: {fileID: 0}
+  ObjetoReferencia: {fileID: 1511693463268702323, guid: cafd780e2ee6ae34b89827655299f7fb, type: 3}
