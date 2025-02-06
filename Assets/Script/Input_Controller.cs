@@ -158,6 +158,7 @@ public class Input_Controller : MonoBehaviour
                 print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_radio")
@@ -167,6 +168,7 @@ public class Input_Controller : MonoBehaviour
                 //handItem.transform.position = place.position;
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_extintor")
@@ -174,6 +176,7 @@ public class Input_Controller : MonoBehaviour
                 print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
+                place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
             }
 
