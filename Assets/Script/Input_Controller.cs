@@ -42,10 +42,8 @@ public class Input_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             print("entra La mouse1");
-            handItem.PickUp();
         }
-
-
+        handItem.PickUp();
     }
     public void InputInventario()
     {
