@@ -35,6 +35,11 @@ public class Character_Controller : MonoBehaviour
         {
             Move();
         }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            print("entra La mouse1");
+            input_Controller.Interact_();
+        }
     }
     //private void FixedUpdate()
     //{

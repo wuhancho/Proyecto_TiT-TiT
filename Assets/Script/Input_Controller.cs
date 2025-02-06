@@ -37,17 +37,15 @@ public class Input_Controller : MonoBehaviour
             return false;
         }
     }
-    public bool Interact_()
+    public void Interact_()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Debug.Log("entra La mouse0");
-            return true;
+            print("entra La mouse1");
+            handItem.PickUp();
         }
-        else
-        {
-            return false;
-        }
+
+
     }
     public void InputInventario()
     {
@@ -189,7 +187,7 @@ public class Input_Controller : MonoBehaviour
             place.GetChild(0).gameObject.SetActive(true);
             place.GetComponent<MeshRenderer>().enabled = false;
             place.GetComponent<Collider>().enabled = false;
-            
+
         }
         handItem = null;
     }

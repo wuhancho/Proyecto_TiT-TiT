@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI texto_pantalla;
     //[SerializeField] GameObject[] llamas;
     [SerializeField] public bool habilitoRaton = false;
+    private float deltaTime= 0f;
     [Header("Puzle nave")]
     [SerializeField] Code_vela[] llamas;
     private bool velasN = true;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool notaHabilitada = false;
     //private bool estadoRecompensa = false;
     [SerializeField] GameObject[] recompensas;
+
+
 
     //public bool EstadoRecompensa { get => estadoRecompensa; set => estadoRecompensa = value; }
     public bool NotaHabilitada { get => notaHabilitada; set => notaHabilitada = value; }
@@ -74,7 +77,20 @@ public class GameManager : MonoBehaviour
         //}
         notaHabilitada = NotaHabilitada;
         velasN = VelasN;
-
+        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+    }
+    private void OnGUI()
+    {
+        int w = Screen.width, h = Screen.height;
+        GUIStyle style = new GUIStyle();
+        Rect rect = new Rect(0, 0, w, h*2/100);
+        style.alignment = TextAnchor.UpperLeft;
+        style.fontSize =h*2/100;
+        style.normal.textColor = Color.red;
+        float msec = deltaTime * 1000f;
+        float fps = 1.0f / deltaTime;
+        string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
+        GUI.Label(rect, text, style);
     }
     public void HabilitarRaton(bool habilitado)
     {
