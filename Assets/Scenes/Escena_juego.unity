@@ -17650,6 +17650,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1838781032}
+    - target: {fileID: 3918746267881987250, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4291526153286098052, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34087,8 +34091,8 @@ Transform:
   m_GameObject: {fileID: 1717322860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.18, y: 9.46, z: 0.54}
-  m_LocalScale: {x: 12.540743, y: 0.624397, z: 17.858873}
+  m_LocalPosition: {x: 4.18, y: 9.46, z: -6.611}
+  m_LocalScale: {x: 12.540743, y: 0.624397, z: 3.816441}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
