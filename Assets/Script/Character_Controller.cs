@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class Character_Controller : MonoBehaviour
 {
@@ -39,6 +41,10 @@ public class Character_Controller : MonoBehaviour
         {
             print("entra La mouse1");
             input_Controller.Interact_();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
     //private void FixedUpdate()

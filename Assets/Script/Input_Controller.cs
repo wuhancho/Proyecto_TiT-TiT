@@ -62,8 +62,8 @@ public class Input_Controller : MonoBehaviour
                 gameManager.AbrirInventario(state);
             }
         }
-
     }
+
 
     public void RayCoger(float distance)
     {
@@ -208,6 +208,7 @@ public class Input_Controller : MonoBehaviour
             PutHandItemInPlace(item.transform);
         }
     }
+
 
 
     //public void RayCoger(float distance)

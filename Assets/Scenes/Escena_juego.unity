@@ -30419,6 +30419,7 @@ GameObject:
   - component: {fileID: 1306837345}
   - component: {fileID: 1306837344}
   - component: {fileID: 1306837343}
+  - component: {fileID: 1306837346}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -35238,6 +35239,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!65 &1306837346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306837342}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.4597871, y: 3.742801, z: 2.1156778}
+  m_Center: {x: 0.087091565, y: -0.4091305, z: 0.3478382}
 --- !u!1001 &1312100843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37150,7 +37172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c608357058f19cb4f8932080ccf16a10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.715
+      value: -6.177
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c608357058f19cb4f8932080ccf16a10, type: 3}
       propertyPath: m_LocalRotation.w
