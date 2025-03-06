@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ItemGoInventory { Yes, No };
 [CreateAssetMenu(fileName ="New Item", menuName ="Item/Create New Item")]
 public class Item : ScriptableObject
 {
@@ -10,8 +11,8 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite icon;
     [SerializeField] private GameObject ObjetoReferencia;
-
-
+    [SerializeField] private ItemGoInventory itemGoInventory;
+    public ItemGoInventory ItemGoInventory { get => itemGoInventory; }
     public int Large => sizeX;
     public int Height => sizeY;
 

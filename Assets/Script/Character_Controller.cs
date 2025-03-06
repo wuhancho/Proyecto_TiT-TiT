@@ -37,7 +37,7 @@ public class Character_Controller : MonoBehaviour
         {
             Move();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !input_Controller.State)
         {
             print("entra La mouse1");
             input_Controller.Interact_();

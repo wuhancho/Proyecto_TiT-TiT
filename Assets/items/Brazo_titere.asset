@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 14
   sizeX: 1
   sizeY: 2
-  itemName: 
+  itemName: Brazo Titere
   icon: {fileID: 0}
   ObjetoReferencia: {fileID: 9073128250045261912, guid: 27d5753a9e8372542b9dfe65c4146312, type: 3}
+  itemGoInventory: 0
