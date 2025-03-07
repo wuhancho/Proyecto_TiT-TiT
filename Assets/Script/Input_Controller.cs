@@ -25,7 +25,7 @@ public class Input_Controller : MonoBehaviour
         float y = Input.GetAxis("Mouse Y");
         return new Vector2(x, y);
     }
-    public bool Interact()
+    public bool Interact()// para interactuar general
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -37,9 +37,12 @@ public class Input_Controller : MonoBehaviour
             return false;
         }
     }
-    public void Interact_()
+    public void Interact_() // para que el jugador deje los objetos de la mano al inventario
     {
-        handItem.PickUp();
+        if (handItem != null)
+        {
+            handItem.PickUp();
+        }
     }
     public void InputInventario()
     {
