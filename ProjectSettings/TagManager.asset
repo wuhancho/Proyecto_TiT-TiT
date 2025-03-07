@@ -9,6 +9,7 @@ TagManager:
   - PuzleSalaEspera
   - linterna
   - caja_puzzle
+  - ViewLint
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - pickable
-  - 
+  - HiddenObject
   - 
   - 
   - 
