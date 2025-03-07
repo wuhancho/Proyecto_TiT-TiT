@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 13
   sizeX: 1
   sizeY: 1
-  itemName: 
+  itemName: Linterna
   icon: {fileID: 0}
   ObjetoReferencia: {fileID: 1511693463268702323, guid: cafd780e2ee6ae34b89827655299f7fb, type: 3}
+  itemGoInventory: 0
