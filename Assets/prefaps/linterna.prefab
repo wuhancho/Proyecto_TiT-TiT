@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6891826409748203292}
   - component: {fileID: 1346331230238400048}
-  - component: {fileID: 5349055774031985044}
-  - component: {fileID: 2711684322524996188}
   - component: {fileID: 2628669950511338854}
   - component: {fileID: 3226326627578800895}
+  - component: {fileID: 5349055774031985044}
+  - component: {fileID: 2711684322524996188}
   - component: {fileID: 5594361557746809291}
   - component: {fileID: 1330291735284107437}
   - component: {fileID: 1615718337502291701}
@@ -61,34 +61,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1619339, y: 0.31215143, z: 0.15877533}
   m_Center: {x: -0.00009059906, y: 0.0029127598, z: 0.0031471252}
---- !u!114 &5349055774031985044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511693463268702323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc5329e40219634ba61627cb3f84183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeObject: 2
-  item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
-  handItemPlaceTagName: linterna
---- !u!114 &2711684322524996188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511693463268702323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d051ee4f8985e419f9a2a02494627c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
 --- !u!33 &2628669950511338854
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -139,6 +111,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5349055774031985044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511693463268702323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc5329e40219634ba61627cb3f84183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeObject: 2
+  item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
+  handItemPlaceTagName: linterna
+--- !u!114 &2711684322524996188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511693463268702323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d051ee4f8985e419f9a2a02494627c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
 --- !u!114 &5594361557746809291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f546c84be35b14a8c494ce380b2925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alpha: 0.5
 --- !u!135 &1615718337502291701
 SphereCollider:
   m_ObjectHideFlags: 0
