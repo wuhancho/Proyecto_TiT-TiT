@@ -134,18 +134,21 @@ public class Input_Controller : MonoBehaviour
 
         }
 
-        if (handItem.name == "Chincheta")
+        if (handItem.name == "Chincheta"|| handItem.name =="Chincheta(clone)")
         {// pone la chincheta en su localizacion.
-            handItem.transform.SetParent(handItemOldParent, true);
+            print("nombre del lugar" + place.name);
+            handItem.transform.SetParent(place.parent, true);
             print("entro en el if de la chincheta");
+            print("este es el objeto anterior"+handItemOldParent.name);
             handItem.transform.position = place.position;
-            if (handItemOldParent.name == "Pais_Chincheta")
+            if (place.name == "Pais_Chincheta")
             {
-                print(handItemOldParent.name);
                 print("entro en el if de la chincheta en el pais");
-                handItemOldParent.gameObject.SetActive(false);
                 //gameManager.PuzleMapaCompletado();
                 handItem.GetComponent<Collider>().enabled = false;
+                handItem.transform.localPosition = place.localPosition;
+                place.gameObject.SetActive(false);
+                gameManager.PuzleMapaCompletado();
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);
             //handItem.transform.position = HandPutInObj;

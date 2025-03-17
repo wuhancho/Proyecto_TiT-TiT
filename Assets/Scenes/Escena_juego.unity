@@ -10805,15 +10805,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.98376006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.17948872
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10825,7 +10825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 380.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 897c6e71c358ce94290961b93500b35c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -26044,6 +26044,10 @@ MonoBehaviour:
   distan: 1.5
   gameManager: {fileID: 1838781032}
   rb: {fileID: 1062124419}
+  validLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  bias: 0.05
 --- !u!54 &1062124419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34932,7 +34936,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.27
+      scalar: 1.58
       minScalar: 5
       maxCurve:
         serializedVersion: 2

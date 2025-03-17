@@ -381,6 +381,7 @@ public class GameManager : MonoBehaviour
     {
 
         print("felas");
+        globo_anim.enabled = true;
         ActivarTriunfo(3);
         // chincheta.GetComponent<Collider>().enabled = false;
     }
