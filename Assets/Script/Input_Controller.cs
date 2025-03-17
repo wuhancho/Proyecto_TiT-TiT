@@ -139,10 +139,12 @@ public class Input_Controller : MonoBehaviour
             handItem.transform.SetParent(handItemOldParent, true);
             print("entro en el if de la chincheta");
             handItem.transform.position = place.position;
-            if (handItemOldParent.name == "pais")
+            if (handItemOldParent.name == "Pais_Chincheta")
             {
+                print(handItemOldParent.name);
                 print("entro en el if de la chincheta en el pais");
-                gameManager.PuzleMapaCompletado();
+                handItemOldParent.gameObject.SetActive(false);
+                //gameManager.PuzleMapaCompletado();
                 handItem.GetComponent<Collider>().enabled = false;
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);

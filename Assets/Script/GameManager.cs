@@ -10,9 +10,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField] GameObject[] llamas;
     [SerializeField] public bool habilitoRaton = false;
     private float deltaTime= 0f;
-    [Header("Puzle nave")]
-    [SerializeField] Code_vela[] llamas;
-    private bool velasN = true;
+   
 
     [Header("Inventario y coger")]
     [SerializeField] GameObject inventario;
@@ -25,6 +23,13 @@ public class GameManager : MonoBehaviour
     [Header("puntero")]
     [SerializeField] private GameObject puntero;
     //private bool isInventoryOpen = false;
+
+    [Header("Puzle entrada")]
+    [SerializeField] Animator globo_anim;
+
+    [Header("Puzle nave")]
+    [SerializeField] Code_vela[] llamas;
+    private bool velasN = true;
 
     [Header("Puzle despacho2")]
     private int contEngranajes;

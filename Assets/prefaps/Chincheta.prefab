@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.06500006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.24399996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.14100003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.47709823
+      value: 0.47709817
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalRotation.x
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.87885
+      value: -0.87885004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeObject: 2
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 0f11a23595c1a2c46a9753372f68e2d4, type: 2}
   handItemPlaceTagName: Pais
 --- !u!135 &5317385186197326129
 SphereCollider:

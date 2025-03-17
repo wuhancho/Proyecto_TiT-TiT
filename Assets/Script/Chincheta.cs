@@ -11,7 +11,7 @@ public class Chincheta : MonoBehaviour
     private void Update()
     {
         parentChincheta = transform.parent;
-        if (parentChincheta.name == "pais1")
+        if (parentChincheta.name == "Pais_Chincheta")
         {
             //chinchetaCollider.enabled = false;
             gameManager.PuzleMapaCompletado();
