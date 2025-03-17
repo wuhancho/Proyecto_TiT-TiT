@@ -102,7 +102,7 @@ public class Input_Controller : MonoBehaviour
                 {
                     if (hit.transform.CompareTag(handItem.HandItemPlaceTagName))
                     {
-                        print("entra en el if de poner el objeto en su lugar");
+                        //print("entra en el if de poner el objeto en su lugar");
                         PutHandItemInPlace(hit.transform);
                     }
                 }
@@ -134,17 +134,17 @@ public class Input_Controller : MonoBehaviour
 
         }
 
-        if (handItem.name == "Chincheta"|| handItem.name =="Chincheta(clone)")
+        if (handItem.name == "Chincheta"|| handItem.name =="Chincheta(Clone)")
         {// pone la chincheta en su localizacion.
-            print("nombre del lugar" + place.name);
-            handItem.transform.SetParent(place.parent, true);
-            print("entro en el if de la chincheta");
-            print("este es el objeto anterior"+handItemOldParent.name);
-            handItem.transform.position = place.position;
+            print("nombre del objeto colicion" + place.name);
+            //print("entro en el if de la chincheta");
+            //print("este es el objeto anterior"+handItemOldParent.name);
             if (place.name == "Pais_Chincheta")
             {
                 print("entro en el if de la chincheta en el pais");
                 //gameManager.PuzleMapaCompletado();
+                handItem.transform.SetParent(place.parent, true);
+                //handItem.transform.position = place.position;
                 handItem.GetComponent<Collider>().enabled = false;
                 handItem.transform.localPosition = place.localPosition;
                 place.gameObject.SetActive(false);

@@ -1,7 +1,7 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine.Rendering;
