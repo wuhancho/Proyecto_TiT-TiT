@@ -231,33 +231,6 @@ public class Character_Controller : MonoBehaviour
     }
 }
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //#region intento 2 de movimiento
