@@ -73,7 +73,7 @@ public class InventoryManager : MonoBehaviour
     private bool ItemCanEnter(Item item, int slotX, int slotY) // verifico si puedo entrar
     {
         int xLimit = slotX + item.Large - 1;
-        int yLimit = slotY + item.Large - 1;
+        int yLimit = slotY + item.Height - 1;
         int gridLimitX = grid.GetLength(0);
         int gridLimitY = grid.GetLength(1);
 
