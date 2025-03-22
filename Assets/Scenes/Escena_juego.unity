@@ -1130,10 +1130,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extintor
       objectReference: {fileID: 0}
-    - target: {fileID: 950587971567915567, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 127
-      objectReference: {fileID: 0}
     - target: {fileID: 3368595920431718382, guid: f0ff494ccc28d0344abab7e3d5e8aac6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.212
@@ -26019,6 +26015,7 @@ GameObject:
   - component: {fileID: 1062124417}
   - component: {fileID: 1062124416}
   - component: {fileID: 1062124420}
+  - component: {fileID: 1062124421}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -26108,7 +26105,7 @@ Transform:
   m_GameObject: {fileID: 1062124411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6884134, z: -0, w: 0.7253186}
-  m_LocalPosition: {x: 4.01, y: 1.72, z: -24.96}
+  m_LocalPosition: {x: 4.236, y: 6.981, z: -20.629}
   m_LocalScale: {x: 0.7, y: 0.94144005, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26207,6 +26204,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9d5cdd487446049a4d7b33c56f943a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1062124421
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062124411}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1063510649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 604152595467156745, guid: dc4a02e06ce0fe140a1198c188563601, type: 3}
@@ -26291,12 +26309,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 859955140}
     - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
+      propertyPath: layer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 523034818255255245, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: inventoryContent
       value: 
       objectReference: {fileID: 331328880}
     - target: {fileID: 7417209839064101602, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: m_Name
-      value: InventoryManager (1)
+      value: InventoryManager
       objectReference: {fileID: 0}
     - target: {fileID: 7848446812749450303, guid: c83c31c60d1d125499099a89e38f02d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46776,7 +46798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 109
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1647279618
 Transform:
   m_ObjectHideFlags: 0

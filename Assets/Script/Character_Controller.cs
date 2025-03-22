@@ -19,9 +19,7 @@ public class Character_Controller : MonoBehaviour
     private CapsuleCollider charCol;
     [SerializeField] private LayerMask validLayers;
     [SerializeField] private float bias = 0.05f;
-   
     private RaycastHit[] hitBuffer = new RaycastHit[10];
-
 
     void Awake()
     {
@@ -229,6 +227,8 @@ public class Character_Controller : MonoBehaviour
         }
         return closestHit;
     }
+
+    
 }
 
 

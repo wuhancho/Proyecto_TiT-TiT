@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -123.008
       objectReference: {fileID: 0}
+    - target: {fileID: -8516105618735919513, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1048153736868438262, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_Name
       value: Chincheta
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3d36e1df09140254cb6a80f2cd20d382, type: 3}
       propertyPath: m_TagString

@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_Name
-      value: Cuadro grande (1)
+      value: Cuadro grande
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_Layer

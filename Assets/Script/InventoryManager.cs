@@ -17,10 +17,13 @@ public class InventoryManager : MonoBehaviour
     //[SerializeField] private Transform hand;
     [SerializeField] private GameObject player;
     private Input_Controller inputController;
+    Character_Controller characterController;
+    [SerializeField] private LayerMask layer;
 
 
     private void Awake()
     {
+        characterController = player.GetComponent<Character_Controller>();
         Instance = this;
         grid = new InventoryItem[gridSize.x, gridSize.y];
         inputController = player.GetComponent<Input_Controller>();
@@ -154,6 +157,41 @@ public class InventoryManager : MonoBehaviour
         print("entras en el remuve2: " + items.Count);
         //items.Remove(item);
     }
+    private Vector3 FindFreePosition(Vector3 startPosition)
+    {
+        float checkRadius = 0.5f; // Radio de detección
+        int maxAttempts = 10; // Número máximo de intentos para encontrar una posición
+        float offsetDistance = 0.5f; // Distancia a la que intentará mover el objeto
+        int pickableLayer = LayerMask.NameToLayer("pickable"); // Obtener el número de la capa "Pickable"
+
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            // Solo detectar objetos en la capa "Pickable"
+            Collider[] colliders = Physics.OverlapSphere(startPosition, checkRadius, layer);
+            bool occupied = false;
+
+            foreach (Collider collider in colliders)
+            {
+                if (collider.gameObject.layer == pickableLayer) // Comparar con la capa "Pickable"
+                {
+                    occupied = true;
+                    break;
+                }
+            }
+
+            if (!occupied)
+            {
+                return startPosition; // Si la posición está libre, la usamos
+            }
+
+            // Si la posición está ocupada, buscar otra posición cercana
+            float angle = i * (360f / maxAttempts); // Espaciamos los intentos en un círculo
+            Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * offsetDistance;
+            startPosition += offset;
+        }
+
+        return startPosition; // Si no encuentra espacio, deja el objeto en la posición original
+    }
     public void EnableItemsRemove()// habilito el boton de remover
     {
         if (EnableRemove.isOn)
@@ -178,7 +216,7 @@ public class InventoryManager : MonoBehaviour
         {
             Transform playerTransform = player.transform;
             Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 1f; // Ajusta la distancia según sea necesario
-            return forwardPosition;
+            return FindFreePosition(forwardPosition);
         }
 
         else
