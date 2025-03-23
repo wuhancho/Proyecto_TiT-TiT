@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3
+      value: 1.579
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.559
+      value: 6.553
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.12
+      value: -14.434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -113,9 +113,9 @@ MonoBehaviour:
   hitLayers:
     serializedVersion: 2
     m_Bits: 55
-  relocateType: 0
-  manualOffset: {x: 0, y: 0, z: 0}
-  relocateOnStart: 0
+  relocateType: 1
+  manualOffset: {x: 0, y: 0.15, z: 0}
+  relocateOnStart: 1
 --- !u!114 &5273534388686351834
 MonoBehaviour:
   m_ObjectHideFlags: 0

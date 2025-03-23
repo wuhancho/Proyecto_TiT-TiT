@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7061841901397903799}
   - component: {fileID: 108208510414055086}
   - component: {fileID: 4424203865444460092}
-  - component: {fileID: 2765959577253854363}
+  - component: {fileID: 2812252963128513979}
   m_Layer: 6
   m_Name: Extintor
   m_TagString: PuzleSalaEspera
@@ -133,8 +133,8 @@ MonoBehaviour:
   relocateType: 0
   manualOffset: {x: 0, y: 0, z: 0}
   relocateOnStart: 0
---- !u!136 &2765959577253854363
-CapsuleCollider:
+--- !u!65 &2812252963128513979
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,8 +151,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.19128905
-  m_Height: 1.0040594
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 0.30727112, y: 1.0040594, z: 0.30920136}
+  m_Center: {x: 0, y: 0, z: -0.036688387}
