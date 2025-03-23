@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    private List<InventoryItem> items = new List<InventoryItem>();
+    private List<InventoryItem> items = new();
     public RectTransform inventoryContent;
     public InventoryItem inventoryItemPrefab;
     public Toggle EnableRemove;
-    public Vector2Int gridSize = new Vector2Int(4, 4);
-    public Vector2 slotSize = new Vector2(100, 100);
+    public Vector2Int gridSize = new (4, 4);
+    public Vector2 slotSize = new (100, 100);
     private InventoryItem[,] grid;
     //[SerializeField] private Transform hand;
     [SerializeField] private GameObject player;

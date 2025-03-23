@@ -9,6 +9,8 @@ public class Input_Controller : MonoBehaviour
     private Transform handItemOldParent;
     private ItemPickUp handItem;
     private bool state = false;
+    [SerializeField] private GameObject ligh;
+    [SerializeField] private Collider colBox;
 
     public bool State { get => state; set => state = value; }
 
@@ -119,11 +121,23 @@ public class Input_Controller : MonoBehaviour
             itemPickUp.transform.SetParent(hand, true);
             itemPickUp.transform.localPosition = Vector3.zero;
             itemPickUp.GetComponent<Collider>().enabled = false;
+            activeLight();
             return true;
-        }
+        }    
         return false;
     }
 
+    private void activeLight()
+    {
+        if (handItem.CompareTag("linterna"))
+        {
+            ligh.SetActive(true);
+        }
+        else
+        {
+            ligh.SetActive(false);
+        }
+    }
     private void PutHandItemInPlace(Transform place)
     {
         if (handItem.CompareTag("Engranaje"))
@@ -133,6 +147,7 @@ public class Input_Controller : MonoBehaviour
             gameManager.DetectTruePosicionEngranaje();
 
         }
+
 
         if (handItem.name == "Chincheta"|| handItem.name =="Chincheta(Clone)")
         {// pone la chincheta en su localizacion.
@@ -192,8 +207,10 @@ public class Input_Controller : MonoBehaviour
             place.GetChild(0).gameObject.SetActive(true);
             place.GetComponent<MeshRenderer>().enabled = false;
             place.GetComponent<Collider>().enabled = false;
-
+            place.GetComponent<BoxCollider>().isTrigger=false;
+            colBox.enabled = true;
         }
+    
         handItem = null;
     }
     public void InteractItemHand(ItemPickUp item)

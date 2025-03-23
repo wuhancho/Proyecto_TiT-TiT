@@ -9,6 +9,12 @@ public class Linterna : MonoBehaviour
     private Color color;
     [SerializeField] private float maxAlpha = 1f; // Máximo alpha permitido
     private int collidersInside = 0; // Contador de triggers activos
+    //[SerializeField] private GameObject litgh;
+    //[SerializeField] private Vector3 PositionPlayerHigh;
+    //private void Start()
+    //{
+    //    litgh.SetActive(false);
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +53,18 @@ public class Linterna : MonoBehaviour
             }
         }
     }
+    //private void Update()
+    //{
+
+    //    if (gameObject.transform.parent.name =="Hand")
+    //    {
+    //        litgh.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //         litgh.SetActive(false);
+    //    }
+    //}
     //private Material[] materials;
     //private Color color;
     //[SerializeField] private float alpha;
