@@ -9,10 +9,12 @@ public class Input_Controller : MonoBehaviour
     private Transform handItemOldParent;
     private ItemPickUp handItem;
     private bool state = false;
+    private bool stateCollision = false;
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
 
     public bool State { get => state; set => state = value; }
+    public bool StateCollision { get => stateCollision;}
 
     public Vector3 MoveInput()
     {
@@ -29,10 +31,11 @@ public class Input_Controller : MonoBehaviour
     }
     public bool Interact()// para interactuar general
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && stateCollision)
         {
             Debug.Log("entra La mouse0");
             return true;
+
         }
         else
         {
@@ -98,7 +101,7 @@ public class Input_Controller : MonoBehaviour
                         break;
                 }
             }
-            else
+            else if(handItem)
             {
                 if (handItem)
                 {
@@ -107,6 +110,17 @@ public class Input_Controller : MonoBehaviour
                         //print("entra en el if de poner el objeto en su lugar");
                         PutHandItemInPlace(hit.transform);
                     }
+                }
+            }
+            else
+            {
+                if (hit.collider != null)
+                {
+                    stateCollision = true;
+                }
+                else
+                {
+                    stateCollision = false;
                 }
             }
         }
