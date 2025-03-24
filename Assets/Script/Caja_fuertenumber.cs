@@ -18,12 +18,12 @@ public class Caja_fuertenumber : MonoBehaviour
         
             rotationX += 36f;
 
-            if (rotationX >= 360f)
-            {
-                rotationX = 0f;
-            }
+            //if (rotationX >= 360f)
+            //{
+            //    rotationX = 0f;
+            //}
 
-            transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(rotationX, 90,90);
 
            
             _renderer.material.color = Random.ColorHSV();
