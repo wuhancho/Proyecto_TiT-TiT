@@ -21,22 +21,22 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.7169812, g: 0.19277322, b: 0.19277322, a: 1}
+    value: {r: 0.46226418, g: 0.18970276, b: 0.18970276, a: 1}
   center:
     overrideState: 0
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.47
+    value: 0.365
   smoothness:
     overrideState: 1
-    value: 0.128
+    value: 0.232
   roundness:
     overrideState: 0
     value: 1
   rounded:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 1
   mask:
     overrideState: 0
     value: {fileID: 0}
@@ -74,12 +74,12 @@ MonoBehaviour:
     value: 65455.46
   diffusion:
     overrideState: 1
-    value: 4.75
+    value: 5.63
   anamorphicRatio:
     overrideState: 0
     value: 0
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 0
@@ -91,34 +91,6 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &-5225376803642314460
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  focusDistance:
-    overrideState: 1
-    value: 0.5
-  aperture:
-    overrideState: 0
-    value: 32
-  focalLength:
-    overrideState: 1
-    value: 20
-  kernelSize:
-    overrideState: 1
-    value: 3
 --- !u!114 &-3131379571532343353
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -140,7 +112,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.39
+    value: 2.12
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -186,7 +158,6 @@ MonoBehaviour:
   settings:
   - {fileID: -3131379571532343353}
   - {fileID: -5630327384745100438}
-  - {fileID: -5225376803642314460}
   - {fileID: -8943939884118936483}
   - {fileID: 4417679285414992043}
 --- !u!114 &4417679285414992043
