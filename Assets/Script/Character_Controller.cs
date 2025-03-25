@@ -14,12 +14,12 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private Rigidbody rb;
     private Transform cameraTransform;
-    private CapsuleCollider capCol;
-    private float minMoveDistance = 0.01f;
-    private CapsuleCollider charCol;
-    [SerializeField] private LayerMask validLayers;
-    [SerializeField] private float bias = 0.05f;
-    private RaycastHit[] hitBuffer = new RaycastHit[10];
+    //private CapsuleCollider capCol;
+    //private float minMoveDistance = 0.01f;
+    //[SerializeField] private LayerMask validLayers;
+    //[SerializeField] private float bias = 0.05f;
+    //private RaycastHit[] hitBuffer = new RaycastHit[10];
+    //private CapsuleCollider charCol;
 
     void Awake()
     {
@@ -31,8 +31,17 @@ public class Character_Controller : MonoBehaviour
         {
             Debug.LogError("No se encontró la cámara principal. Asegúrate de que esté etiquetada como MainCamera.");
         }
-        capCol = GetComponent<CapsuleCollider>();
-        charCol = GetComponent<CapsuleCollider>();
+        Collider col = GetComponent<Collider>();
+        //if (col != null)
+        //{
+        //    PhysicMaterial noFriction = new PhysicMaterial();
+        //    noFriction.dynamicFriction = 0;
+        //    noFriction.staticFriction = 0;
+        //    noFriction.frictionCombine = PhysicMaterialCombine.Minimum;
+        //    col.material = noFriction;
+        //}
+        //capCol = GetComponent<CapsuleCollider>();
+        //charCol = GetComponent<CapsuleCollider>();
 
     }
     private void Update()
@@ -152,167 +161,204 @@ public class Character_Controller : MonoBehaviour
 
     void Move(Vector3 velocity)
     {
+        //if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+        //{
+        //    rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        //    return;
+        //}
+
+        //Vector3 forward = cameraTransform.forward;
+        //Vector3 right = cameraTransform.right;
+        //Vector3 input = input_Controller.MoveInput();
+        //forward.y = 0;
+        //right.y = 0;
+        //forward.Normalize();
+        //right.Normalize();
+
+        //Vector3 moveDirection = (forward * input.z + right * input.x).normalized;
+        //Vector3 targetVelocity = moveDirection * _speed;
+
+        //rb.MovePosition(rb.position + targetVelocity * Time.deltaTime);
+        #region hecho juan
+        if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+            return;
+        }
+
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+        Vector3 input = input_Controller.MoveInput();
+        forward.Normalize();
+        right.Normalize();
+        Vector3 moveDirection = forward * input.z + right * input.x;
+        velocity = moveDirection * _speed;
+        velocity.y = rb.velocity.y;
+        rb.velocity = velocity;
         Vector3 position = transform.position;
         Vector3 trajectory = velocity;
-        int bounces = 0;
+        #endregion
+        //int bounces = 0;
+        #region hecho por ignacio
+        //while (trajectory.magnitude > minMoveDistance && bounces < 5)
+        //{
+        //    if (CapsuleTrace(position, trajectory, transform.rotation, validLayers,
+        //        hitBuffer, QueryTriggerInteraction.UseGlobal, bias))
+        //    {
+        //        float hitDistance = GetClosestHit(hitBuffer).distance;
+        //        float fraction = (hitDistance / trajectory.magnitude);
+        //        position += hitDistance * trajectory;
+        //        trajectory *= (1 - fraction);
 
-        while (trajectory.magnitude > minMoveDistance && bounces < 5)
-        {
-            if (CapsuleTrace(position, trajectory, transform.rotation, validLayers,
-                hitBuffer, QueryTriggerInteraction.UseGlobal, bias))
-            {
-                float hitDistance = GetClosestHit(hitBuffer).distance;
-                float fraction = (hitDistance / trajectory.magnitude);
-                position += hitDistance * trajectory;
-                trajectory *= (1 - fraction);
-
-                for (int i = 0; i < hitBuffer.Length; i++)
-                {
-                    RaycastHit thisHit = hitBuffer[i];
-                    if (thisHit.distance == 0) break;
-                    Vector3 projected = Vector3.ProjectOnPlane(trajectory, thisHit.normal);
-                    trajectory = projected;
-                }
-            }
-            else
-            {
-                break;
-            }
-            bounces++;
-        }
-        transform.position = position + trajectory;
+        //        for (int i = 0; i < hitBuffer.Length; i++)
+        //        {
+        //            RaycastHit thisHit = hitBuffer[i];
+        //            if (thisHit.distance == 0) break;
+        //            Vector3 projected = Vector3.ProjectOnPlane(trajectory, thisHit.normal);
+        //            trajectory = projected;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        break;
+        //    }
+        //    bounces++;
+        //}
+        //transform.position = position + trajectory;
+        #endregion
     }
 
-    public bool CapsuleTrace(
-        Vector3 position,
-        Vector3 direction,
-        Quaternion orientation,
-        LayerMask validLayers,
-        RaycastHit[] hitBuffer,
-        QueryTriggerInteraction triggers = QueryTriggerInteraction.UseGlobal,
-        float bias = float.Epsilon
-    )
-    {
-        position += orientation * charCol.center;
-        Vector3 capsuleLineSegment = orientation * Vector3.up * ((charCol.height / 2) - (charCol.radius));
+    #region hecho por ignacio
+    //public bool CapsuleTrace(
+    //    Vector3 position,
+    //    Vector3 direction,
+    //    Quaternion orientation,
+    //    LayerMask validLayers,
+    //    RaycastHit[] hitBuffer,
+    //    QueryTriggerInteraction triggers = QueryTriggerInteraction.UseGlobal,
+    //    float bias = float.Epsilon
+    //)
+    //{
+    //    position += orientation * charCol.center;
+    //    Vector3 capsuleLineSegment = orientation * Vector3.up * ((charCol.height / 2) - (charCol.radius));
 
-        Vector3 safeDirection = direction.magnitude > 0 ? direction.normalized : Vector3.forward;
+    //    Vector3 safeDirection = direction.magnitude > 0 ? direction.normalized : Vector3.forward;
 
-        int traceHits = Physics.CapsuleCastNonAlloc(
-            position + capsuleLineSegment,
-            position - capsuleLineSegment,
-            charCol.radius + bias,
-            safeDirection,
-            hitBuffer,
-            direction.magnitude,
-            validLayers,
-            triggers
-        );
+    //    int traceHits = Physics.CapsuleCastNonAlloc(
+    //        position + capsuleLineSegment,
+    //        position - capsuleLineSegment,
+    //        charCol.radius + bias,
+    //        safeDirection,
+    //        hitBuffer,
+    //        direction.magnitude,
+    //        validLayers,
+    //        triggers
+    //    );
 
-        return traceHits > 0;
-    }
+    //    return traceHits > 0;
+    //}
 
-    private RaycastHit GetClosestHit(RaycastHit[] hitBuffer)
-    {
-        RaycastHit closestHit = new RaycastHit();
-        float minDistance = float.MaxValue;
+    //private RaycastHit GetClosestHit(RaycastHit[] hitBuffer)
+    //{
+    //    RaycastHit closestHit = new RaycastHit();
+    //    float minDistance = float.MaxValue;
 
-        foreach (var hit in hitBuffer)
-        {
-            if (hit.distance > 0 && hit.distance < minDistance)
-            {
-                closestHit = hit;
-                minDistance = hit.distance;
-            }
-        }
-        return closestHit;
-    }
+    //    foreach (var hit in hitBuffer)
+    //    {
+    //        if (hit.distance > 0 && hit.distance < minDistance)
+    //        {
+    //            closestHit = hit;
+    //            minDistance = hit.distance;
+    //        }
+    //    }
+    //    return closestHit;
+    //}
+    #endregion
 
-    
 }
 
 
 
-    //#region intento 2 de movimiento
-    //if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
-    //{
-    //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
-    //    return;
-    //}
+//#region intento 2 de movimiento
+//if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+//{
+//    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+//    return;
+//}
 
-    //Vector3 forward = cameraTransform.forward;
-    //Vector3 right = cameraTransform.right;
-    //Vector3 input = input_Controller.MoveInput();
-    //forward.Normalize();
-    //right.Normalize();
-    //Vector3 moveDirection = forward * input.z + right * input.x;
-    //Vector3 velocity = moveDirection * _speed;
-    //velocity.y = rb.velocity.y;
-    //rb.velocity = velocity;
-    //#endregion
-    #region intento 4 movimiento
-    //if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilito)
-    //{
-    //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
-    //    return;
-    //}
+//Vector3 forward = cameraTransform.forward;
+//Vector3 right = cameraTransform.right;
+//Vector3 input = input_Controller.MoveInput();
+//forward.Normalize();
+//right.Normalize();
+//Vector3 moveDirection = forward * input.z + right * input.x;
+//Vector3 velocity = moveDirection * _speed;
+//velocity.y = rb.velocity.y;
+//rb.velocity = velocity;
+//#endregion
+#region intento 4 movimiento
+//if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilito)
+//{
+//    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+//    return;
+//}
 
-    //Vector3 forward = cameraTransform.forward;
-    //Vector3 right = cameraTransform.right;
-    //Vector3 input = input_Controller.MoveInput();
-    //forward.y = 0; // Asegurarse de que el movimiento sea en el plano horizontal
-    //right.y = 0;
+//Vector3 forward = cameraTransform.forward;
+//Vector3 right = cameraTransform.right;
+//Vector3 input = input_Controller.MoveInput();
+//forward.y = 0; // Asegurarse de que el movimiento sea en el plano horizontal
+//right.y = 0;
 
-    //forward.Normalize();
-    //right.Normalize();
+//forward.Normalize();
+//right.Normalize();
 
-    //Vector3 moveDirection = forward * input.z + right * input.x;
-    //Vector3 targetPosition = rb.position + moveDirection * _speed * Time.deltaTime;
+//Vector3 moveDirection = forward * input.z + right * input.x;
+//Vector3 targetPosition = rb.position + moveDirection * _speed * Time.deltaTime;
 
-    //// Verificar colisiones con un Raycast
-    //if (!Physics.Raycast(rb.position, moveDirection.normalized, 0.5f)) // Ajusta la distancia según tu collider
-    //{
-    //    rb.MovePosition(targetPosition);
-    //}
-    #endregion
-    #region intento3 de movimiento
-    //if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilito)
-    //{
-    //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
-    //    return;
-    //}
+//// Verificar colisiones con un Raycast
+//if (!Physics.Raycast(rb.position, moveDirection.normalized, 0.5f)) // Ajusta la distancia según tu collider
+//{
+//    rb.MovePosition(targetPosition);
+//}
+#endregion
+#region intento3 de movimiento
+//if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilito)
+//{
+//    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+//    return;
+//}
 
-    //Vector3 forward = cameraTransform.forward;
-    //Vector3 right = cameraTransform.right;
-    //Vector3 input = input_Controller.MoveInput();
-    //forward.y = 0; // Asegurarse de que el movimiento sea en el plano horizontal
-    //right.y = 0;
+//Vector3 forward = cameraTransform.forward;
+//Vector3 right = cameraTransform.right;
+//Vector3 input = input_Controller.MoveInput();
+//forward.y = 0; // Asegurarse de que el movimiento sea en el plano horizontal
+//right.y = 0;
 
-    //forward.Normalize();
-    //right.Normalize();
+//forward.Normalize();
+//right.Normalize();
 
-    //Vector3 moveDirection = forward * input.z + right * input.x;
-    //Vector3 targetPosition = rb.position + moveDirection * _speed * Time.deltaTime;
+//Vector3 moveDirection = forward * input.z + right * input.x;
+//Vector3 targetPosition = rb.position + moveDirection * _speed * Time.deltaTime;
 
-    //rb.MovePosition(targetPosition); // Mueve el Rigidbody directamente
-    #endregion
-    #region intento1 de movimiento no usar
-    //Vector3 forward = cameraTransform.forward;
-    //Vector3 right = cameraTransform.right;
-    //Vector3 input = input_Controller.MoveInput();
-    //forward.Normalize();
-    //right.Normalize();
-    ////Vector3 velocity = rb.velocity;
-    //Vector3 moveDirection = forward * input.z + right * input.x;
-    //Vector3 velocity = moveDirection * _speed;
-    //velocity.y = rb.velocity.y;
-    //rb.velocity = velocity;
+//rb.MovePosition(targetPosition); // Mueve el Rigidbody directamente
+#endregion
+#region intento1 de movimiento no usar
+//Vector3 forward = cameraTransform.forward;
+//Vector3 right = cameraTransform.right;
+//Vector3 input = input_Controller.MoveInput();
+//forward.Normalize();
+//right.Normalize();
+////Vector3 velocity = rb.velocity;
+//Vector3 moveDirection = forward * input.z + right * input.x;
+//Vector3 velocity = moveDirection * _speed;
+//velocity.y = rb.velocity.y;
+//rb.velocity = velocity;
 
-    //velocity.z = input.z * _speed;
-    //velocity.x = input.x * _speed;
-    //transform.position += transform.forward * input.z * _speed * Time.deltaTime;
-    //transform.position += transform.right * input.x * _speed * Time.deltaTime;
-    #endregion
+//velocity.z = input.z * _speed;
+//velocity.x = input.x * _speed;
+//transform.position += transform.forward * input.z * _speed * Time.deltaTime;
+//transform.position += transform.right * input.x * _speed * Time.deltaTime;
+#endregion
 
 
 //private void Jump()
