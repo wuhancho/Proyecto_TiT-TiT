@@ -10,6 +10,7 @@ TagManager:
   - linterna
   - caja_puzzle
   - ViewLint
+  - Caja_Fuerte
   layers:
   - Default
   - TransparentFX

@@ -7,10 +7,6 @@ public class Caja_fuertenumber : MonoBehaviour
     [SerializeField] private Input_Controller _Controller;
     private float rotationX = 0f;
     private Renderer _renderer;
-    private void Start()
-    {
-        _renderer = GetComponent<Renderer>();
-    }
     private void Update()
     {
         if (_Controller.StateCollision && _Controller.Interact())
@@ -18,15 +14,14 @@ public class Caja_fuertenumber : MonoBehaviour
         
             rotationX += 36f;
 
-            //if (rotationX >= 360f)
-            //{
-            //    rotationX = 0f;
-            //}
+            if (rotationX > 360f)
+            {
+                rotationX = 0f;
+            }
+            print("rotationX: " + rotationX);
 
-            transform.rotation = Quaternion.Euler(rotationX, 90,90);
-
-           
-            _renderer.material.color = Random.ColorHSV();
+            
+            transform.rotation = Quaternion.Euler(rotationX, 0.0000001f, 0.0000001f);
         }
     }
 }
