@@ -2,9 +2,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
-public class Input_Controller : MonoBehaviour
+public class Input_Controller : GameManager
 {
-    [SerializeField] private GameManager gameManager;
+
     [SerializeField] private Transform hand;
     private Transform handItemOldParent;
     private ItemPickUp handItem;
@@ -13,7 +13,7 @@ public class Input_Controller : MonoBehaviour
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
 
-    public bool State { get => state; set => state = value; }
+    public bool State { get => state; set => state = value;}
     public bool StateCollision { get => stateCollision;}
 
     public Vector3 MoveInput()
@@ -33,9 +33,7 @@ public class Input_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && stateCollision)
         {
-            Debug.Log("entra La mouse0");
             return true;
-
         }
         else
         {
@@ -58,12 +56,12 @@ public class Input_Controller : MonoBehaviour
             if (state == true)
             {
                 Debug.Log("INVENTARIO ABIERTO");
-                gameManager.AbrirInventario(state);
+                AbrirInventario(state);
             }
             else if (state == false)
             {
                 Debug.Log("INVENTARIO CERRADO");
-                gameManager.AbrirInventario(state);
+                AbrirInventario(state);
             }
         }
     }
@@ -158,7 +156,7 @@ public class Input_Controller : MonoBehaviour
         {
             handItem.transform.SetParent(handItemOldParent, true);
             handItem.transform.position = place.position;
-            gameManager.DetectTruePosicionEngranaje();
+            DetectTruePosicionEngranaje();
 
         }
 
@@ -177,7 +175,7 @@ public class Input_Controller : MonoBehaviour
                 handItem.GetComponent<Collider>().enabled = false;
                 handItem.transform.localPosition = place.localPosition;
                 place.gameObject.SetActive(false);
-                gameManager.PuzleMapaCompletado();
+                PuzleMapaCompletado();
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);
             //handItem.transform.position = HandPutInObj;
@@ -192,7 +190,7 @@ public class Input_Controller : MonoBehaviour
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                gameManager.ComprobarPuzzleSalaEspera();
+                ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_radio")
             {
@@ -202,7 +200,7 @@ public class Input_Controller : MonoBehaviour
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                gameManager.ComprobarPuzzleSalaEspera();
+                ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_extintor")
             {
@@ -210,7 +208,7 @@ public class Input_Controller : MonoBehaviour
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                gameManager.ComprobarPuzzleSalaEspera();
+                ComprobarPuzzleSalaEspera();
             }
 
         }

@@ -1,33 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Caja_fuertenumber : MonoBehaviour
 {
     [SerializeField] private Input_Controller _Controller;
-    private float rotationX = 0f;
-    private Renderer _renderer;
-    private void Update()
-    {
-        //if (_Controller.StateCollision && _Controller.Interact())
-        //{
-        
-        //    rotationX += 36f;
+    private float rotationX;
+    [SerializeField] private GameObject dial1,dial2,dial3,dial4;
 
-        //    if (rotationX > 360f)
-        //    {
-        //        rotationX = 0f;
-        //    }
-        //    print("rotationX: " + rotationX);
-
-            
-        //    transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        //}
-    }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (_Controller.StateCollision && _Controller.Interact())
-        {
+    private void CambioNumero(GameObject dial)
+    {        
             rotationX += 36f;
 
             if (rotationX > 360f)
@@ -37,7 +20,6 @@ public class Caja_fuertenumber : MonoBehaviour
             print("rotationX: " + rotationX);
 
 
-            transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        }
+            dial.transform.rotation = Quaternion.Euler(rotationX, dial.transform.rotation.eulerAngles.y, dial.transform.rotation.eulerAngles.z);
     }
 }
