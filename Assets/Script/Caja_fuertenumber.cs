@@ -9,9 +9,25 @@ public class Caja_fuertenumber : MonoBehaviour
     private Renderer _renderer;
     private void Update()
     {
+        //if (_Controller.StateCollision && _Controller.Interact())
+        //{
+        
+        //    rotationX += 36f;
+
+        //    if (rotationX > 360f)
+        //    {
+        //        rotationX = 0f;
+        //    }
+        //    print("rotationX: " + rotationX);
+
+            
+        //    transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        //}
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
         if (_Controller.StateCollision && _Controller.Interact())
         {
-        
             rotationX += 36f;
 
             if (rotationX > 360f)
@@ -20,8 +36,8 @@ public class Caja_fuertenumber : MonoBehaviour
             }
             print("rotationX: " + rotationX);
 
-            
-            transform.rotation = Quaternion.Euler(rotationX, 0.0000001f, 0.0000001f);
+
+            transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
     }
 }
