@@ -2,9 +2,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
-public class Input_Controller : GameManager
+public class Input_Controller : MonoBehaviour
 {
-
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform hand;
     private Transform handItemOldParent;
     private ItemPickUp handItem;
@@ -13,8 +13,8 @@ public class Input_Controller : GameManager
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
 
-    public bool State { get => state; set => state = value;}
-    public bool StateCollision { get => stateCollision;}
+    public bool State { get => state; set => state = value; }
+    public bool StateCollision { get => stateCollision; }
 
     public Vector3 MoveInput()
     {
@@ -56,12 +56,12 @@ public class Input_Controller : GameManager
             if (state == true)
             {
                 Debug.Log("INVENTARIO ABIERTO");
-                AbrirInventario(state);
+                gameManager.AbrirInventario(state);
             }
             else if (state == false)
             {
                 Debug.Log("INVENTARIO CERRADO");
-                AbrirInventario(state);
+                gameManager.AbrirInventario(state);
             }
         }
     }
@@ -99,7 +99,7 @@ public class Input_Controller : GameManager
                         break;
                 }
             }
-            else if(handItem)
+            else if (handItem)
             {
                 if (handItem)
                 {
@@ -115,6 +115,19 @@ public class Input_Controller : GameManager
                 if (hit.collider != null)
                 {
                     stateCollision = true;
+                    if (hit.collider.CompareTag("Caja_Fuerte"))
+                    {
+                        //Caja_fuertenumber caja_fuertenumber = hit.collider.GetComponent<Caja_fuertenumber>();
+                        DialCajaFuerte dial = hit.collider.GetComponent<DialCajaFuerte>();
+                        if (dial != null)
+                        {
+                            dial.CambioNumero();
+                        }
+                        //else
+                        //{
+                        //    print(" y mis números?");
+                        //}
+                    }
                 }
                 else
                 {
@@ -135,7 +148,7 @@ public class Input_Controller : GameManager
             itemPickUp.GetComponent<Collider>().enabled = false;
             activeLight();
             return true;
-        }    
+        }
         return false;
     }
 
@@ -156,12 +169,12 @@ public class Input_Controller : GameManager
         {
             handItem.transform.SetParent(handItemOldParent, true);
             handItem.transform.position = place.position;
-            DetectTruePosicionEngranaje();
+            gameManager.DetectTruePosicionEngranaje();
 
         }
 
 
-        if (handItem.name == "Chincheta"|| handItem.name =="Chincheta(Clone)")
+        if (handItem.name == "Chincheta" || handItem.name == "Chincheta(Clone)")
         {// pone la chincheta en su localizacion.
             print("nombre del objeto colicion" + place.name);
             //print("entro en el if de la chincheta");
@@ -175,7 +188,7 @@ public class Input_Controller : GameManager
                 handItem.GetComponent<Collider>().enabled = false;
                 handItem.transform.localPosition = place.localPosition;
                 place.gameObject.SetActive(false);
-                PuzleMapaCompletado();
+                gameManager.PuzleMapaCompletado();
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);
             //handItem.transform.position = HandPutInObj;
@@ -190,7 +203,7 @@ public class Input_Controller : GameManager
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                ComprobarPuzzleSalaEspera();
+                gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_radio")
             {
@@ -200,7 +213,7 @@ public class Input_Controller : GameManager
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                ComprobarPuzzleSalaEspera();
+                gameManager.ComprobarPuzzleSalaEspera();
             }
             else if (place.name == "Zone_extintor")
             {
@@ -208,7 +221,7 @@ public class Input_Controller : GameManager
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
-                ComprobarPuzzleSalaEspera();
+                gameManager.ComprobarPuzzleSalaEspera();
             }
 
         }
@@ -219,10 +232,10 @@ public class Input_Controller : GameManager
             place.GetChild(0).gameObject.SetActive(true);
             place.GetComponent<MeshRenderer>().enabled = false;
             place.GetComponent<Collider>().enabled = false;
-            place.GetComponent<BoxCollider>().isTrigger=false;
+            place.GetComponent<BoxCollider>().isTrigger = false;
             colBox.enabled = true;
         }
-    
+
         handItem = null;
     }
     public void InteractItemHand(ItemPickUp item)

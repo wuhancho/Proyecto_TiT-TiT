@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool notaHabilitada = false;
     //private bool estadoRecompensa = false;
     [SerializeField] GameObject[] recompensas;
+    Caja_fuertenumber caja_Fuertenumber;
 
 
 
