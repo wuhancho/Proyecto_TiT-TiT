@@ -129,7 +129,7 @@ PrefabInstance:
       addedObject: {fileID: 6560060581612957237}
     - targetCorrespondingSourceObject: {fileID: -2727283120645560846, guid: 9c46a89209b78f847a09f42a6a66eb17, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2029230593754381885}
+      addedObject: {fileID: 5646181382235974412}
     - targetCorrespondingSourceObject: {fileID: -7348262246075382326, guid: 9c46a89209b78f847a09f42a6a66eb17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2082068206969974782}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cca3747c0d3bcf48b0f7e7670e2eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordNumber: 0
+  passwordNumber: 1
 --- !u!1 &4114860949446415043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4418685158168345783, guid: 9c46a89209b78f847a09f42a6a66eb17, type: 3}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cca3747c0d3bcf48b0f7e7670e2eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordNumber: 0
+  passwordNumber: 2
 --- !u!1 &4592236476984504982 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4319611992866020578, guid: 9c46a89209b78f847a09f42a6a66eb17, type: 3}
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cca3747c0d3bcf48b0f7e7670e2eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordNumber: 0
+  passwordNumber: 4
 --- !u!1 &6804377141502528390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2727283120645560846, guid: 9c46a89209b78f847a09f42a6a66eb17, type: 3}
@@ -301,7 +301,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.61169106, y: 0.71230584, z: 0.6116913}
   m_Center: {x: 0.00000047683716, y: 0, z: 0}
---- !u!114 &2029230593754381885
+--- !u!114 &5646181382235974412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,4 +353,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cca3747c0d3bcf48b0f7e7670e2eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordNumber: 0
+  passwordNumber: 3

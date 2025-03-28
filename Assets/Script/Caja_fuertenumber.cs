@@ -9,7 +9,7 @@ public class Caja_fuertenumber : MonoBehaviour
     private float rotationX;
     //[SerializeField] private GameObject dial1,dial2,dial3,dial4;
     private DialCajaFuerte[] diales;
-
+ 
     private void Awake()
     {
         diales = GetComponentsInChildren<DialCajaFuerte>();
@@ -25,6 +25,13 @@ public class Caja_fuertenumber : MonoBehaviour
             }
         }
         return true;
+    }
+    private void Update()
+    {
+        if(!IsCorrectPassword())
+        {
+            Debug.Log("Contraseña correcta");
+        }
     }
 
     //public void CualDial(GameObject dial)

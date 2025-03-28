@@ -49,3 +49,7 @@ MonoBehaviour:
   EnableRemove: {fileID: 0}
   gridSize: {x: 3, y: 3}
   slotSize: {x: 100, y: 100}
+  player: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 64

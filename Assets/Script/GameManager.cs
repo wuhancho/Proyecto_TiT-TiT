@@ -401,6 +401,7 @@ public class GameManager : MonoBehaviour
         }
         cantidad++;
     }
+    
     private void ActivarTriunfo(int puzle)
     {
         if (puzle == 1) // comprobar engranajes

@@ -47,16 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texto_pantalla: {fileID: 0}
   habilitoRaton: 0
+  inventario: {fileID: 0}
+  inventory: {fileID: 0}
+  _Controller: {fileID: 7327344589866652290}
+  puntero: {fileID: 0}
+  globo_anim: {fileID: 0}
   llamas:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  inventario: {fileID: 0}
-  inventory: {fileID: 0}
-  _Controller: {fileID: 7327344589866652290}
-  puntero: {fileID: 0}
   zonewin:
   - {fileID: 0}
   - {fileID: 0}
@@ -81,6 +82,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &7327344589866652290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,3 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 7425756792342302436}
   hand: {fileID: 0}
+  ligh: {fileID: 0}
+  colBox: {fileID: 0}
