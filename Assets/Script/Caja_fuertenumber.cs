@@ -45,6 +45,10 @@ public class Caja_fuertenumber : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 
     //public void CualDial(GameObject dial)
     //{
