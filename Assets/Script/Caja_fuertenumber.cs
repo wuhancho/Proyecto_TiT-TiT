@@ -9,10 +9,15 @@ public class Caja_fuertenumber : MonoBehaviour
     private float rotationX;
     //[SerializeField] private GameObject dial1,dial2,dial3,dial4;
     private DialCajaFuerte[] diales;
- 
+    private bool anim = false;
+    [SerializeField] private Animator animCajaFuerte;
+
     private void Awake()
     {
         diales = GetComponentsInChildren<DialCajaFuerte>();
+        animCajaFuerte = GetComponent<Animator>();
+        animCajaFuerte.enabled = anim;
+        
     }
 
     public bool IsCorrectPassword()
@@ -25,12 +30,19 @@ public class Caja_fuertenumber : MonoBehaviour
             }
         }
         return true;
+        //print("Contraseña incorrecta");
     }
     private void Update()
     {
-        if(!IsCorrectPassword())
+        if (!anim)
         {
-            Debug.Log("Contraseña correcta");
+            if (IsCorrectPassword())
+            {
+                anim = true;
+                animCajaFuerte.enabled=anim;
+                animCajaFuerte.SetTrigger("Open");
+                Debug.Log("Contraseña correcta");
+            }
         }
     }
 

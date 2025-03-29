@@ -38,14 +38,14 @@ public class GameManager : MonoBehaviour
     // puzle del planeta
     //[Header ("Puzle entrada")]
     //[SerializeField] private Chincheta chincheta;
-    //[Header("Puzle despacho1")]
+    [Header("Puzle Oficinas")]
+
+    Caja_fuertenumber caja_Fuertenumber;
 
     [Header("Reconpensas")]
     [SerializeField] private bool notaHabilitada = false;
     //private bool estadoRecompensa = false;
     [SerializeField] GameObject[] recompensas;
-    Caja_fuertenumber caja_Fuertenumber;
-
 
 
     //public bool EstadoRecompensa { get => estadoRecompensa; set => estadoRecompensa = value; }
