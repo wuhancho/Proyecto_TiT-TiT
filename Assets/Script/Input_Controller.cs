@@ -12,6 +12,7 @@ public class Input_Controller : MonoBehaviour
     private bool stateCollision = false;
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
+    [SerializeField] private GameObject camPlayer;
 
     public bool State { get => state; set => state = value; }
     public bool StateCollision { get => stateCollision; }
@@ -117,8 +118,11 @@ public class Input_Controller : MonoBehaviour
                     stateCollision = true;
                     if (hit.collider.CompareTag("Caja_Fuerte"))
                     {
+
+                        hit.collider.GetComponent<Caja_fuertenumber>().changeCamPivot(camPlayer);
                         //Caja_fuertenumber caja_fuertenumber = hit.collider.GetComponent<Caja_fuertenumber>();
                         DialCajaFuerte dial = hit.collider.GetComponent<DialCajaFuerte>();
+
                         if (dial != null)
                         {
                             dial.CambioNumero();

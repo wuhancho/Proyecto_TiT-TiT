@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     public bool NotaHabilitada { get => notaHabilitada; set => notaHabilitada = value; }
     public bool VelasN { get => velasN; set => velasN = value; }
 
-
     public void Awake()
     {
         for (int i = 0; i < zoneinit.Length; i++)

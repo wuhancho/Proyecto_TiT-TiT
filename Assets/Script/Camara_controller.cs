@@ -24,55 +24,58 @@ public class Camara_controller : MonoBehaviour
     }
     private void Update()
     {
-        Vector2 input = _controller.MouseInput();
-
-        //// Rotación horizontal
-        //Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
-        //transform.localRotation *= horizontalRotation;
-
-        //// Rotación vertical con restricciones de ángulo
-        //Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
-        //Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
-        //float angleX = Quaternion.Angle(newRotation, _initialRotation);
-        //if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
-        //{
-        //    _camaraAnchor.localRotation = newRotation;
-        //}
-        //if(!_controller.State || _gameManager.NotaHabilitada)
-        //{
-        //    // Rotación horizontal
-        //    Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
-        //    transform.localRotation *= horizontalRotation;
-
-        //    // Rotación vertical con restricciones de ángulo
-        //    Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
-        //    Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
-        //    float angleX = Quaternion.Angle(newRotation, _initialRotation);
-        //    if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
-        //    {
-        //        _camaraAnchor.localRotation = newRotation;
-        //    }
-        //}
-
-        if (_controller.State || _gameManager.NotaHabilitada || _gameManager.habilitoRaton)
+        if (_controller != null)
         {
-            return;
+            Vector2 input = _controller.MouseInput();
+
+            //// Rotación horizontal
+            //Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
+            //transform.localRotation *= horizontalRotation;
+
+            //// Rotación vertical con restricciones de ángulo
+            //Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
+            //Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
+            //float angleX = Quaternion.Angle(newRotation, _initialRotation);
+            //if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
+            //{
+            //    _camaraAnchor.localRotation = newRotation;
+            //}
+            //if(!_controller.State || _gameManager.NotaHabilitada)
+            //{
+            //    // Rotación horizontal
+            //    Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
+            //    transform.localRotation *= horizontalRotation;
+
+            //    // Rotación vertical con restricciones de ángulo
+            //    Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
+            //    Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
+            //    float angleX = Quaternion.Angle(newRotation, _initialRotation);
+            //    if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
+            //    {
+            //        _camaraAnchor.localRotation = newRotation;
+            //    }
+            //}
+
+            if (_controller.State || _gameManager.NotaHabilitada || _gameManager.habilitoRaton)
+            {
+                return;
+            }
+
+
+
+            // Rotación horizontal
+            Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
+            transform.localRotation *= horizontalRotation;
+
+            // Rotación vertical con restricciones de ángulo
+            Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
+            Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
+            float angleX = Quaternion.Angle(newRotation, _initialRotation);
+            if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
+            {
+                _camaraAnchor.localRotation = newRotation;
+            }
+
         }
-
-
-
-        // Rotación horizontal
-        Quaternion horizontalRotation = Quaternion.Euler(0f, input.x * _senseCamara * Time.deltaTime, 0f);
-        transform.localRotation *= horizontalRotation;
-
-        // Rotación vertical con restricciones de ángulo
-        Quaternion verticalRotation = Quaternion.Euler(input.y * _senseCamara * Time.deltaTime, 0f, 0f);
-        Quaternion newRotation = _camaraAnchor.localRotation * verticalRotation;
-        float angleX = Quaternion.Angle(newRotation, _initialRotation);
-        if (angleX <= _maxAngleDown || angleX >= 360f - _maxAngleUp)
-        {
-            _camaraAnchor.localRotation = newRotation;
-        }
-
     }
 }

@@ -6,15 +6,21 @@ using UnityEngine;
 public class Caja_fuertenumber : MonoBehaviour
 {
     [SerializeField] private Input_Controller _Controller;
+    [SerializeField] private GameManager _GameManager;
     private float rotationX;
     //[SerializeField] private GameObject dial1,dial2,dial3,dial4;
     private DialCajaFuerte[] diales;
     private bool anim = false;
     [SerializeField] private Animator animCajaFuerte;
+    private GameObject pivotCamara;
 
     private void Awake()
     {
         diales = GetComponentsInChildren<DialCajaFuerte>();
+        for (int i = 0; i < diales.Length; i++)
+        {
+            diales[i].GetComponent<MeshCollider>().enabled = false;
+        }
         animCajaFuerte = GetComponent<Animator>();
         animCajaFuerte.enabled = anim;
         
@@ -45,9 +51,10 @@ public class Caja_fuertenumber : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public void changeCamPivot(GameObject camPlayer)
     {
-        
+        camPlayer.transform.SetParent(pivotCamara.transform);
+
     }
 
     //public void CualDial(GameObject dial)
