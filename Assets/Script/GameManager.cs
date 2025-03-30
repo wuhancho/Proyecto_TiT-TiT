@@ -474,16 +474,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DesabilitarNota1(int numNota)
-    {
-        recompensas[numNota].SetActive(false);
-        HabilitarRaton(false);
-        print("bye bye ");
-        //print("estado de la recompensa presionando E " + estadoRecompensa);
-        //puntero.SetActive(true);
-        //estadoRecompensa = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-        //notaHabilitada = false;
-    }
+  
 }

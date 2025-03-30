@@ -51,11 +51,11 @@ public class Character_Controller : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !gameManager.habilitoRaton)
         {
-            Debug.Log($"lanza rayo jugador: state ={input_Controller.State}, Notahabilitada ={gameManager.NotaHabilitada}, habilito ={gameManager.habilitoRaton}");
+            Debug.Log($"lanza rayo jugador: state ={input_Controller.IsMoving}, Notahabilitada ={gameManager.NotaHabilitada}, habilito ={gameManager.habilitoRaton}");
             input_Controller.RayCoger(distan);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !input_Controller.State)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !input_Controller.IsMoving)
         {
             print("entra La mouse1");
             input_Controller.Interact_();
@@ -180,7 +180,7 @@ public class Character_Controller : MonoBehaviour
 
         //rb.MovePosition(rb.position + targetVelocity * Time.deltaTime);
         #region hecho juan
-        if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+        if (input_Controller.IsMoving || gameManager.NotaHabilitada || gameManager.habilitoRaton)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
             return;

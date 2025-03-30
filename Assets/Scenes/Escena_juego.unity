@@ -54948,14 +54948,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 222644878487454972, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
-      propertyPath: m_Name
-      value: PivotCam
-      objectReference: {fileID: 0}
     - target: {fileID: 3193144911364804188, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
       propertyPath: _Controller
       value: 
       objectReference: {fileID: 1062124416}
+    - target: {fileID: 3193144911364804188, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
+      propertyPath: _GameManager
+      value: 
+      objectReference: {fileID: 1838781032}
     - target: {fileID: 3870666872589431591, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
       propertyPath: m_Name
       value: Caja_fuerte
@@ -55000,13 +55000,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5468827514562650012, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6787155549259998617, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
-    - {fileID: 8687860620882999614, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

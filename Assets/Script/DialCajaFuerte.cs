@@ -30,7 +30,7 @@ public class DialCajaFuerte : MonoBehaviour
 
     public bool IsCorrectNumber()
     {
-        Debug.Log($"Checking Dial: {SelectedNumber()}, Expected: {passwordNumber}");
+        //Debug.Log($"Checking Dial: {SelectedNumber()}, Expected: {passwordNumber}");
         return SelectedNumber() == passwordNumber;
     }
 

@@ -8,13 +8,14 @@ public class Input_Controller : MonoBehaviour
     [SerializeField] private Transform hand;
     private Transform handItemOldParent;
     private ItemPickUp handItem;
-    private bool state = false;
+    private bool state_mov = false, state_cam =false;
     private bool stateCollision = false;
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
     [SerializeField] private GameObject camPlayer;
 
-    public bool State { get => state; set => state = value; }
+    public bool StateCam { get => state_cam; set => state_cam = value; }
+    public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
 
     public Vector3 MoveInput()
@@ -52,17 +53,18 @@ public class Input_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            state = !state; // Cambia el estado
+            state_mov = !state_mov; // Cambia el estado
+            state_cam = !state_cam;
             //Debug.Log(state);
-            if (state == true)
+            if (state_mov == true && state_cam == true)
             {
                 Debug.Log("INVENTARIO ABIERTO");
-                gameManager.AbrirInventario(state);
+                gameManager.AbrirInventario(state_mov);
             }
-            else if (state == false)
+            else if (state_mov == false&& state_cam == false)
             {
                 Debug.Log("INVENTARIO CERRADO");
-                gameManager.AbrirInventario(state);
+                gameManager.AbrirInventario(state_mov);
             }
         }
     }
@@ -118,8 +120,11 @@ public class Input_Controller : MonoBehaviour
                     stateCollision = true;
                     if (hit.collider.CompareTag("Caja_Fuerte"))
                     {
-
-                        hit.collider.GetComponent<Caja_fuertenumber>().changeCamPivot(camPlayer);
+                        if(hit.collider.GetComponent<Caja_fuertenumber>() != null)
+                        {
+                            Caja_fuertenumber caja_fuertenumber = hit.collider.GetComponent<Caja_fuertenumber>();
+                            caja_fuertenumber.changeCamPivot(camPlayer);
+                        }
                         //Caja_fuertenumber caja_fuertenumber = hit.collider.GetComponent<Caja_fuertenumber>();
                         DialCajaFuerte dial = hit.collider.GetComponent<DialCajaFuerte>();
 

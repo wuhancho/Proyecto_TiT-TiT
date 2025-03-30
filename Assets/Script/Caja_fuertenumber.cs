@@ -12,7 +12,7 @@ public class Caja_fuertenumber : MonoBehaviour
     private DialCajaFuerte[] diales;
     private bool anim = false;
     [SerializeField] private Animator animCajaFuerte;
-    private GameObject pivotCamara;
+    [SerializeField] private GameObject pivotCamara;
 
     private void Awake()
     {
@@ -53,7 +53,14 @@ public class Caja_fuertenumber : MonoBehaviour
     }
     public void changeCamPivot(GameObject camPlayer)
     {
-        camPlayer.transform.SetParent(pivotCamara.transform);
+        //camPlayer.transform.SetParent(pivotCamara.transform);
+        //camPlayer.transform.localPosition = Vector3.zero;
+        //camPlayer.transform.localRotation = Quaternion.identity;
+        //_Controller.IsMoving = false;
+        //for (int i = 0; i < diales.Length; i++)
+        //{
+        //    diales[i].GetComponent<MeshCollider>().enabled = false;
+        //}
 
     }
 

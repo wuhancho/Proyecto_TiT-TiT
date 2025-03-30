@@ -56,7 +56,7 @@ public class Camara_controller : MonoBehaviour
             //    }
             //}
 
-            if (_controller.State || _gameManager.NotaHabilitada || _gameManager.habilitoRaton)
+            if (_controller.StateCam || _gameManager.NotaHabilitada || _gameManager.habilitoRaton)
             {
                 return;
             }
