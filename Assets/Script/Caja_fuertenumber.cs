@@ -13,6 +13,9 @@ public class Caja_fuertenumber : MonoBehaviour
     private bool anim = false;
     [SerializeField] private Animator animCajaFuerte;
     [SerializeField] private GameObject pivotCamara;
+    [SerializeField] private float rotationLimit;
+    [SerializeField] private GameObject camPlayerObject;
+    [SerializeField] private Transform transfPlayer;
 
     private void Awake()
     {
@@ -47,23 +50,59 @@ public class Caja_fuertenumber : MonoBehaviour
                 anim = true;
                 animCajaFuerte.enabled=anim;
                 animCajaFuerte.SetTrigger("Open");
+                ReturnCameraToPlayer();
                 Debug.Log("Contraseña correcta");
+            }
+        }
+        if (_Controller.StateCam)
+        {
+            RotateCamera();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                ReturnCameraToPlayer();
             }
         }
     }
     public void changeCamPivot(GameObject camPlayer)
     {
-        //camPlayer.transform.SetParent(pivotCamara.transform);
-        //camPlayer.transform.localPosition = Vector3.zero;
-        //camPlayer.transform.localRotation = Quaternion.identity;
-        //_Controller.IsMoving = false;
-        //for (int i = 0; i < diales.Length; i++)
-        //{
-        //    diales[i].GetComponent<MeshCollider>().enabled = false;
-        //}
+        camPlayerObject = camPlayer;
+        transfPlayer = camPlayer.transform.parent;
+        camPlayer.transform.SetParent(pivotCamara.transform);
+        camPlayer.transform.localPosition = Vector3.zero;
+        camPlayer.transform.localRotation = Quaternion.identity;
+        _Controller.IsMoving = false;
+        _Controller.StateCam = true;
+        for (int i = 0; i < diales.Length; i++)
+        {
+            diales[i].GetComponent<MeshCollider>().enabled = true;
+        }
+    }
+    private void RotateCamera()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float newRotationY = pivotCamara.transform.localEulerAngles.y + mouseX;
 
+        if (newRotationY > 180)
+        {
+            newRotationY -= 360;
+        }
+
+        newRotationY = Mathf.Clamp(newRotationY, -rotationLimit, rotationLimit);
+        pivotCamara.transform.localEulerAngles = new Vector3(pivotCamara.transform.localEulerAngles.x, newRotationY, pivotCamara.transform.localEulerAngles.z);
     }
 
+    private void ReturnCameraToPlayer()
+    {
+        camPlayerObject.transform.SetParent(transfPlayer);
+        camPlayerObject.transform.localPosition = Vector3.zero;
+        camPlayerObject.transform.localRotation = Quaternion.identity;
+        _Controller.IsMoving = true;
+        _Controller.StateCam = false;
+        for (int i = 0; i < diales.Length; i++)
+        {
+            diales[i].GetComponent<MeshCollider>().enabled = false;
+        }
+    }
     //public void CualDial(GameObject dial)
     //{
     //    if (dial == dial1)

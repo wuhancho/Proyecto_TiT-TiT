@@ -18,6 +18,7 @@ public class Input_Controller : MonoBehaviour
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
 
+
     public Vector3 MoveInput()
     {
         float x = Input.GetAxis("Horizontal");

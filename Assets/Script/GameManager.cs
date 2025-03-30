@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
@@ -81,9 +82,20 @@ public class GameManager : MonoBehaviour
         //    //print(contEngranajes);
         //    //contEngranajes = 6;
         //}
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            StartCoroutine(MostrarEstado());
+        }
         notaHabilitada = NotaHabilitada;
         velasN = VelasN;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+    }
+    private IEnumerator MostrarEstado()
+    {
+        texto_pantalla.enabled = true;
+        texto_pantalla.text = $"StateCam: {_Controller.StateCam} IsMoving: {_Controller.IsMoving}";
+        yield return new WaitForSeconds(3);
+        texto_pantalla.enabled = false;
     }
     private void OnGUI()
     {

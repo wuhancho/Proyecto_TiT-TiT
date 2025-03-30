@@ -19921,6 +19921,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 19379678073608325, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2978819103567363209, guid: 88419c14bc21f5f489e3b2ea3363de3c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -54956,6 +54960,10 @@ PrefabInstance:
       propertyPath: _GameManager
       value: 
       objectReference: {fileID: 1838781032}
+    - target: {fileID: 3193144911364804188, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
+      propertyPath: rotationLimit
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3870666872589431591, guid: 62984e412564aca4a8cd7182b902719e, type: 3}
       propertyPath: m_Name
       value: Caja_fuerte
