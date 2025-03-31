@@ -8,17 +8,27 @@ public class Input_Controller : MonoBehaviour
     [SerializeField] private Transform hand;
     private Transform handItemOldParent;
     private ItemPickUp handItem;
-    private bool state_mov = false, state_cam =false;
+    private bool state_mov, state_cam;
+
     private bool stateCollision = false;
     [SerializeField] private GameObject ligh;
     [SerializeField] private Collider colBox;
     [SerializeField] private GameObject camPlayer;
+    [SerializeField] private bool inventario = false;
 
     public bool StateCam { get => state_cam; set => state_cam = value; }
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
 
-
+    private void Update()
+    {
+        //state_cam = StateCam;
+        //state_mov = IsMoving;
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            StartCoroutine(gameManager.MostrarEstado(StateCam, IsMoving));
+        }
+    }
     public Vector3 MoveInput()
     {
         float x = Input.GetAxis("Horizontal");
@@ -54,18 +64,21 @@ public class Input_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            state_mov = !state_mov; // Cambia el estado
-            state_cam = !state_cam;
+            inventario = !inventario;
             //Debug.Log(state);
-            if (state_mov == true && state_cam == true)
+            if (inventario)
             {
+                StateCam = true;
+                IsMoving = true;
                 Debug.Log("INVENTARIO ABIERTO");
-                gameManager.AbrirInventario(state_mov);
+                gameManager.AbrirInventario(IsMoving);
             }
-            else if (state_mov == false&& state_cam == false)
+            else if (!inventario)
             {
+                StateCam = false;
+                IsMoving = false;
                 Debug.Log("INVENTARIO CERRADO");
-                gameManager.AbrirInventario(state_mov);
+                gameManager.AbrirInventario(IsMoving);
             }
         }
     }

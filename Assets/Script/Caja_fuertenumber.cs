@@ -51,6 +51,7 @@ public class Caja_fuertenumber : MonoBehaviour
                 animCajaFuerte.enabled=anim;
                 animCajaFuerte.SetTrigger("Open");
                 ReturnCameraToPlayer();
+                _GameManager.ComprobarPuzzleCajaFuerte();
                 Debug.Log("Contraseña correcta");
             }
         }
@@ -70,7 +71,7 @@ public class Caja_fuertenumber : MonoBehaviour
         camPlayer.transform.SetParent(pivotCamara.transform);
         camPlayer.transform.localPosition = Vector3.zero;
         camPlayer.transform.localRotation = Quaternion.identity;
-        _Controller.IsMoving = false;
+        _Controller.IsMoving = true;
         _Controller.StateCam = true;
         for (int i = 0; i < diales.Length; i++)
         {
@@ -96,7 +97,7 @@ public class Caja_fuertenumber : MonoBehaviour
         camPlayerObject.transform.SetParent(transfPlayer);
         camPlayerObject.transform.localPosition = Vector3.zero;
         camPlayerObject.transform.localRotation = Quaternion.identity;
-        _Controller.IsMoving = true;
+        _Controller.IsMoving = false;
         _Controller.StateCam = false;
         for (int i = 0; i < diales.Length; i++)
         {

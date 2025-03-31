@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Chincheta chincheta;
     [Header("Puzle Oficinas")]
 
-    Caja_fuertenumber caja_Fuertenumber;
+    [SerializeField] private Caja_fuertenumber caja_Fuertenumber;
 
     [Header("Reconpensas")]
     [SerializeField] private bool notaHabilitada = false;
@@ -82,18 +82,14 @@ public class GameManager : MonoBehaviour
         //    //print(contEngranajes);
         //    //contEngranajes = 6;
         //}
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(MostrarEstado());
-        }
         notaHabilitada = NotaHabilitada;
         velasN = VelasN;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
     }
-    private IEnumerator MostrarEstado()
+    public IEnumerator MostrarEstado(bool Cambool, bool Moving)
     {
         texto_pantalla.enabled = true;
-        texto_pantalla.text = $"StateCam: {_Controller.StateCam} IsMoving: {_Controller.IsMoving}";
+        texto_pantalla.text = $"StateCam: {Cambool} IsMoving: {Moving}";
         yield return new WaitForSeconds(3);
         texto_pantalla.enabled = false;
     }
@@ -412,7 +408,26 @@ public class GameManager : MonoBehaviour
         }
         cantidad++;
     }
-    
+    public void ComprobarPuzzleCajaFuerte()
+    {
+       
+            caja_Fuertenumber.enabled = false;
+            //print("completado");
+            ActivarTriunfo(6);
+        
+    }
+    public void DesabilitarNota(int numNota)
+    {
+        recompensas[numNota].SetActive(false);
+        HabilitarRaton(false);
+        print("bye bye ");
+        //print("estado de la recompensa presionando E " + estadoRecompensa);
+        //puntero.SetActive(true);
+        //estadoRecompensa = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //notaHabilitada = false;
+    }
     private void ActivarTriunfo(int puzle)
     {
         if (puzle == 1) // comprobar engranajes
@@ -482,8 +497,14 @@ public class GameManager : MonoBehaviour
         if (puzle == 5)
         {
             HabilitarRaton(true);
-            recompensas[3].SetActive(true);
+            recompensas[4].SetActive(true);
         }
+        if (puzle == 6)
+        {
+            HabilitarRaton(true);
+            recompensas[5].SetActive(true);
+        }
+
     }
 
   
