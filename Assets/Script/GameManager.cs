@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Chincheta chincheta;
     [Header("Puzle Oficinas")]
 
-    [SerializeField] private Caja_fuertenumber caja_Fuertenumber;
+    [SerializeField] private GameObject caja_Fuertenumber;
 
     [Header("Reconpensas")]
     [SerializeField] private bool notaHabilitada = false;
@@ -410,11 +410,9 @@ public class GameManager : MonoBehaviour
     }
     public void ComprobarPuzzleCajaFuerte()
     {
-       
-            caja_Fuertenumber.enabled = false;
-            //print("completado");
-            ActivarTriunfo(6);
-        
+        caja_Fuertenumber.tag = "Untagged";
+        //print("completado");
+        ActivarTriunfo(6);
     }
     public void DesabilitarNota(int numNota)
     {

@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
@@ -15,6 +16,7 @@ public class Input_Controller : MonoBehaviour
     [SerializeField] private Collider colBox;
     [SerializeField] private GameObject camPlayer;
     [SerializeField] private bool inventario = false;
+    public bool Inventario { get => inventario; set => inventario = value; }
 
     public bool StateCam { get => state_cam; set => state_cam = value; }
     public bool IsMoving { get => state_mov; set => state_mov = value; }
@@ -65,9 +67,11 @@ public class Input_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventario = !inventario;
+
             //Debug.Log(state);
             if (inventario)
             {
+                
                 StateCam = true;
                 IsMoving = true;
                 Debug.Log("INVENTARIO ABIERTO");
