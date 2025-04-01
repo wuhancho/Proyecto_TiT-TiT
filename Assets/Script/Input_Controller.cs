@@ -21,7 +21,7 @@ public class Input_Controller : MonoBehaviour
     public bool StateCam { get => state_cam; set => state_cam = value; }
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
-
+    [SerializeField] private GameObject camAnchor;
     private void Update()
     {
         //state_cam = StateCam;
@@ -66,12 +66,14 @@ public class Input_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            inventario = !inventario;
 
-            //Debug.Log(state);
+            inventario = !inventario;
+            if (camPlayer.transform.parent != camAnchor)
+            {
+                ReturnCameraToPlayer(camPlayer);
+            }
             if (inventario)
             {
-                
                 StateCam = true;
                 IsMoving = true;
                 Debug.Log("INVENTARIO ABIERTO");
@@ -163,7 +165,14 @@ public class Input_Controller : MonoBehaviour
             }
         }
     }
-
+    public void ReturnCameraToPlayer(GameObject CamPlayerObj)
+    {
+        CamPlayerObj.transform.SetParent(camAnchor.transform);
+        CamPlayerObj.transform.localPosition = Vector3.zero;
+        CamPlayerObj.transform.localRotation = Quaternion.identity;
+        IsMoving = false;
+        StateCam = false;
+    }
     public bool PutItemInHand(ItemPickUp itemPickUp)
     {
         if (handItem == null)

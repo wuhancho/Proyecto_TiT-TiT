@@ -50,7 +50,11 @@ public class Caja_fuertenumber : MonoBehaviour
                 anim = true;
                 animCajaFuerte.enabled=anim;
                 animCajaFuerte.SetTrigger("Open");
-                ReturnCameraToPlayer();
+                _Controller.ReturnCameraToPlayer(camPlayerObject);
+                for (int i = 0; i < diales.Length; i++)
+                {
+                    diales[i].GetComponent<MeshCollider>().enabled = false;
+                }
                 _GameManager.ComprobarPuzzleCajaFuerte();
                 Debug.Log("Contraseña correcta");
             }
@@ -60,7 +64,11 @@ public class Caja_fuertenumber : MonoBehaviour
             RotateCamera();
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                ReturnCameraToPlayer();
+                _Controller.ReturnCameraToPlayer(camPlayerObject);
+                for (int i = 0; i < diales.Length; i++)
+                {
+                    diales[i].GetComponent<MeshCollider>().enabled = false;
+                }
             }
         }
     }
@@ -92,18 +100,7 @@ public class Caja_fuertenumber : MonoBehaviour
         pivotCamara.transform.localEulerAngles = new Vector3(pivotCamara.transform.localEulerAngles.x, newRotationY, pivotCamara.transform.localEulerAngles.z);
     }
 
-    private void ReturnCameraToPlayer()
-    {
-        camPlayerObject.transform.SetParent(transfPlayer);
-        camPlayerObject.transform.localPosition = Vector3.zero;
-        camPlayerObject.transform.localRotation = Quaternion.identity;
-        _Controller.IsMoving = false;
-        _Controller.StateCam = false;
-        for (int i = 0; i < diales.Length; i++)
-        {
-            diales[i].GetComponent<MeshCollider>().enabled = false;
-        }
-    }
+  
     //public void CualDial(GameObject dial)
     //{
     //    if (dial == dial1)
