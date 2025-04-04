@@ -28,14 +28,21 @@ public class DialCajaFuerte : MonoBehaviour
         float elapsedTime = 0f;
         float duration = 0.3f; // Tiempo de la animación
 
-        if (targetRotation < startRotation && Mathf.Abs(targetRotation - startRotation) > 180)
+        //if (targetRotation < startRotation && Mathf.Abs(targetRotation - startRotation) > 180)
+        //{
+        //    targetRotation += 360;
+        //}
+        //else if (targetRotation > startRotation && Mathf.Abs(targetRotation - startRotation) > 180)
+        //{
+        //    targetRotation -= 360;
+        //}
+
+        if (startRotation > targetRotation)
         {
-            targetRotation += 360;
+            startRotation -= 360;
         }
-        else if (targetRotation > startRotation && Mathf.Abs(targetRotation - startRotation) > 180)
-        {
-            targetRotation -= 360;
-        }
+
+
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
@@ -50,8 +57,10 @@ public class DialCajaFuerte : MonoBehaviour
 
         Debug.Log($"Checking nameObj:{gameObject.name} Dial number: {SelectedNumber()}, Expected: {passwordNumber}, Rotation: {rotationX}");
 
-        IsCorrectNumber();
+        //IsCorrectNumber();
     }
+
+
 
     public int SelectedNumber()
     {

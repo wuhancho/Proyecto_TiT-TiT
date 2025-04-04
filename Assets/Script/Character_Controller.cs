@@ -70,15 +70,15 @@ public class Character_Controller : MonoBehaviour
         {
             Vector3 inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-            if (inputDirection.magnitude > 0)
-            {
+            //if (inputDirection.magnitude > 0)
+            //{
                 Vector3 moveDirection = cameraTransform.TransformDirection(inputDirection);
                 moveDirection.y = 0; // Evita que se mueva en el eje Y involuntariamente
-                moveDirection.Normalize();
+                //moveDirection.Normalize();
 
-                Vector3 velocity = moveDirection * _speed * Time.deltaTime;
-                Move(velocity); // ✅ Ahora Move recibe el argumento correcto.
-            }
+                //Vector3 velocity = moveDirection * _speed * Time.deltaTime;
+                Move(moveDirection); // ✅ Ahora Move recibe el argumento correcto.
+            //}
         }
     }
 
@@ -189,14 +189,21 @@ public class Character_Controller : MonoBehaviour
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
         Vector3 input = input_Controller.MoveInput();
-        forward.Normalize();
-        right.Normalize();
-        Vector3 moveDirection = forward * input.z + right * input.x;
-        velocity = moveDirection * _speed;
+        //forward.Normalize();
+        //right.Normalize();
+        Vector3 moveDirection = (forward * input.z) + (right * input.x);
+        //print(moveDirection);.
+
+        if(moveDirection.magnitude > 1f)
+        {
+            moveDirection.Normalize();
+        }
+        velocity = moveDirection.normalized * _speed;
+        //print(velocity);
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
-        Vector3 position = transform.position;
-        Vector3 trajectory = velocity;
+        //Vector3 position = transform.position;
+        //Vector3 trajectory = velocity;
         #endregion
         //int bounces = 0;
         #region hecho por ignacio
