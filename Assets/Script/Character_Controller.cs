@@ -120,7 +120,7 @@ public class Character_Controller : MonoBehaviour
         {
             moveDirection.Normalize();
         }
-        velocity = moveDirection.normalized * _speed;
+        velocity = moveDirection * _speed;
         //print(velocity);
         velocity.y = rb.velocity.y;
         rb.velocity = velocity;
