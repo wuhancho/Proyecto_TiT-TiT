@@ -16,5 +16,6 @@ public class Item : ScriptableObject
     public int Large => sizeX;
     public int Height => sizeY;
 
-    public GameObject ObjetoReferencia1 { get => ObjetoReferencia; set => ObjetoReferencia = value; }
+    public GameObject ObjetoReferencia1 { get => ObjetoReferencia;}
+    public int Id { get => id;}
 }

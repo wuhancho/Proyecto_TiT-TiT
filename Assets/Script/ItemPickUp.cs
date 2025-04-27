@@ -16,11 +16,12 @@ public class ItemPickUp : MonoBehaviour
 
     public ItemType Type { get => typeObject; }
     public string HandItemPlaceTagName { get => handItemPlaceTagName; }
+    public Item Item { get => item;}
 
     public void PickUp()
     {
        // print($"se añade el objeto {item.ObjetoReferencia1.name}");
-        bool pickedUp = InventoryManager.Instance.Add(item);
+        bool pickedUp = InventoryManager.Instance.Add(Item);
         if (pickedUp)
         {
             Destroy(gameObject);

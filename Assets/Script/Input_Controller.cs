@@ -128,7 +128,7 @@ public class Input_Controller : MonoBehaviour
                 {
                     if (hit.transform.CompareTag(handItem.HandItemPlaceTagName))
                     {
-                        //print("entra en el if de poner el objeto en su lugar");
+                        print($"el objeto place es {hit.transform.name}");
                         PutHandItemInPlace(hit.transform);
                     }
                 }
@@ -207,6 +207,17 @@ public class Input_Controller : MonoBehaviour
             handItem.transform.position = place.position;
             gameManager.DetectTruePosicionEngranaje();
 
+        }
+        if(handItem.Item.Id==15)
+        {
+            print($"{handItem.name}");
+            if (place.name == "ZoneTuberia")
+            {
+                print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+                Destroy(handItem.gameObject);
+                place.GetChild(0).gameObject.SetActive(true);
+                place.GetComponent<MeshRenderer>().enabled = false;
+            }
         }
 
 
