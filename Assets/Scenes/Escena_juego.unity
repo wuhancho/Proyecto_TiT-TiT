@@ -101739,10 +101739,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6.168
       objectReference: {fileID: 0}
+    - target: {fileID: -5985544259157395598, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8214702
+      objectReference: {fileID: 0}
+    - target: {fileID: -5985544259157395598, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5985544259157395598, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.57025146
+      objectReference: {fileID: 0}
+    - target: {fileID: -5985544259157395598, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -69.536
+      objectReference: {fileID: 0}
     - target: {fileID: -3116110435557699983, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 73afc2e4aae5e9f49965ab86997666e0, type: 2}
+      objectReference: {fileID: 2100000, guid: 685fbc5e4fb116a42b1b1bea5030073a, type: 2}
     - target: {fileID: 919132149155446097, guid: 29c770d636a4abb45a170eb82fcbd4b9, type: 3}
       propertyPath: m_Name
       value: Cajas_partes_titeres_LowPoly
