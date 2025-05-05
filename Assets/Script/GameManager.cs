@@ -2,6 +2,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -42,6 +43,10 @@ public class GameManager : MonoBehaviour
     [Header("Puzle Oficinas")]
 
     [SerializeField] private GameObject caja_Fuertenumber;
+
+    [Header("Pasillo 1")]
+
+    [SerializeField] private GameObject humo;
 
     [Header("Reconpensas")]
     [SerializeField] private bool notaHabilitada = false;
@@ -414,6 +419,10 @@ public class GameManager : MonoBehaviour
         //print("completado");
         ActivarTriunfo(6);
     }
+    public void ComprobarTuberia()
+    {
+        ActivarTriunfo(7);
+    }
     public void DesabilitarNota(int numNota)
     {
         recompensas[numNota].SetActive(false);
@@ -501,6 +510,10 @@ public class GameManager : MonoBehaviour
         {
             HabilitarRaton(true);
             recompensas[5].SetActive(true);
+        }
+        if(puzle == 7)
+        {
+            humo.SetActive(false);
         }
 
     }
