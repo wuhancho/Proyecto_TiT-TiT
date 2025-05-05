@@ -183,6 +183,7 @@ public class Input_Controller : MonoBehaviour
             itemPickUp.transform.localPosition = Vector3.zero;
             itemPickUp.GetComponent<Collider>().enabled = false;
             activeLight();
+            print($"name item: {itemPickUp.Item.name},id: {itemPickUp.Item.Id}");
             return true;
         }
         return false;
@@ -208,15 +209,16 @@ public class Input_Controller : MonoBehaviour
             gameManager.DetectTruePosicionEngranaje();
 
         }
-        if(handItem.Item.Id==15)
+        if(handItem.CompareTag("tuberia"))
         {
             print($"{handItem.name}");
             if (place.name == "ZoneTuberia")
             {
-                print($"entras en el puzle de la sala de espera, este es el objeto place:{place}");
+                print($"entras en el puzle del pasillo 1, este es el objeto place:{place}");
                 Destroy(handItem.gameObject);
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
+                gameManager.ComprobarTuberia();
             }
         }
 
