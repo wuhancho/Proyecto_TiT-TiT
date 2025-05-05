@@ -1,0 +1,110 @@
+newmtl BaseSG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl Box001SG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 1.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG1
+illum 4
+Kd 0.14 0.62 1.00
+Ka 0.14 0.62 1.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG2
+illum 4
+Kd 1.00 0.00 0.80
+Ka 1.00 0.00 0.80
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG3
+illum 4
+Kd 1.00 0.59 0.59
+Ka 1.00 0.59 0.59
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG4
+illum 4
+Kd 0.13 0.01 1.00
+Ka 0.13 0.01 1.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG5
+illum 4
+Kd 0.00 0.99 0.56
+Ka 0.00 0.99 0.56
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl Box001SG6
+illum 4
+Kd 0.87 1.00 0.02
+Ka 0.87 1.00 0.02
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00
+newmtl ENGRANAJE1SG2
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl Estructura_LSG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl Lampara_02SG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl MesaSG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
+newmtl lambert1SG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.03 0.05 0.03
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.04 0.02 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
