@@ -9,16 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1679
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1679
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1679
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3201387
+      value: 2.132
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.38
+      value: 6.433
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.915679
+      value: -8.9145
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f87b4ed727b820499ab3af4ff052c94, type: 3}
       propertyPath: m_LocalRotation.w
@@ -94,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc5329e40219634ba61627cb3f84183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeObject: 1
+  typeObject: 2
   item: {fileID: 11400000, guid: 1f712ac62ef2e6546b43415961d9e69e, type: 2}
   handItemPlaceTagName: PuzleSalaEspera
 --- !u!114 &1341744399731144374
