@@ -12,6 +12,7 @@ TagManager:
   - ViewLint
   - Caja_Fuerte
   - tuberia
+  - SalaMaquinas
   layers:
   - Default
   - TransparentFX
