@@ -49,7 +49,7 @@ public class Caja_fuertenumber : MonoBehaviour
             {
                 anim = true;
                 animCajaFuerte.enabled=anim;
-                animCajaFuerte.SetTrigger("Open");
+                
                 _Controller.ReturnCameraToPlayer(camPlayerObject);
                 for (int i = 0; i < diales.Length; i++)
                 {

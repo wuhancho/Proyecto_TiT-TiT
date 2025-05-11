@@ -13,22 +13,21 @@ public class Puerta : MonoBehaviour
     }
     public void puertaOpen()
     {
-        //anim.SetBool("puertaOpen", true);
-        //switch (numeropuerta)
-        //{
-        //    case 1:
-        //        anim.SetBool("puertaOpen", true);
-        //        break;
-        //    case 2:
-        //        anim.SetBool("puertaOpen", true);
-        //        break;
-        //    case 3:
-        //        anim.SetBool("puertaOpen", true);
-        //        break;
-        //    case 4:
-        //        anim.SetBool("puertaOpen", true);
-        //        break;
-        //}
+        switch (numeropuerta)
+        {
+            case 1:
+                anim.SetBool("puertaOpen", true);
+                break;
+            case 2:
+                anim.SetBool("puertadesp1", true);
+                break;
+            case 3:
+                anim.SetBool("puertadesp2", true);
+                break;
+            case 4:
+                anim.SetBool("puertaOpen", true);
+                break;
+        }
         colliderPuerta.enabled = false;
     }
 }
