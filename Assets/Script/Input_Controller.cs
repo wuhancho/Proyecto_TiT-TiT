@@ -115,8 +115,16 @@ public class Input_Controller : MonoBehaviour
                 switch (itemPickUp.Type)
                 {
                     case ItemType.PickableObject:
-                        itemPickUp.PickUp();
-                        break;
+                        if (itemPickUp.Item.ItemGoInventory == ItemGoInventory.Yes)
+                        {
+                            itemPickUp.PickUp();
+                            break;
+                        }
+                        else
+                        {
+                            PutItemInHand(itemPickUp);
+                            break;
+                        }
                     case ItemType.HandItem:
                         PutItemInHand(itemPickUp);
                         break;
@@ -334,6 +342,14 @@ public class Input_Controller : MonoBehaviour
                         break;
                     }
                 }
+            }
+        }
+        if(place.CompareTag("llavePuerta"))
+        {
+            if(handItem.Item.Id == 18)
+            {
+                place.GetComponent<Puerta>().puertaOpen();
+                Destroy(handItem.gameObject);
             }
         }
         handItem = null;

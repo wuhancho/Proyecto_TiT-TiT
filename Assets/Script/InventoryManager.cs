@@ -51,6 +51,16 @@ public class InventoryManager : MonoBehaviour
             print("Ya existe el item");
             return false;
         }
+        if (item == null)
+        {
+            Debug.LogError("El item es nulo.");
+            return false;
+        }
+        if (item.ItemGoInventory==ItemGoInventory.No)
+        {
+            Debug.Log("El item no puede ir al inventario.");
+            return false;
+        }
         Tuple<int, int> availableCoord;
         if (AreSlotsAvailables(item, out availableCoord))
         {

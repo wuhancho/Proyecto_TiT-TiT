@@ -13,6 +13,7 @@ TagManager:
   - Caja_Fuerte
   - tuberia
   - SalaMaquinas
+  - llavePuerta
   layers:
   - Default
   - TransparentFX
