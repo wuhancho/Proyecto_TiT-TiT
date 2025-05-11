@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.857
+      value: 5.8119164
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.695
+      value: 5.872194
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.429
+      value: -21.773197
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,6 +78,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8129336422511735845}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933097716456237396}
   m_SourcePrefab: {fileID: 100100000, guid: 366b51a28bdfc4847927ab6bc01a1d02, type: 3}
 --- !u!1 &5962188274716058992 stripped
 GameObject:
@@ -120,3 +123,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1427632, y: 0.044764977, z: 0.01552682}
   m_Center: {x: 0.013660461, y: 0.017521102, z: 0.033198252}
+--- !u!114 &933097716456237396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962188274716058992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.24150053, g: 0.6320754, b: 0.29757676, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
