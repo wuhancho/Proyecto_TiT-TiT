@@ -61181,6 +61181,8 @@ MonoBehaviour:
   colBox: {fileID: 2115224430}
   camPlayer: {fileID: 963194225}
   inventario: 0
+  noFrictionMaterial: {fileID: 13400000, guid: 4cd37d44b86d17c40bec0b85f48e6687, type: 2}
+  defaultMaterial: {fileID: 13400000, guid: 7aacbfc9a14cca6448a26bc8d33fb686, type: 2}
   camAnchor: {fileID: 171788787}
 --- !u!114 &1062124417
 MonoBehaviour:
@@ -61216,6 +61218,7 @@ MonoBehaviour:
   distan: 1.5
   gameManager: {fileID: 1838781032}
   rb: {fileID: 1062124419}
+  PlayerCollider: {fileID: 1062124412}
 --- !u!54 &1062124419
 Rigidbody:
   m_ObjectHideFlags: 0

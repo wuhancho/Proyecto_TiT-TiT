@@ -16,6 +16,8 @@ public class Input_Controller : MonoBehaviour
     [SerializeField] private Collider colBox;
     [SerializeField] private GameObject camPlayer;
     [SerializeField] private bool inventario = false;
+    [SerializeField] private PhysicMaterial noFrictionMaterial; // Material con fricción 0
+    [SerializeField] private PhysicMaterial defaultMaterial;   // Material original con fricción 0.6
     public bool Inventario { get => inventario; set => inventario = value; }
 
     public bool StateCam { get => state_cam; set => state_cam = value; }
@@ -62,7 +64,7 @@ public class Input_Controller : MonoBehaviour
             handItem.PickUp();
         }
     }
-    public void InputInventario()
+    public void InputInventario(CapsuleCollider playerCollider)
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -78,6 +80,8 @@ public class Input_Controller : MonoBehaviour
                 IsMoving = true;
                 Debug.Log("INVENTARIO ABIERTO");
                 gameManager.AbrirInventario(IsMoving);
+                playerCollider.material = noFrictionMaterial; // Cambia el material del jugador a uno sin fricción
+
             }
             else if (!inventario)
             {
@@ -85,6 +89,11 @@ public class Input_Controller : MonoBehaviour
                 IsMoving = false;
                 Debug.Log("INVENTARIO CERRADO");
                 gameManager.AbrirInventario(IsMoving);
+                playerCollider.material = defaultMaterial; // Cambia el material del jugador a uno con fricción
+            }
+            if(camPlayer.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                rb.velocity = Vector3.zero;
             }
         }
     }

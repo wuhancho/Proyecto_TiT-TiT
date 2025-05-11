@@ -14,6 +14,7 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private Rigidbody rb;
     private Transform cameraTransform;
+    [SerializeField] private CapsuleCollider PlayerCollider;
     //private CapsuleCollider capCol;
     //private float minMoveDistance = 0.01f;
     //[SerializeField] private LayerMask validLayers;
@@ -47,7 +48,8 @@ public class Character_Controller : MonoBehaviour
     private void Update()
     {
         //input_Controller.Interact();
-        input_Controller.InputInventario();
+        input_Controller.InputInventario(PlayerCollider);
+
 
         if (Input.GetMouseButtonDown(0) && !gameManager.habilitoRaton)
         {
@@ -101,31 +103,67 @@ public class Character_Controller : MonoBehaviour
         //Vector3 targetVelocity = moveDirection * _speed;
 
         //rb.MovePosition(rb.position + targetVelocity * Time.deltaTime);
-        #region hecho juan
-        if (input_Controller.IsMoving || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+        #region hecho por juan2
+        // Verificar si el jugador está en un estado que no permite movimiento
+        if (input_Controller.IsMoving || gameManager.NotaHabilitada || gameManager.habilitoRaton || input_Controller.Inventario)
         {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+            rb.velocity = Vector3.zero; // Detener movimiento
             return;
         }
 
+        // Obtener las direcciones de la cámara
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-        Vector3 input = input_Controller.MoveInput();
-        //forward.Normalize();
-        //right.Normalize();
-        Vector3 moveDirection = (forward * input.z) + (right * input.x);
-        //print(moveDirection);.
 
-        if(moveDirection.magnitude > 1f)
+        // Obtener la entrada del jugador
+        Vector3 input = input_Controller.MoveInput();
+
+        // Asegurarse de que el movimiento sea en el plano horizontal
+        forward.y = 0;
+        right.y = 0;
+
+        // Calcular la dirección del movimiento
+        Vector3 moveDirection = (forward * input.z) + (right * input.x);
+
+        // Normalizar si la magnitud es mayor a 1
+        if (moveDirection.magnitude > 1f)
         {
             moveDirection.Normalize();
         }
+
+        // Calcular la velocidad final
         velocity = moveDirection * _speed;
-        //print(velocity);
         velocity.y = rb.velocity.y;
+
+        // Aplicar la velocidad al Rigidbody
         rb.velocity = velocity;
-        //Vector3 position = transform.position;
-        //Vector3 trajectory = velocity;
+        #endregion
+
+        #region hecho juan
+        //if (input_Controller.IsMoving || gameManager.NotaHabilitada || gameManager.habilitoRaton)
+        //{
+        //    rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
+        //    return;
+        //}
+
+        //Vector3 forward = cameraTransform.forward;
+        //Vector3 right = cameraTransform.right;
+        //Vector3 input = input_Controller.MoveInput();
+        ////forward.Normalize();
+        ////right.Normalize();
+        //Vector3 moveDirection = (forward * input.z) + (right * input.x);
+        ////print(moveDirection);.
+
+        //if(moveDirection.magnitude > 1f)
+        //{
+        //    moveDirection.Normalize();
+        //}
+        //velocity = moveDirection * _speed;
+        ////print(velocity);
+        //velocity.y = rb.velocity.y;
+        //rb.velocity = velocity;
+        ////Vector3 position = transform.position;
+        ////Vector3 trajectory = velocity;
         #endregion
         //int bounces = 0;
         #region hecho por ignacio
