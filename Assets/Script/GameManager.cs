@@ -412,7 +412,7 @@ public class GameManager : MonoBehaviour
     public void PuzleMaquinaEscribirCompletado()
     {
         Vector3 position = cajonera.transform.position;
-        cajonera.transform.position = new Vector3(position.x, position.y, position.z- 0.127f);
+        cajonera.transform.position = new Vector3(position.x, position.y, position.z- 0.150f);
         ActivarTriunfo(4);
     }
     public void ComprobarPuzzleSalaEspera()
