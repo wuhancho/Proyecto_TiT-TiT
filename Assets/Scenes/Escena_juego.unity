@@ -55309,6 +55309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 894830698}
+  colliderPuerta: {fileID: 894830696}
 --- !u!1001 &901220744
 PrefabInstance:
   m_ObjectHideFlags: 0
