@@ -409,6 +409,7 @@ public class GameManager : MonoBehaviour
         int cantidad=0;
         if (cantidad == 3)
         {
+
             //print("completado");
             ActivarTriunfo(5);
         }
