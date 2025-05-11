@@ -77,8 +77,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   caja_Fuertenumber: {fileID: 0}
+  humo: {fileID: 0}
   notaHabilitada: 0
   recompensas:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -103,3 +106,4 @@ MonoBehaviour:
   colBox: {fileID: 0}
   camPlayer: {fileID: 0}
   inventario: 0
+  camAnchor: {fileID: 0}

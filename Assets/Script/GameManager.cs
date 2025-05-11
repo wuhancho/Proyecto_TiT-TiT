@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using TMPro;
@@ -422,6 +423,10 @@ public class GameManager : MonoBehaviour
     public void ComprobarTuberia()
     {
         ActivarTriunfo(7);
+    } 
+    internal void Pzlemaquina()
+    {
+        ActivarTriunfo(8);
     }
     public void DesabilitarNota(int numNota)
     {
@@ -517,8 +522,13 @@ public class GameManager : MonoBehaviour
             humo.SetActive(false);
             recompensas[6].SetActive(true);
         }
+        if (puzle == 8)
+        {
+            HabilitarRaton(true);
+            recompensas[7].SetActive(true);
+        }
 
     }
 
-  
+
 }

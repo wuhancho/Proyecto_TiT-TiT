@@ -22,7 +22,7 @@ public class ItemPickUp : MonoBehaviour
     {
        // print($"se añade el objeto {item.ObjetoReferencia1.name}");
         bool pickedUp = InventoryManager.Instance.Add(Item);
-        if (pickedUp)
+        if (pickedUp && typeObject!=ItemType.None)
         {
             Destroy(gameObject);
         }

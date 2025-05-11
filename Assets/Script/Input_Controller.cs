@@ -305,7 +305,37 @@ public class Input_Controller : MonoBehaviour
             place.GetComponent<BoxCollider>().isTrigger = false;
             colBox.enabled = true;
         }
-
+        if (place.CompareTag("SalaMaquinas"))
+        {
+            if(place.name == "zone_tit_sup")
+            {
+                print("entras en sup");
+                foreach(Transform child in place)
+                {
+                    ItemPickUp childpickup = child.GetComponent<ItemPickUp>();
+                    if (handItem.Item.Id == childpickup.Item.Id)
+                    {
+                        Destroy(handItem.gameObject);
+                        place.GetComponentInParent<CintaTitere>().titActivepart(child.gameObject, 1);
+                        break;
+                    }
+                }
+            }
+            else if(place.name == "zone_tit_inf")
+            {
+                print("entras en inf");
+                foreach (Transform child in place)
+                {
+                    ItemPickUp childpickup = child.GetComponent<ItemPickUp>();
+                    if (handItem.Item.Id == childpickup.Item.Id)
+                    {
+                        Destroy(handItem.gameObject);
+                        place.GetComponentInParent<CintaTitere>().titActivepart(child.gameObject, 2);
+                        break;
+                    }
+                }
+            }
+        }
         handItem = null;
     }
     public void InteractItemHand(ItemPickUp item)
