@@ -157,6 +157,26 @@ public class Input_Controller : MonoBehaviour
                         //    print(" y mis números?");
                         //}
                     }
+                    if (hit.collider.CompareTag("SalaMaquinas")) 
+                    {
+                        Box_partsTIT box_PartsTIT = hit.collider.GetComponent<Box_partsTIT>();
+                        if (box_PartsTIT != null)
+                        {
+                            // Obtén el ItemPickUp del Box_partsTIT
+                            ItemPickUp iteme = box_PartsTIT.OnRaycastHit();
+
+                            // Verifica si el item ya está en el inventario
+                            if (InventoryManager.Instance.ComprobarItem(iteme.Item) == false)
+                            {
+                                // Si el item no estaba en el inventario, lo agrega y lo pone en la mano
+                                PutItemInHand(iteme);
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"El item {iteme.Item.itemName} ya está en el inventario y no se puede recoger nuevamente.");
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -177,6 +197,7 @@ public class Input_Controller : MonoBehaviour
     {
         if (handItem == null)
         {
+            
             handItem = itemPickUp;
             handItemOldParent = itemPickUp.transform.parent;
             itemPickUp.transform.SetParent(hand, true);

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 17
   sizeX: 1
   sizeY: 2
-  itemName: 
+  itemName: Piernas de titere
   icon: {fileID: 0}
   ObjetoReferencia: {fileID: 1864063437653359643, guid: 4c325699ca8ffa54dbe69afe357dfed4, type: 3}
   itemGoInventory: 0

@@ -513,8 +513,9 @@ public class GameManager : MonoBehaviour
         }
         if(puzle == 7)
         {
-            recompensas[6].SetActive(true);
+            HabilitarRaton(true);
             humo.SetActive(false);
+            recompensas[6].SetActive(true);
         }
 
     }

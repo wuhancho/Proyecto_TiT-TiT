@@ -36,9 +36,21 @@ public class InventoryManager : MonoBehaviour
         newSize.y = slotSize.y * gridSize.y;
         inventoryContent.sizeDelta = newSize;
     }
-
+    public bool ComprobarItem(Item item)
+    {
+        if (items.Exists(InventoryItem => InventoryItem.Item.Id == item.Id))
+        {
+            return true;
+        }
+        return false;
+    }
     public bool Add(Item item)// añado el item 
     {
+        if(items.Exists(InventoryItem => InventoryItem.Item.Id == item.Id))
+        {
+            print("Ya existe el item");
+            return false;
+        }
         Tuple<int, int> availableCoord;
         if (AreSlotsAvailables(item, out availableCoord))
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 16
   sizeX: 1
   sizeY: 2
-  itemName: 
+  itemName: Torso de titere
   icon: {fileID: 0}
   ObjetoReferencia: {fileID: 1041265098862134185, guid: 158e505841f0fde46afd8d2c1cf3c6a1, type: 3}
   itemGoInventory: 0

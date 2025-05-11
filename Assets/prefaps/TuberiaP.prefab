@@ -10,31 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.037
+      value: 3.429
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44799995
+      value: 0.471
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.327
+      value: 1.439
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9860256
+      value: 0.91698617
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.1665941
+      value: -0.39891905
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -47.021
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8779ce0df7d1a564d9ad3cf17a3380f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -109,4 +109,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeObject: 2
   item: {fileID: 11400000, guid: 43d23a558c1f5164fbc4e6838a872a2d, type: 2}
-  handItemPlaceTagName: 
+  handItemPlaceTagName: tuberia
