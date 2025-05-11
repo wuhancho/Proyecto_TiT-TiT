@@ -35,9 +35,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Code_vela[] llamas;
     private bool velasN = true;
 
+    [Header("Puzle Despacho1")]
+    [SerializeField] private GameObject cajonera;
+
     [Header("Puzle despacho2")]
     private int contEngranajes;
     [SerializeField] GameObject[] zonewin, zoneinit, engranajes;
+
     // puzle del planeta
     //[Header ("Puzle entrada")]
     //[SerializeField] private Chincheta chincheta;
@@ -48,6 +52,11 @@ public class GameManager : MonoBehaviour
     [Header("Pasillo 1")]
 
     [SerializeField] private GameObject humo;
+    [Header("Puzle SalaEspera")]
+    [SerializeField] private int cantidad = 0;
+
+    [Header("llaves")]
+    [SerializeField] private GameObject[] llaves;
 
     [Header("Reconpensas")]
     [SerializeField] private bool notaHabilitada = false;
@@ -402,18 +411,22 @@ public class GameManager : MonoBehaviour
     }
     public void PuzleMaquinaEscribirCompletado()
     {
+        Vector3 position = cajonera.transform.position;
+        cajonera.transform.position = new Vector3(position.x, position.y, position.z- 0.127f);
         ActivarTriunfo(4);
     }
     public void ComprobarPuzzleSalaEspera()
     {
-        int cantidad=0;
+        print(cantidad+ " cantidad");
+        cantidad++;
         if (cantidad == 3)
         {
 
             //print("completado");
+            llaves[0].SetActive(true);
             ActivarTriunfo(5);
         }
-        cantidad++;
+        
     }
     public void ComprobarPuzzleCajaFuerte()
     {

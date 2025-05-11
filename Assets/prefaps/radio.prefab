@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.579
+      value: 2.126
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.553
+      value: 6.614
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.434
+      value: -13.183
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ec875120816689499c9475f1b03a67b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_Bits: 55
   relocateType: 1
   manualOffset: {x: 0, y: 0.15, z: 0}
-  relocateOnStart: 1
+  relocateOnStart: 0
 --- !u!114 &5273534388686351834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   typeObject: 1
   item: {fileID: 11400000, guid: 965335c27ef334d4a91596dd472b22db, type: 2}
   handItemPlaceTagName: PuzleSalaEspera
+  variant: 
 --- !u!114 &8232100562546406431
 MonoBehaviour:
   m_ObjectHideFlags: 0
