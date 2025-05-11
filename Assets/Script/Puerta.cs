@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Puerta : MonoBehaviour
@@ -11,23 +12,41 @@ public class Puerta : MonoBehaviour
     {
         anim.enabled = true;
     }
-    public void puertaOpen()
+    public bool PuertaOpen(ItemPickUp handItem)
     {
+        print($"puerta {numeropuerta}");
         switch (numeropuerta)
         {
             case 1:
                 anim.SetBool("puertaOpen", true);
-                break;
+                colliderPuerta.enabled = false;
+                return true;
             case 2:
-                anim.SetBool("puertadesp1", true);
-                break;
+                if (handItem.Variant == "despacho1")
+                {
+                    anim.SetBool("puertadesp1", true);
+                    colliderPuerta.enabled = false;
+                    return true;
+                }
+                return false;
             case 3:
-                anim.SetBool("puertadesp2", true);
-                break;
+                if (handItem.Variant == "despacho2") { 
+                    anim.SetBool("puertadesp2", true);
+                colliderPuerta.enabled = false;
+                return true;
+                }
+                return false;
             case 4:
-                anim.SetBool("puertaOpen", true);
-                break;
+                if (handItem.Variant == "salaSecreta")
+                {
+                    anim.SetBool("puertaOpen", true);
+                    colliderPuerta.enabled = false;
+                    return true;
+                } return false;
+            case 0:
+                Debug.Log("No hay puerta");
+                return false;
         }
-        colliderPuerta.enabled = false;
+        return false;
     }
 }

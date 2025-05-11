@@ -13,7 +13,8 @@ public class ItemPickUp : MonoBehaviour
     //private float distan = 1.5f;
     //[SerializeField] private GameObject personaje;
     [SerializeField] private string handItemPlaceTagName;
-
+    [SerializeField] private string variant;
+    public string Variant { get => variant; }
     public ItemType Type { get => typeObject; }
     public string HandItemPlaceTagName { get => handItemPlaceTagName; }
     public Item Item { get => item;}

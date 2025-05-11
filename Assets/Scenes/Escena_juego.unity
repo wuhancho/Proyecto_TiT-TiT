@@ -1099,6 +1099,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46eeaa58b090eec48ac409f9419b5104, type: 3}
+--- !u!1001 &50495260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3283417382986156329, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: variant
+      value: despacho1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962188274716058992, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_Name
+      value: Llave final (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.9791143
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.516757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.684171
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6482406135910596554, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1874db161d1f1c4f883ea4299b9cdc7, type: 3}
 --- !u!1001 &62637948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28583,6 +28644,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 0}
   handItemPlaceTagName: Engranaje
+  variant: 
 --- !u!114 &423678989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28598,6 +28660,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 0}
   handItemPlaceTagName: Engranaje
+  variant: 
 --- !u!1 &426400594
 GameObject:
   m_ObjectHideFlags: 0
@@ -90606,6 +90669,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 0}
   handItemPlaceTagName: Engranaje
+  variant: 
 --- !u!1001 &1543030075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93785,6 +93849,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 0}
   handItemPlaceTagName: Engranaje
+  variant: 
 --- !u!1001 &1624990960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122142,6 +122207,7 @@ MonoBehaviour:
   typeObject: 0
   item: {fileID: 0}
   handItemPlaceTagName: Caja
+  variant: 
 --- !u!65 &1892668271
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124138,6 +124204,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 0}
   handItemPlaceTagName: Engranaje
+  variant: 
 --- !u!1001 &1941817210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125560,6 +125627,7 @@ MonoBehaviour:
   typeObject: 1
   item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
   handItemPlaceTagName: linterna
+  variant: 
 --- !u!64 &2027856322
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -135191,3 +135259,4 @@ SceneRoots:
   - {fileID: 745838242}
   - {fileID: 728066384}
   - {fileID: 284399676}
+  - {fileID: 50495260}

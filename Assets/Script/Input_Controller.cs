@@ -236,9 +236,9 @@ public class Input_Controller : MonoBehaviour
             handItem.transform.SetParent(handItemOldParent, true);
             handItem.transform.position = place.position;
             gameManager.DetectTruePosicionEngranaje();
-
+            handItem = null;
         }
-        if(handItem.CompareTag("tuberia"))
+        if (handItem.CompareTag("tuberia"))
         {
             print($"{handItem.name}");
             if (place.name == "ZoneTuberia")
@@ -248,6 +248,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarTuberia();
+                handItem = null;
             }
         }
 
@@ -267,6 +268,8 @@ public class Input_Controller : MonoBehaviour
                 handItem.transform.localPosition = place.localPosition;
                 place.gameObject.SetActive(false);
                 gameManager.PuzleMapaCompletado();
+                handItem = null;
+
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);
             //handItem.transform.position = HandPutInObj;
@@ -282,6 +285,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
+                handItem = null;
             }
             else if (place.name == "Zone_radio")
             {
@@ -292,6 +296,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
+                handItem = null;
             }
             else if (place.name == "Zone_extintor")
             {
@@ -300,6 +305,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetChild(0).gameObject.SetActive(true);
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
+                handItem = null;
             }
 
         }
@@ -312,6 +318,7 @@ public class Input_Controller : MonoBehaviour
             place.GetComponent<Collider>().enabled = false;
             place.GetComponent<BoxCollider>().isTrigger = false;
             colBox.enabled = true;
+            handItem = null;
         }
         if (place.CompareTag("SalaMaquinas"))
         {
@@ -325,6 +332,7 @@ public class Input_Controller : MonoBehaviour
                     {
                         Destroy(handItem.gameObject);
                         place.GetComponentInParent<CintaTitere>().titActivepart(child.gameObject, 1);
+                        handItem = null;
                         break;
                     }
                 }
@@ -339,6 +347,7 @@ public class Input_Controller : MonoBehaviour
                     {
                         Destroy(handItem.gameObject);
                         place.GetComponentInParent<CintaTitere>().titActivepart(child.gameObject, 2);
+                        handItem = null;
                         break;
                     }
                 }
@@ -348,11 +357,15 @@ public class Input_Controller : MonoBehaviour
         {
             if(handItem.Item.Id == 18)
             {
-                place.GetComponent<Puerta>().puertaOpen();
-                Destroy(handItem.gameObject);
+                if (place.GetComponent<Puerta>().PuertaOpen(handItem))
+                {
+                    Destroy(handItem.gameObject);
+                    handItem = null;
+                }
             }
         }
-        handItem = null;
+
+        
     }
     public void InteractItemHand(ItemPickUp item)
     {
