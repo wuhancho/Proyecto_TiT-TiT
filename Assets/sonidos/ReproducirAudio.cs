@@ -14,8 +14,14 @@ public class ReproducirAudio : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnTriggerEnter    ()
+    void OnTriggerEnter()
     {
+        gameObject.GetComponent<Collider>().enabled = false;
         fuenteAudio.Play();
+    }
+    void OnTriggerExit()
+    {
+        gameObject.GetComponent<Collider>().enabled = true;
+        
     }
 }
