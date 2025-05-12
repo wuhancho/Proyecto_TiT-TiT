@@ -89,9 +89,9 @@ Material:
     - _DstBlend: 10
     - _FlatShading: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 3
     - _ObjectDithering: 1
     - _OcclusionStrength: 1
@@ -102,7 +102,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.16470589}
+    - _Color: {r: 0.2735849, g: 0.26713243, b: 0.26713243, a: 0.09803922}
     - _CubemapColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.12452829, g: 0.12167574, b: 0.06367389, a: 1}
+    - _EmissionColor: {r: 0.047169805, g: 0.045264654, b: 0.01668743, a: 1}
   m_BuildTextureStacks: []
