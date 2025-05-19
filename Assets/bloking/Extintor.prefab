@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc5329e40219634ba61627cb3f84183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeObject: 1
+  typeObject: 2
   item: {fileID: 11400000, guid: 68b4b061b81e2f949b9935f488e39700, type: 2}
   handItemPlaceTagName: PuzleSalaEspera
+  variant: 
 --- !u!114 &108208510414055086
 MonoBehaviour:
   m_ObjectHideFlags: 0

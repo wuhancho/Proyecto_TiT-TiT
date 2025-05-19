@@ -194,6 +194,10 @@ public class Input_Controller : MonoBehaviour
                             }
                         }
                     }
+                    if (hit.collider.name =="marco")
+                    {
+                        hit.collider.GetComponent<marco>().CodigoActivo();
+                    }
                 }
                 else
                 {

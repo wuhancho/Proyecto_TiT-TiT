@@ -53,6 +53,10 @@ PrefabInstance:
       value: engranaje4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e03cbfb3d8758114b87fbe335ac6a8bf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e03cbfb3d8758114b87fbe335ac6a8bf, type: 3}
       propertyPath: m_TagString
       value: Engranaje
       objectReference: {fileID: 0}

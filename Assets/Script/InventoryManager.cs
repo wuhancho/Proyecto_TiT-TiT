@@ -237,14 +237,39 @@ public class InventoryManager : MonoBehaviour
         if (player != null)
         {
             Transform playerTransform = player.transform;
-            Vector3 forwardPosition = playerTransform.position + playerTransform.forward * 1f; // Ajusta la distancia según sea necesario
-            return FindFreePosition(forwardPosition);
-        }
+            Vector3 forward = playerTransform.forward;
+            Vector3 origin = playerTransform.position + Vector3.up * 0.5f; // Ajusta la altura si es necesario
+            float dropDistance = 1f; // Distancia delante del jugador
+            float backDistance = 1f; // Distancia detrás del jugador
 
+            RaycastHit hit;
+            // Comprobar si hay obstáculo delante
+            if (Physics.Raycast(origin, forward, out hit, dropDistance, ~0, QueryTriggerInteraction.Ignore))
+            {
+                // Hay obstáculo delante, suelta detrás
+                Vector3 backPosition = playerTransform.position - forward * backDistance;
+                // Opcional: comprobar que detrás no hay obstáculo
+                if (Physics.Raycast(origin, -forward, out hit, backDistance, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    // Si también hay obstáculo detrás, suelta en la posición actual
+                    return playerTransform.position;
+                }
+                else
+                {
+                    return FindFreePosition(backPosition);
+                }
+            }
+            else
+            {
+                // No hay obstáculo delante, suelta delante
+                Vector3 frontPosition = playerTransform.position + forward * dropDistance;
+                return FindFreePosition(frontPosition);
+            }
+        }
         else
         {
             Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
-            return Vector3.zero; // En caso de error, retorna la posición (0,0,0)
+            return Vector3.zero;
         }
     }
     //private Vector3 GetPlayerHandPosition()
