@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2711684322524996188}
   - component: {fileID: 5594361557746809291}
   - component: {fileID: 1330291735284107437}
-  - component: {fileID: 1615718337502291701}
   - component: {fileID: 7336876427507296511}
   m_Layer: 6
   m_Name: linterna
@@ -126,6 +125,7 @@ MonoBehaviour:
   typeObject: 2
   item: {fileID: 11400000, guid: 62274fb372ea1784e8dbad3448fdebb9, type: 2}
   handItemPlaceTagName: linterna
+  variant: 
 --- !u!114 &2711684322524996188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,29 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAlpha: 1
-  light: {fileID: 0}
-  PositionPlayerHigh: {x: 0, y: 0, z: 0}
---- !u!135 &1615718337502291701
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511693463268702323}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &7336876427507296511
 Light:
   m_ObjectHideFlags: 0

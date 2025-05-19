@@ -28,10 +28,10 @@ public class Input_Controller : MonoBehaviour
     {
         //state_cam = StateCam;
         //state_mov = IsMoving;
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            StartCoroutine(gameManager.MostrarEstado(StateCam, IsMoving));
-        }
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    StartCoroutine(gameManager.MostrarEstado(StateCam, IsMoving));
+        //}
     }
     public Vector3 MoveInput()
     {

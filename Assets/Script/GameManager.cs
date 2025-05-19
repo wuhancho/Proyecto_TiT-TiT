@@ -10,7 +10,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] TextMeshProUGUI texto_pantalla;
+    //[SerializeField] TextMeshProUGUI texto_pantalla;
     //[SerializeField] GameObject[] llamas;
     [SerializeField] public bool habilitoRaton = false;
     private float deltaTime= 0f;
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         _Controller.GetComponent<Input_Controller>();
         //PickUp = GetComponent<ItemPickUp>();
-        texto_pantalla.enabled = false;
+        //texto_pantalla.enabled = false;
         inventario.SetActive(false);
 
 
@@ -101,13 +101,13 @@ public class GameManager : MonoBehaviour
         velasN = VelasN;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
     }
-    public IEnumerator MostrarEstado(bool Cambool, bool Moving)
-    {
-        texto_pantalla.enabled = true;
-        texto_pantalla.text = $"StateCam: {Cambool} IsMoving: {Moving}";
-        yield return new WaitForSeconds(3);
-        texto_pantalla.enabled = false;
-    }
+    //public IEnumerator MostrarEstado(bool Cambool, bool Moving)
+    //{
+    //    //texto_pantalla.enabled = true;
+    //    //texto_pantalla.text = $"StateCam: {Cambool} IsMoving: {Moving}";
+    //    //yield return new WaitForSeconds(3);
+    //    //texto_pantalla.enabled = false;
+    //}
     private void OnGUI()
     {
         int w = Screen.width, h = Screen.height;
@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
     {
         if (algo == 0)
         {
+
             //texto_pantalla.enabled = true;
             //texto_pantalla.text = $"pulsa E";
 
