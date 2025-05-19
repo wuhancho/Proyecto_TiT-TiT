@@ -356,6 +356,7 @@ public class GameManager : MonoBehaviour
         }
         if (contEngranajes == 15)
         {
+            llaves[1].SetActive(true);
             ActivarTriunfo(1);
             print("¡Todos los engranajes están en su posición correcta!");
         }

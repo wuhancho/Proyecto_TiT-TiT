@@ -107,7 +107,7 @@ public class Input_Controller : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origin, direction, out hit, distance))
         {
-            Debug.Log("Objeto detectado: " + hit.collider.gameObject.name + ", Tag: " + hit.collider.tag);
+            //Debug.Log("Objeto detectado: " + hit.collider.gameObject.name + ", Tag: " + hit.collider.tag);
 
             Debug.DrawRay(origin, direction * distance, Color.red, 3);
 
@@ -145,7 +145,7 @@ public class Input_Controller : MonoBehaviour
                 {
                     if (hit.transform.CompareTag(handItem.HandItemPlaceTagName))
                     {
-                        print($"el objeto place es {hit.transform.name}");
+                        print($"el objeto place es {hit.transform.name} y su tag es {hit.transform.tag}");
                         PutHandItemInPlace(hit.transform);
                     }
                 }
@@ -221,7 +221,7 @@ public class Input_Controller : MonoBehaviour
             itemPickUp.transform.localPosition = Vector3.zero;
             itemPickUp.GetComponent<Collider>().enabled = false;
             activeLight();
-            print($"name item: {itemPickUp.Item.name},id: {itemPickUp.Item.Id}");
+            //print($"name item: {itemPickUp.Item.name},id: {itemPickUp.Item.Id}");
             return true;
         }
         return false;

@@ -15,6 +15,7 @@ public class Character_Controller : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     private Transform cameraTransform;
     [SerializeField] private CapsuleCollider PlayerCollider;
+    [SerializeField] private AudioSource pasos;
     //private CapsuleCollider capCol;
     //private float minMoveDistance = 0.01f;
     //[SerializeField] private LayerMask validLayers;
@@ -33,6 +34,8 @@ public class Character_Controller : MonoBehaviour
             Debug.LogError("No se encontró la cámara principal. Asegúrate de que esté etiquetada como MainCamera.");
         }
         Collider col = GetComponent<Collider>();
+        if (pasos != null)
+            pasos.loop = true;
         //if (col != null)
         //{
         //    PhysicMaterial noFriction = new PhysicMaterial();
@@ -70,20 +73,16 @@ public class Character_Controller : MonoBehaviour
 
         if (!gameManager.habilitoRaton)
         {
-            Vector3 inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-            //if (inputDirection.magnitude > 0)
-            //{
-                Vector3 moveDirection = cameraTransform.TransformDirection(inputDirection);
-                moveDirection.y = 0; // Evita que se mueva en el eje Y involuntariamente
-                //moveDirection.Normalize();
-
-                //Vector3 velocity = moveDirection * _speed * Time.deltaTime;
-                Move(moveDirection); // ✅ Ahora Move recibe el argumento correcto.
-            //}
+            //Vector3 velocity = moveDirection * _speed * Time.deltaTime;
+            Move(); // ✅ Ahora Move recibe el argumento correcto.
+        }
+        if (gameManager.habilitoRaton)
+        {
+            
+            rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
         }
     }
-    void Move(Vector3 velocity)
+    void Move()
     {
         //if (input_Controller.State || gameManager.NotaHabilitada || gameManager.habilitoRaton)
         //{
@@ -104,12 +103,16 @@ public class Character_Controller : MonoBehaviour
 
         //rb.MovePosition(rb.position + targetVelocity * Time.deltaTime);
         #region hecho por juan2
+        Vector3 velocity;
         // Verificar si el jugador está en un estado que no permite movimiento
         if (input_Controller.IsMoving || gameManager.NotaHabilitada || gameManager.habilitoRaton || input_Controller.Inventario)
         {
+            //pasos.Stop();
             rb.velocity = Vector3.zero; // Detener movimiento
+            if (pasos.isPlaying) pasos.Stop();
             return;
         }
+
 
         // Obtener las direcciones de la cámara
         Vector3 forward = cameraTransform.forward;
@@ -137,6 +140,24 @@ public class Character_Controller : MonoBehaviour
 
         // Aplicar la velocidad al Rigidbody
         rb.velocity = velocity;
+        bool isMoving = new Vector2(input.x, input.z).magnitude > 0.1f && rb.velocity.magnitude > 0.1f && rb.velocity.y == 0;
+        if (isMoving)
+        {
+            if (!pasos.isPlaying)
+            {
+                //pasos.loop = true;
+                pasos.Play();
+
+            }
+        }
+        else
+        {
+            if (pasos.isPlaying)
+            {
+                pasos.Stop();
+            }
+        }
+        //pasos.Play();
         #endregion
 
         #region hecho juan
