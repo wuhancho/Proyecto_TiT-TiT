@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Puzle despacho2")]
     private int contEngranajes;
-    [SerializeField] GameObject[] zonewin, zoneinit, engranajes;
+    [SerializeField]public GameObject[] zonewin, zoneinit, engranajes;
 
     // puzle del planeta
     //[Header ("Puzle entrada")]
@@ -330,37 +330,93 @@ public class GameManager : MonoBehaviour
     //    }
     //}
 
-    public void DetectTruePosicionEngranaje()
+    public bool DetectTruePosicionEngranaje()
     {
-        // Define las posiciones válidas para cada engranaje
         int[][] validPositions = new int[][]
-        {
-        new int[] { 1, 3 }, // Posiciones válidas para engranajes[0]
-        new int[] { 0, 2, 4 }, // Posiciones válidas para engranajes[1]
-        new int[] { 0, 2, 4 }, // Posiciones válidas para engranajes[2]
-        new int[] { 1, 3 }, // Posiciones válidas para engranajes[3]
-        new int[] { 0, 2, 4 } // Posiciones válidas para engranajes[4]
-        };
+    {
+        new int[] { 1, 3 },      // engranajes[0]
+        new int[] { 0, 2, 4 },   // engranajes[1]
+        new int[] { 0, 2, 4 },   // engranajes[2]
+        new int[] { 1, 3 },      // engranajes[3]
+        new int[] { 0, 2, 4 }    // engranajes[4]
+    };
+
+        int engranajesCorrectos = 0;
+
         for (int i = 0; i < engranajes.Length; i++)
         {
+            bool enPosicion = false;
             foreach (int pos in validPositions[i])
             {
                 if (engranajes[i].transform.position == zonewin[pos].transform.position)
                 {
-                    contEngranajes++;
-                    print($"valor de {contEngranajes}");
-                    engranajes[i].GetComponent<Collider>().enabled = false;
-                    print($"Engranaje {i} está en la posición correcta.");
-                    break; // Evita verificar más posiciones para este engranaje
+                    enPosicion = true;
+                    break;
                 }
             }
+            if (enPosicion)
+            {
+                engranajesCorrectos++;
+                engranajes[i].GetComponent<Collider>().enabled = false;
+                print($"Engranaje {i} está en la posición correcta.");
+            }
+            else
+            {
+                engranajes[i].GetComponent<Collider>().enabled = true; // Permite recolocar si está mal
+            }
         }
-        if (contEngranajes == 15)
+
+        print($"Engranajes correctos: {engranajesCorrectos}");
+
+        if (engranajesCorrectos == engranajes.Length)
         {
             llaves[1].SetActive(true);
             ActivarTriunfo(1);
             print("¡Todos los engranajes están en su posición correcta!");
+            return true;
         }
+        else
+        {
+            print("No todos los engranajes están en su posición correcta.");
+            return false;
+        }
+        #region intento 2
+        //// Define las posiciones válidas para cada engranaje
+        //int[][] validPositions = new int[][]
+        //{
+        //new int[] { 1, 3 }, // Posiciones válidas para engranajes[0]
+        //new int[] { 0, 2, 4 }, // Posiciones válidas para engranajes[1]
+        //new int[] { 0, 2, 4 }, // Posiciones válidas para engranajes[2]
+        //new int[] { 1, 3 }, // Posiciones válidas para engranajes[3]
+        //new int[] { 0, 2, 4 } // Posiciones válidas para engranajes[4]
+        //};
+        //for (int i = 0; i < engranajes.Length; i++)
+        //{
+        //    foreach (int pos in validPositions[i])
+        //    {
+        //        if (engranajes[i].transform.position == zonewin[pos].transform.position)
+        //        {
+        //            contEngranajes++;
+        //            print($"valor de {contEngranajes}");
+        //            engranajes[i].GetComponent<Collider>().enabled = false;
+        //            print($"Engranaje {i} está en la posición correcta.");
+        //            return true; // Salir del bucle si se encuentra una posición correcta
+        //        }
+        //    }
+        //}
+        //if (contEngranajes == 15)
+        //{
+        //    llaves[1].SetActive(true);
+        //    ActivarTriunfo(1);
+        //    print("¡Todos los engranajes están en su posición correcta!");
+        //    return true;
+        //}
+        //else
+        //{
+        //    print("No todos los engranajes están en su posición correcta.");
+        //    return false;
+        //}
+        #endregion
         #region intento1 de detectar engranajes
         // intento 1 Si todos los engranajes están en las posiciones correctas
 

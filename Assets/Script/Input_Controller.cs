@@ -1,3 +1,5 @@
+using System.Linq;
+using System;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +9,7 @@ public class Input_Controller : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Transform hand;
-    private Transform handItemOldParent;
+    [SerializeField] private Transform handItemOldParent;
     private ItemPickUp handItem;
     private bool state_mov, state_cam;
 
@@ -244,13 +246,47 @@ public class Input_Controller : MonoBehaviour
     }
     private void PutHandItemInPlace(Transform place)
     {
+        print($"el objeto place es {place.name} y su tag es {place.tag}, el objeto que tengo en mano es{handItem.name} y su tag es {handItem.tag}");
+
         if (handItem.CompareTag("Engranaje"))
         {
-            handItem.transform.SetParent(handItemOldParent, true);
-            handItem.transform.position = place.position;
-            gameManager.DetectTruePosicionEngranaje();
-            handItem = null;
+            // Validar si la zona es válida para este engranaje
+            if (EsZonaValidaParaEngranaje(handItem.gameObject, place))
+            {
+                handItem.transform.SetParent(handItemOldParent, true);
+                handItem.transform.position = place.position;
+                gameManager.DetectTruePosicionEngranaje();
+                handItem = null;
+                return;
+            }
+            else
+            {
+                // No es la zona correcta, vuelve a la mano
+                handItem.transform.SetParent(hand, true);
+                handItem.transform.localPosition = Vector3.zero;
+                handItem.GetComponent<Collider>().enabled = false;
+                print("no es la posicion correcta");
+                return;
+            }
+            //handItem.transform.SetParent(handItemOldParent, true);
+            //handItem.transform.position = place.position;
+            //if (gameManager.DetectTruePosicionEngranaje())
+            //{
+            //    handItem.transform.SetParent(handItemOldParent, true);
+            //    handItem.transform.position = place.position;
+
+            //    return;
+            //}
+            //else
+            //{
+            //    handItem.transform.SetParent(hand, true);
+            //    handItem.transform.localPosition = Vector3.zero;
+            //    handItem.GetComponent<Collider>().enabled = false;
+            //    print("no es la posicion correcta");
+            //    return;
+            //}
         }
+
         if (handItem.CompareTag("tuberia"))
         {
             print($"{handItem.name}");
@@ -262,6 +298,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarTuberia();
                 handItem = null;
+                return;
             }
         }
 
@@ -282,7 +319,7 @@ public class Input_Controller : MonoBehaviour
                 place.gameObject.SetActive(false);
                 gameManager.PuzleMapaCompletado();
                 handItem = null;
-
+                return;
             }
             //Vector3 HandPutInObj = new Vector3(place.position.x, place.position.y, place.position.z);
             //handItem.transform.position = HandPutInObj;
@@ -299,6 +336,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
                 handItem = null;
+                return;
             }
             else if (place.name == "Zone_radio")
             {
@@ -310,6 +348,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
                 handItem = null;
+                return;
             }
             else if (place.name == "Zone_extintor")
             {
@@ -319,6 +358,7 @@ public class Input_Controller : MonoBehaviour
                 place.GetComponent<MeshRenderer>().enabled = false;
                 gameManager.ComprobarPuzzleSalaEspera();
                 handItem = null;
+                return;
             }
 
         }
@@ -332,6 +372,7 @@ public class Input_Controller : MonoBehaviour
             place.GetComponent<BoxCollider>().isTrigger = false;
             colBox.enabled = true;
             handItem = null;
+            return;
         }
         if (place.CompareTag("SalaMaquinas"))
         {
@@ -374,11 +415,10 @@ public class Input_Controller : MonoBehaviour
                 {
                     Destroy(handItem.gameObject);
                     handItem = null;
+                    return;
                 }
             }
         }
-
-        
     }
     public void InteractItemHand(ItemPickUp item)
     {
@@ -395,6 +435,29 @@ public class Input_Controller : MonoBehaviour
         {
             PutHandItemInPlace(item.transform);
         }
+    }
+    private bool EsZonaValidaParaEngranaje(GameObject engranaje, Transform zona)
+    {
+        // Busca el índice del engranaje
+        GameManager gm = gameManager;
+        int idx = Array.IndexOf(gm.engranajes, engranaje);
+        if (idx < 0) return false;
+
+        // Busca el índice de la zona
+        int zonaIdx = Array.IndexOf(gm.zonewin, zona.gameObject);
+        if (zonaIdx < 0) return false;
+
+        // Define las posiciones válidas
+        int[][] validPositions = new int[][]
+        {
+        new int[] { 1, 3 },      // engranajes[0]
+        new int[] { 0, 2, 4 },   // engranajes[1]
+        new int[] { 0, 2, 4 },   // engranajes[2]
+        new int[] { 1, 3 },      // engranajes[3]
+        new int[] { 0, 2, 4 }    // engranajes[4]
+        };
+
+        return validPositions[idx].Contains(zonaIdx);
     }
 
 
