@@ -9,7 +9,7 @@ public class Interact_object : MonoBehaviour
     private string candleName = "vela_";
     bool canInteract = false;
 
-    public bool CanInteract { get => canInteract; }
+    public bool CanInteract { get => canInteract; set => canInteract = value; }
 
     //private bool colision;
     //private string[] nombre = { "vela_1", "vela_2", "vela_3", "vela_4", "vela_5" };
@@ -21,7 +21,10 @@ public class Interact_object : MonoBehaviour
     //}
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+         print($"canInteract: {canInteract},controller:{Controller.Interact()}, velasN:{GameManager.VelasN}" );
+        }
         if (canInteract && Controller.Interact() && GameManager.VelasN)
         {
             for (int i = 0; i < candleAmount; i++)
