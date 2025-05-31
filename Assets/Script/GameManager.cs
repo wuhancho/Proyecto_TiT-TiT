@@ -102,22 +102,20 @@ public class GameManager : MonoBehaviour
         notaHabilitada = NotaHabilitada;
         velasN = VelasN;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-        if (_Controller.InputSalir())
-        {
-            
-            HabilitarRaton(true);
-            zoneSalir.SetActive(true);
-
-        }
-        else
-        {
-            HabilitarRaton(false);
-            zoneSalir.SetActive(false);
-        }
     }
+    public bool PausaActiva => zoneSalir.activeSelf;
     public void returnGame()
     {
+        HabilitarRaton(false);
         zoneSalir.SetActive(false);
+        _Controller.CerrarMenuPausa();
+        Time.timeScale = 1f;
+    }
+    public void salirJuego()
+    {
+        HabilitarRaton(true);
+        zoneSalir.SetActive(true);
+        Time.timeScale = 0f;
     }
     //public IEnumerator MostrarEstado(bool Cambool, bool Moving)
     //{

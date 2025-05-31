@@ -52,6 +52,7 @@ public class VideoSceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
     public void ChangeSceneEspecifivic(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);

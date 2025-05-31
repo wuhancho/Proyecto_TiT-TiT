@@ -76,6 +76,7 @@ public class Character_Controller : MonoBehaviour
             
             rb.velocity = new Vector3(0, rb.velocity.y, 0); // Detener movimiento
         }
+        input_Controller.InputSalir();
     }
     void Move()
     {

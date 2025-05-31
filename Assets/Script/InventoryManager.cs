@@ -44,6 +44,10 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
+    public List<InventoryItem> GetItems()
+    {
+        return items;
+    }
     public bool Add(Item item)// añado el item 
     {
         if(items.Exists(InventoryItem => InventoryItem.Item.Id == item.Id))
@@ -179,6 +183,15 @@ public class InventoryManager : MonoBehaviour
         print("entras en el remuve2: " + items.Count);
         //items.Remove(item);
     }
+    public void DeleteFromInventory(InventoryItem inventoryItem)
+    {
+        if (items.Contains(inventoryItem))
+        {
+            items.Remove(inventoryItem);
+            Destroy(inventoryItem.gameObject);
+        }
+    }
+
     private Vector3 FindFreePosition(Vector3 startPosition)
     {
         float checkRadius = 0.5f; // Radio de detección

@@ -26,7 +26,86 @@ public class Input_Controller : MonoBehaviour
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
     [SerializeField] private GameObject camAnchor;
-    bool isSalirOpen = false;
+    private bool isPauseMenuOpen = false;
+    private int selectedInventoryIndex = 0;
+    private void Update()
+    {
+        //CambiarObjetoManoConScroll();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SoltarObjetoMano();
+        }
+    }
+    //private void CambiarObjetoManoConScroll()
+    //{
+    //    if (!InventoryManager.Instance) return;
+    //    var items = InventoryManager.Instance.GetItems();
+    //    if (items.Count == 0) return;
+
+    //    float scroll = Input.GetAxis("Mouse ScrollWheel");
+    //    if (Mathf.Abs(scroll) > 0.01f)
+    //    {
+    //        // Quitar el objeto actual de la mano si hay uno
+    //        if (handItem != null)
+    //        {
+    //            Destroy(handItem.gameObject);
+    //            handItem = null;
+    //        }
+
+    //        // Cambiar el índice según el scroll
+    //        if (scroll > 0)
+    //            selectedInventoryIndex = (selectedInventoryIndex + 1) % items.Count;
+    //        else if (scroll < 0)
+    //            selectedInventoryIndex = (selectedInventoryIndex - 1 + items.Count) % items.Count;
+
+    //        // Obtener el InventoryItem y el Item
+    //        var inventoryItem = items[selectedInventoryIndex];
+    //        var item = inventoryItem.Item;
+
+    //        // Eliminar el objeto del inventario (lista y UI)
+    //        InventoryManager.Instance.DeleteFromInventory(inventoryItem);
+
+    //        // Instanciar el objeto y ponerlo en la mano
+    //        GameObject obj = Instantiate(item.ObjetoReferencia1, Vector3.zero, Quaternion.identity);
+    //        ItemPickUp itemPickUp = obj.GetComponent<ItemPickUp>();
+    //        PutItemInHand(itemPickUp);
+
+    //        // Ajustar el índice si el inventario se vacía
+    //        if (InventoryManager.Instance.GetItems().Count == 0)
+    //            selectedInventoryIndex = 0;
+    //        else if (selectedInventoryIndex >= InventoryManager.Instance.GetItems().Count)
+    //            selectedInventoryIndex = 0;
+    //    }
+    //}
+    private void SoltarObjetoMano()
+    {
+        if (handItem != null)
+        {
+            // Posición delante del jugador
+            Vector3 dropPosition = transform.position + transform.forward * 1.0f + Vector3.up * 0.5f;
+
+            // Instancia el objeto en el mundo
+            GameObject obj = Instantiate(handItem.gameObject, dropPosition, Quaternion.identity);
+            obj.GetComponent<Collider>().enabled = true;
+
+            // Si el objeto tiene Rigidbody, lo activamos
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
+            Relocator relocator = obj.GetComponent<Relocator>();
+            if (relocator)
+            {
+                relocator.SetAtFloor(dropPosition);
+            }
+            // Elimina el objeto de la mano
+            Destroy(handItem.gameObject);
+
+            handItem = null;
+        }
+    }
     public Vector3 MoveInput()
     {
         float x = Input.GetAxis("Horizontal");
@@ -452,16 +531,29 @@ public class Input_Controller : MonoBehaviour
         return validPositions[idx].Contains(zonaIdx);
     }
 
-    internal bool InputSalir()
+    internal void InputSalir()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !inventario)
         {
-            isSalirOpen = !isSalirOpen;
-            return isSalirOpen;
-        }
-        return isSalirOpen;
-    }
+            // Consulta el estado real del menú de pausa
+            bool menuActivo = gameManager.PausaActiva;
 
+            if (!menuActivo)
+            {
+                isPauseMenuOpen = true;
+                gameManager.salirJuego();
+            }
+            else
+            {
+                isPauseMenuOpen = false;
+                gameManager.returnGame();
+            }
+        }
+    }
+    public void CerrarMenuPausa()
+    {
+        isPauseMenuOpen = false;
+    }
 
 
     //public void RayCoger(float distance)
