@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
     //private bool estadoRecompensa = false;
     [SerializeField] GameObject[] recompensas;
 
+    [Header("Salir")]
+    [SerializeField] private GameObject zoneSalir;
 
     //public bool EstadoRecompensa { get => estadoRecompensa; set => estadoRecompensa = value; }
     public bool NotaHabilitada { get => notaHabilitada; set => notaHabilitada = value; }
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
         //PickUp = GetComponent<ItemPickUp>();
         //texto_pantalla.enabled = false;
         inventario.SetActive(false);
-
+        zoneSalir.SetActive(false);
 
     }
     private void Update()
@@ -100,6 +102,22 @@ public class GameManager : MonoBehaviour
         notaHabilitada = NotaHabilitada;
         velasN = VelasN;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        if (_Controller.InputSalir())
+        {
+            
+            HabilitarRaton(true);
+            zoneSalir.SetActive(true);
+
+        }
+        else
+        {
+            HabilitarRaton(false);
+            zoneSalir.SetActive(false);
+        }
+    }
+    public void returnGame()
+    {
+        zoneSalir.SetActive(false);
     }
     //public IEnumerator MostrarEstado(bool Cambool, bool Moving)
     //{
@@ -310,6 +328,7 @@ public class GameManager : MonoBehaviour
             //Cursor.visible = false;
         }
     }
+
     //public void AbrirInventario()
     //{
     //    isInventoryOpen = !isInventoryOpen; // Alterna el estado del inventario

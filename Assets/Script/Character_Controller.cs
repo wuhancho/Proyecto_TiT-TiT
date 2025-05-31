@@ -66,11 +66,6 @@ public class Character_Controller : MonoBehaviour
             input_Controller.Interact_();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-
         if (!gameManager.habilitoRaton)
         {
             //Vector3 velocity = moveDirection * _speed * Time.deltaTime;

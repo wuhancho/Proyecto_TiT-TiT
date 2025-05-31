@@ -26,15 +26,7 @@ public class Input_Controller : MonoBehaviour
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
     [SerializeField] private GameObject camAnchor;
-    private void Update()
-    {
-        //state_cam = StateCam;
-        //state_mov = IsMoving;
-        //if (Input.GetKeyDown(KeyCode.N))
-        //{
-        //    StartCoroutine(gameManager.MostrarEstado(StateCam, IsMoving));
-        //}
-    }
+    bool isSalirOpen = false;
     public Vector3 MoveInput()
     {
         float x = Input.GetAxis("Horizontal");
@@ -458,6 +450,16 @@ public class Input_Controller : MonoBehaviour
         };
 
         return validPositions[idx].Contains(zonaIdx);
+    }
+
+    internal bool InputSalir()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isSalirOpen = !isSalirOpen;
+            return isSalirOpen;
+        }
+        return isSalirOpen;
     }
 
 
