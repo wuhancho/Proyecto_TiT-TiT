@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 
 public class GameManager : MonoBehaviour
@@ -31,9 +32,10 @@ public class GameManager : MonoBehaviour
     [Header("Puzle entrada")]
     [SerializeField] Animator globo_anim;
 
-    [Header("Puzle nave")]
+    [Header("Puzle salasecreta")]
     [SerializeField] Code_vela[] llamas;
     private bool velasN = true;
+    [SerializeField] GameObject final;
 
     [Header("Puzle Despacho1")]
     [SerializeField] private GameObject cajonera;
@@ -108,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         HabilitarRaton(false);
         zoneSalir.SetActive(false);
-        _Controller.CerrarMenuPausa();
+
         Time.timeScale = 1f;
     }
     public void salirJuego()
@@ -575,6 +577,7 @@ public class GameManager : MonoBehaviour
             //    Cursor.visible = false;
             //    notaHabilitada = false;
             //}
+            final.SetActive(true);
         }
         if (puzle == 3)
         {

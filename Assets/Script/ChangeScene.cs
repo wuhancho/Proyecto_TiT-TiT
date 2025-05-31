@@ -6,6 +6,7 @@ using System.Collections;
 
 public class VideoSceneChanger : MonoBehaviour
 {
+    public static VideoSceneChanger Instance { get; private set; }
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] public Image fadeImage; 
     public float fadeDuration = 1.5f; 

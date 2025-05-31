@@ -26,8 +26,7 @@ public class Input_Controller : MonoBehaviour
     public bool IsMoving { get => state_mov; set => state_mov = value; }
     public bool StateCollision { get => stateCollision; }
     [SerializeField] private GameObject camAnchor;
-    private bool isPauseMenuOpen = false;
-    private int selectedInventoryIndex = 0;
+
     private void Update()
     {
         //CambiarObjetoManoConScroll();
@@ -540,20 +539,17 @@ public class Input_Controller : MonoBehaviour
 
             if (!menuActivo)
             {
-                isPauseMenuOpen = true;
+
                 gameManager.salirJuego();
             }
             else
             {
-                isPauseMenuOpen = false;
+
                 gameManager.returnGame();
             }
         }
     }
-    public void CerrarMenuPausa()
-    {
-        isPauseMenuOpen = false;
-    }
+
 
 
     //public void RayCoger(float distance)

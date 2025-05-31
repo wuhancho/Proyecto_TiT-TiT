@@ -183,14 +183,14 @@ public class InventoryManager : MonoBehaviour
         print("entras en el remuve2: " + items.Count);
         //items.Remove(item);
     }
-    public void DeleteFromInventory(InventoryItem inventoryItem)
-    {
-        if (items.Contains(inventoryItem))
-        {
-            items.Remove(inventoryItem);
-            Destroy(inventoryItem.gameObject);
-        }
-    }
+    //public void DeleteFromInventory(InventoryItem inventoryItem)
+    //{
+    //    if (items.Contains(inventoryItem))
+    //    {
+    //        items.Remove(inventoryItem);
+    //        Destroy(inventoryItem.gameObject);
+    //    }
+    //}
 
     private Vector3 FindFreePosition(Vector3 startPosition)
     {
